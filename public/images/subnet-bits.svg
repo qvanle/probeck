@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="ui-sans-serif, system-ui, sans-serif">
+  <text x="40" y="52" fill="#e8e6f5" font-size="20" font-weight="700">192.168.10.77 / 26</text>
+  <text x="40" y="78" fill="#9d98c4" font-size="14">The address in binary, split at the prefix length</text>
+  <text x="40" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="25" font-weight="700" xml:space="preserve"><tspan fill="#5fe3f0">11000000.10101000.00001010.01</tspan><tspan fill="#fbbf24">001101</tspan></text>
+  <g stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M42 196V210H436V196" stroke="#5fe3f0"/><path d="M446 196V210H538V196" stroke="#fbbf24"/>
+  </g>
+  <text x="239" y="240" fill="#5fe3f0" font-size="16" font-weight="700" text-anchor="middle">26 network bits</text>
+  <text x="492" y="240" fill="#fbbf24" font-size="16" font-weight="700" text-anchor="middle">6 host bits</text>
+  <text x="40" y="300" fill="#9d98c4" font-size="14">Block size = 2⁶ = 64 addresses per subnet</text>
+</svg>

@@ -1,0 +1,7 @@
+{
+  "id": "network-101",
+  "title": "Network 101",
+  "description": "Core networking for engineers: layers, addressing, transport, name resolution and the web protocols interviewers love to ask about.",
+  "tags": ["TCP/IP", "DNS", "HTTP"],
+  "version": 1
+}

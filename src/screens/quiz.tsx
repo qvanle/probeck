@@ -7,7 +7,7 @@ import { ChoiceOption, type ChoiceState } from "@/components/choice-option"
 import { DifficultyPips, SegmentedProgress, type SegmentState } from "@/components/meters"
 import { RichText } from "@/components/rich-text"
 import { cn } from "@/lib/utils"
-import type { Category, ChoiceQuestion, Outcome } from "@/data/types"
+import type { ChoiceQuestion, Outcome, Session } from "@/data/types"
 
 const fmtTime = (s: number) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`
 
@@ -37,15 +37,18 @@ const verdict: Record<Outcome, { label: string; className: string }> = {
 }
 
 export function QuizScreen({
-  category,
+  session,
   onExit,
   onFinish,
+  onAnswer,
 }: {
-  category: Category
+  session: Session
   onExit: () => void
   onFinish: (outcomes: Outcome[], seconds: number) => void
+  /** Called once per answered question, so the caller can persist progress. */
+  onAnswer?: (question: ChoiceQuestion, outcome: Outcome) => void
 }) {
-  const questions = category.questions
+  const questions = session.questions
   const [index, setIndex] = useState(0)
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [revealed, setRevealed] = useState(false)
@@ -64,7 +67,13 @@ export function QuizScreen({
     return () => clearInterval(t)
   }, [])
 
-  const record = useCallback((o: Outcome) => setOutcomes((prev) => [...prev.slice(0, index), o]), [index])
+  const record = useCallback(
+    (o: Outcome) => {
+      onAnswer?.(q, o)
+      setOutcomes((prev) => [...prev.slice(0, index), o])
+    },
+    [index, q, onAnswer],
+  )
 
   const next = useCallback(() => {
     if (isLast) return onFinish(outcomes, seconds)
@@ -132,7 +141,7 @@ export function QuizScreen({
             <Button variant="ghost" size="icon-sm" className="-ml-2" onClick={onExit} aria-label="Exit session">
               <XIcon />
             </Button>
-            <span className="truncate text-sm font-semibold">{category.title}</span>
+            <span className="truncate text-sm font-semibold">{session.title}</span>
           </div>
           <div className="flex shrink-0 items-center gap-4 text-sm tabular-nums">
             <span>

@@ -1,32 +1,42 @@
-# React + TypeScript + Vite
+# probeck
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Practice tech interview questions as quizzes. **probe** + **tech**.
+No backend: a static site (GitHub Pages) that downloads read-only SQLite files and keeps your progress in the browser.
 
-Currently, two official plugins are available:
+## How it works
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+content/<exam>/*.json  ──npm run build:data──▶  public/data/index.sqlite        table of contents (loaded first)
+                                                public/data/<exam>.sqlite       one per exam (loaded when you open it)
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+- The home and exam screens read only `index.sqlite`. Opening an exam downloads that exam's file.
+- Progress (latest result per question, totals, streak) lives in `localStorage`. Clearing browser data erases it.
+- `VITE_DATA_URL` (see `.env.example`) serves the `.sqlite` files from object storage instead of the site itself.
+
+## Develop
+
+```bash
+npm install
+npm run dev        # builds the sqlite files, then starts Vite
+npm run build      # builds the sqlite files, then the site into dist/
+```
+
+Needs Node 22.13+ (the build script uses the built-in `node:sqlite`).
+
+## Add questions
+
+Edit `content/<exam>/NN-category.json` and bump `version` in that exam's `exam.json` (it cache-busts the exam file).
+Question shape: `id`, `type` (`single` | `multi`), `difficulty` (1–3), `prompt` (backticks give inline code),
+`choices` (2–4 strings), `answer` (indexes of the correct choices), `explanation`, and optionally
+`recall` (hide the options until revealed), `code`, `image` (`{ src, alt }` under `public/`).
+The build fails with a message if a question is malformed.
+
+## Design
+
+See [DESIGN.md](DESIGN.md).
+
+## Deploy
+
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds and publishes to GitHub Pages
+(custom domain in `public/CNAME`).

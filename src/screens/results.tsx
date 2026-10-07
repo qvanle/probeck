@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { SegmentedProgress, Stat } from "@/components/meters"
 import { RichText } from "@/components/rich-text"
 import { cn } from "@/lib/utils"
-import type { Category, Outcome } from "@/data/types"
+import type { Outcome, Session } from "@/data/types"
 
 const outcomeIcon: Record<Outcome, React.ReactNode> = {
   correct: <CheckIcon className="size-3.5 text-success" />,
@@ -12,13 +12,13 @@ const outcomeIcon: Record<Outcome, React.ReactNode> = {
 }
 
 export function ResultsScreen({
-  category,
+  session,
   outcomes,
   seconds,
   onRetry,
   onDone,
 }: {
-  category: Category
+  session: Session
   outcomes: Outcome[]
   seconds: number
   onRetry: () => void
@@ -31,7 +31,7 @@ export function ResultsScreen({
   return (
     <div className="mx-auto flex max-w-2xl flex-col gap-10 motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 motion-safe:duration-500">
       <div className="flex flex-col gap-6">
-        <span className="label-caps">Session complete · {category.title}</span>
+        <span className="label-caps">Session complete · {session.title}</span>
         <div className="flex items-end gap-3">
           <span
             className={cn(
@@ -62,7 +62,7 @@ export function ResultsScreen({
       <section className="flex flex-col gap-3">
         <h2 className="label-caps">Breakdown</h2>
         <ol className="flex flex-col overflow-hidden rounded-lg border bg-card">
-          {category.questions.map((q, i) => (
+          {session.questions.map((q, i) => (
             <li key={q.id} className="flex items-start gap-3 border-b px-4 py-3 text-sm last:border-b-0">
               <span className="mt-0.5 w-5 shrink-0 text-xs text-muted-foreground tabular-nums">
                 {String(i + 1).padStart(2, "0")}

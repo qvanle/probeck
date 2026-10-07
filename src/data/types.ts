@@ -8,6 +8,7 @@ export type Choice = {
 
 export type ChoiceQuestion = {
   id: string
+  categoryId: string
   type: "single" | "multi"
   prompt: string
   code?: string
@@ -22,21 +23,31 @@ export type ChoiceQuestion = {
 
 export type Question = ChoiceQuestion
 
-export type Category = {
+/** From index.sqlite: enough to render the table of contents without loading any exam file. */
+export type CategorySummary = {
   id: string
   title: string
   description: string
-  questions: Question[]
-  /** 0–1, derived from local progress */
-  mastery: number
+  questionCount: number
 }
 
-export type Exam = {
+export type ExamSummary = {
   id: string
   title: string
   description: string
   tags: string[]
-  categories: Category[]
+  /** Bumped when the exam content changes; used to bust the browser cache. */
+  version: number
+  file: string
+  questionCount: number
+  categories: CategorySummary[]
+}
+
+/** The questions of one sitting: one category, or a seeded mix across the exam. */
+export type Session = {
+  id: string
+  title: string
+  questions: Question[]
 }
 
 /** Outcome of one answered question in a session. */
