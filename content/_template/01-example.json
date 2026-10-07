@@ -1,0 +1,26 @@
+{
+  "id": "example",
+  "title": "Example category",
+  "description": "Shown in the category list.",
+  "questions": [
+    {
+      "id": "ex-01",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Which option is correct? (backticks give `inline code`)",
+      "choices": ["Wrong", "Right", "Wrong", "Wrong"],
+      "answer": [1],
+      "explanation": "Shown after the user answers."
+    },
+    {
+      "id": "ex-02",
+      "type": "multi",
+      "difficulty": 2,
+      "recall": true,
+      "prompt": "recall:true hides the options until the user reveals them. Select all that apply.",
+      "choices": ["Right", "Wrong", "Right", "Wrong"],
+      "answer": [0, 2],
+      "explanation": "type multi needs at least two answers."
+    }
+  ]
+}

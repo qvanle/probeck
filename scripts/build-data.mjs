@@ -130,11 +130,11 @@ rmSync(OUT, { recursive: true, force: true })
 mkdirSync(OUT, { recursive: true })
 
 const exams = readdirSync(CONTENT, { withFileTypes: true })
-  .filter((d) => d.isDirectory() && existsSync(join(CONTENT, d.name, "exam.json")))
+  // folders starting with "_" (e.g. _template) are ignored
+  .filter((d) => d.isDirectory() && !d.name.startsWith("_") && existsSync(join(CONTENT, d.name, "exam.json")))
   .map((d) => loadExam(join(CONTENT, d.name)))
   .sort((a, b) => (a.meta.order ?? 0) - (b.meta.order ?? 0))
 
-if (!exams.length) fail("content/", "no exams found")
 const ids = exams.map((e) => e.meta.id)
 if (new Set(ids).size !== ids.length) fail("content/", "duplicate exam id")
 

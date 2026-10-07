@@ -1,0 +1,7 @@
+{
+  "id": "my-exam",
+  "title": "My exam",
+  "description": "One or two sentences shown on the exam card.",
+  "tags": ["Tag"],
+  "version": 1
+}

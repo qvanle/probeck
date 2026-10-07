@@ -42,6 +42,13 @@ export function HomeScreen({ exams, onOpenExam }: { exams: ExamSummary[]; onOpen
           <span className="text-xs text-muted-foreground tabular-nums">{exams.length} available</span>
         </div>
 
+        {exams.length === 0 && (
+          <div className="rounded-xl border border-dashed p-8 text-center text-muted-foreground">
+            No exams yet. Add one under <code className="font-mono text-foreground">content/</code> and run{" "}
+            <code className="font-mono text-foreground">npm run build:data</code>.
+          </div>
+        )}
+
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {exams.map((exam, i) => {
             const progress = examProgress(history, exam)

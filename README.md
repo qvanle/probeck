@@ -26,7 +26,7 @@ Needs Node 22.13+ (the build script uses the built-in `node:sqlite`).
 
 ## Add questions
 
-Edit `content/<exam>/NN-category.json` and bump `version` in that exam's `exam.json` (it cache-busts the exam file).
+Copy `content/_template/` to `content/<your-exam>/` (folders starting with `_` are ignored by the build), then edit `NN-category.json` and bump `version` in that exam's `exam.json` (it cache-busts the exam file).
 Question shape: `id`, `type` (`single` | `multi`), `difficulty` (1–3), `prompt` (backticks give inline code),
 `choices` (2–4 strings), `answer` (indexes of the correct choices), `explanation`, and optionally
 `recall` (hide the options until revealed), `code`, `image` (`{ src, alt }` under `public/`).
