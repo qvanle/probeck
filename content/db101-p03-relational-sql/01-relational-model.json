@@ -2,5 +2,477 @@
   "id": "relational-model",
   "title": "The Relational Data Model and Constraints",
   "description": "Ch 5 · 5.1–5.3",
-  "questions": []
+  "questions": [
+    {
+      "id": "p03c05-01",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "In the relational model, what is a domain?",
+      "choices": [
+        "A set of constraints that connects several relation schemas",
+        "The current set of tuples stored under a relation name",
+        "A list of attributes that describes a relation's structure",
+        "A named set of atomic values that an attribute may legally take"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A domain is a set of atomic values, commonly specified with a name, data type, and format. A relation schema describes attributes, while a relation state contains tuples (§5.1)."
+    },
+    {
+      "id": "p03c05-02",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "In the relational model, which formal term matches each table part: a row, a column heading, and the table as a whole?",
+      "choices": [
+        "Domain, relation, attribute",
+        "Attribute, tuple, domain",
+        "Tuple, attribute, relation",
+        "Relation, domain, tuple"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A row is a tuple, a column heading is an attribute, and the table-like collection is a relation. A domain instead describes the allowed values for an attribute (§5.1)."
+    },
+    {
+      "id": "p03c05-03",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A university adds a student row and later changes that student's GPA, but the relation's attributes remain the same. Which description fits these changes?",
+      "choices": [
+        "The relation state changes while its schema stays the same",
+        "The relation degree changes while the current tuples stay fixed",
+        "The relation schema changes while its state stays the same",
+        "The domain changes while the relation schema is replaced"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The relation state is the current set of tuples and changes as the represented world changes; the schema is its relatively stable structure. Adding or changing rows alone does not change the attributes (§5.1)."
+    },
+    {
+      "id": "p03c05-04",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "For STUDENT(Name, Ssn, Home_phone, Address, Office_phone, Age, Gpa), what is the relation's degree?",
+      "choices": [
+        "7, the number of attributes in the schema",
+        "5, the number of example student tuples",
+        "The number of possible combinations in all domains",
+        "The number of distinct domains used by the attributes"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The degree, also called arity, is the number of attributes in the relation schema, which is seven here. Tuple count describes the current state and is not the degree (§5.1)."
+    },
+    {
+      "id": "p03c05-05",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A STUDENT table is displayed with its rows sorted by age instead of by name. Under the relational model, what follows?",
+      "choices": [
+        "It is the same relation only if the tuples are sorted by the primary key",
+        "Tuple order is undefined, so the relation is unchanged and has no semantic effect",
+        "It is a different relation because tuple order is part of the state",
+        "It is a different schema because row order changed the attribute list"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A relation is a set of tuples, and set elements have no order. A display or file can impose a row order, but that ordering is not part of the relation definition (§5.1)."
+    },
+    {
+      "id": "p03c05-06",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Two records list the same attribute-value pairs, but in different sequences: (Name, Kim), (Age, 20) and (Age, 20), (Name, Kim). Under the alternative mapping view of tuples, how should they be treated?",
+      "choices": [
+        "As the same tuple only when the relation has exactly two attributes",
+        "As different tuples because value order must always be preserved",
+        "As different tuples unless their domains happen to be identical",
+        "Same tuple: values remain paired with their attributes"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "In the alternative view, a tuple is a mapping or set of attribute-value pairs, so the ordering of pairs does not matter if the correspondence is maintained. The book mostly uses ordered attributes for simpler notation (§5.1)."
+    },
+    {
+      "id": "p03c05-07",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which statements describe the basic relational model’s atomic-value (1NF) assumption? Select all that apply.",
+      "choices": [
+        "A multivalued attribute is represented using separate relations",
+        "A composite attribute is represented by its simple component attributes",
+        "A value is treated as indivisible within the model",
+        "Every relation must be stored with its tuples sorted by key"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "The basic model treats tuple values as atomic and represents multivalued attributes in separate relations and composite attributes through their simple components. Sorting tuples by key is not a relational requirement (§5.1)."
+    },
+    {
+      "id": "p03c05-08",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "A STUDENT row has NULL for Office_phone because that student has no office, and another has NULL for Home_phone because the value is not known. Which meanings of NULL are represented? Select all that apply.",
+      "choices": [
+        "A value exists but is unavailable",
+        "An attribute does not apply to the tuple",
+        "Two tuples' NULL values represent the same value",
+        "A value is unknown, such as the student’s home phone"
+      ],
+      "answer": [
+        1,
+        3
+      ],
+      "explanation": "The book identifies unknown, unavailable, and inapplicable or undefined values as possible meanings of NULL; the prompt represents inapplicable and unknown values. Two NULLs do not imply equal underlying values (§5.1)."
+    },
+    {
+      "id": "p03c05-09",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Suppose STUDENT(Name, Ssn) is interpreted as a predicate and the current relation contains exactly the facts for Ada and Bo. Under the book's closed-world assumption, how is a proposed fact for Cy treated if it is absent from the relation?",
+      "choices": [
+        "Invalid, because predicates cannot represent facts about entities",
+        "True, because any tuple matching the schema satisfies the predicate",
+        "False; absent facts are false under the closed-world assumption",
+        "Unknown, because the absence of a row is represented by NULL"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Under the closed-world assumption, the facts in the relation extension are the true facts; an absent combination makes the predicate false. A relation can represent entity facts as well as relationship facts (§5.1)."
+    },
+    {
+      "id": "p03c05-10",
+      "type": "multi",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "Which are the three broad categories used to classify relational database constraints? Select all that apply.",
+      "choices": [
+        "Schema-based constraints expressible in the data definition language",
+        "Physical storage constraints imposed by tuple display order",
+        "Inherent constraints of the data model",
+        "Application-based semantic constraints or business rules"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "The book groups constraints as inherent model-based, schema-based, and application-based semantic constraints. Physical tuple display order is not one of these categories (§5.2)."
+    },
+    {
+      "id": "p03c05-11",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A GPA attribute uses a domain defined as real numbers from 0 through 4. Which value violates its domain constraint?",
+      "choices": [
+        "4.2",
+        "A superkey cannot include a name attribute",
+        "0.0",
+        "4.0"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A domain constraint requires an attribute value to come from that attribute's domain, including its specified type and range. 4.2 is outside the allowed range (§5.2.1)."
+    },
+    {
+      "id": "p03c05-12",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What distinguishes a key from a superkey?",
+      "choices": [
+        "A key identifies multiple tuples in the relation.",
+        "A key is a minimal superkey: removing any attribute loses uniqueness in the relation.",
+        "A key may identify several tuples; a superkey must identify exactly one.",
+        "A key can contain multiple attributes; a superkey must contain one."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Both keys and superkeys uniquely identify tuples. A key is minimal, meaning no attribute can be removed while preserving uniqueness; a superkey need not be minimal (§5.2.2)."
+    },
+    {
+      "id": "p03c05-13",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "If a relation has more than one key, what are those keys called, and how is one commonly selected?",
+      "choices": [
+        "They are relation states; one is designated as the schema key",
+        "They are foreign keys; one is designated as the superkey",
+        "They are unique keys; one is designated as the domain key",
+        "Candidate keys; one is designated the primary key"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Each key of a relation schema is a candidate key, and it is common to designate one candidate key as the primary key. The choice is somewhat arbitrary, though a compact key is often preferred (§5.2.2)."
+    },
+    {
+      "id": "p03c05-14",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In STUDENT, assume Ssn alone is guaranteed to uniquely identify every student. Is {Ssn, Name} a key, a superkey that is not a key, or neither?",
+      "choices": [
+        "A key, because adding Name makes the identifier more specific",
+        "Neither, because a superkey cannot contain a name attribute",
+        "Superkey, but not a key; Ssn alone is unique",
+        "Neither, because two attributes are required for every superkey"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Because the set includes Ssn, it remains unique and is therefore a superkey. It is not minimal, since removing Name leaves the still-unique {Ssn} set (§5.2.2)."
+    },
+    {
+      "id": "p03c05-15",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "STUDENT has primary key Ssn and an explicitly declared NOT NULL constraint on Name. A proposed tuple has NULL for both fields. Which constraints does the book distinguish as violated? Select all that apply.",
+      "choices": [
+        "Entity integrity for the primary key Ssn",
+        "Referential integrity fails because Name is NULL",
+        "The NOT NULL constraint on Name",
+        "Tuple order is violated by the missing values"
+      ],
+      "answer": [
+        0,
+        2
+      ],
+      "explanation": "The declared NOT NULL rule forbids NULL in Name, and entity integrity forbids NULL in a primary key. Referential integrity concerns foreign-key references, while tuple ordering is not a constraint on NULLs (§5.2.2, §5.2.4)."
+    },
+    {
+      "id": "p03c05-16",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A relational database schema S lists relation schemas and integrity constraints. At noon, a database state DB lists the current tuple sets for those relations and satisfies those constraints. Which description is correct?",
+      "choices": [
+        "S and DB are interchangeable names for an individual relation schema",
+        "S is the schema; DB is a valid current state",
+        "S is the current tuple set; DB is the structure and constraint set",
+        "S and DB are both current tuple sets, but only DB has a primary key"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A relational database schema consists of the relation schemas and integrity constraints; a database state consists of current relation states satisfying those constraints. A violating state would not be valid (§5.2.3)."
+    },
+    {
+      "id": "p03c05-17",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "In COMPANY, EMPLOYEE.Ssn is the primary key and EMPLOYEE.Dno references DEPARTMENT.Dnumber. The current department numbers are 1, 4, and 5. Which constraints would inserting these EMPLOYEE values violate?",
+      "code": "EMPLOYEE(Ssn, Dno) = (NULL, 7)\nDEPARTMENT.Dnumber = {1, 4, 5}",
+      "choices": [
+        "Key uniqueness, because Ssn duplicates a non-NULL key value",
+        "Domain integrity, because 7 is not an integer value",
+        "Referential integrity, because Dno 7 has no matching department",
+        "Entity integrity, because the primary-key value Ssn is NULL"
+      ],
+      "answer": [
+        2,
+        3
+      ],
+      "explanation": "A primary key cannot be NULL, violating entity integrity, and Dno must match an existing department key or be NULL, so 7 violates referential integrity. The prompt gives no duplicate Ssn, and 7 can be an integer in its domain (§5.2.4)."
+    },
+    {
+      "id": "p03c05-18",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "If the foreign-key attributes have compatible domains with the referenced primary key, what rule governs each foreign-key value in the referencing relation?",
+      "choices": [
+        "A foreign-key value may reference several primary-key tuples",
+        "It must share the referenced primary-key attribute's name",
+        "Its value must be unique in the referencing relation",
+        "It matches a referenced primary-key value or is NULL when allowed"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A foreign-key value must either equal a primary-key value in a tuple of the referenced relation or be NULL; the foreign-key attributes also have compatible domains with the primary key. It need not have the same name (§5.2.4)."
+    },
+    {
+      "id": "p03c05-19",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In COMPANY, EMPLOYEE.Super_ssn identifies the employee who supervises the current employee. Which relationship does this attribute represent in the relational schema?",
+      "choices": [
+        "A foreign key from EMPLOYEE back to EMPLOYEE.Ssn",
+        "A foreign key from EMPLOYEE to DEPARTMENT.Dnumber",
+        "A candidate key formed from EMPLOYEE.Ssn and Dno",
+        "A domain constraint that limits the number of supervisors"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A supervisor is represented by another EMPLOYEE tuple, so Super_ssn is a self-referencing foreign key to EMPLOYEE's Ssn primary key. Dno instead references DEPARTMENT (§5.2.4)."
+    },
+    {
+      "id": "p03c05-20",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which are examples of semantic integrity constraints described in §5.2.5? Select all that apply.",
+      "choices": [
+        "Salary must not exceed the supervisor’s",
+        "Weekly project hours may not exceed 56",
+        "The EMPLOYEE Ssn key cannot be NULL",
+        "Salary must use its declared numeric domain"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "explanation": "The salary-versus-supervisor rule and 56-hour weekly maximum are given as semantic integrity examples. Primary-key non-null and value-domain requirements are schema-based constraints (§5.2.5)."
+    },
+    {
+      "id": "p03c05-21",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A company requires that an employee's salary may only increase over time. What type of constraint is this?",
+      "choices": [
+        "A referential-integrity constraint between employees",
+        "A domain constraint on each salary value",
+        "An entity-integrity constraint on the employee's key",
+        "A transition constraint"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A rule governing how the database may change from one state to another is a transition constraint. A state constraint instead limits what values are valid in a state (§5.2.5)."
+    },
+    {
+      "id": "p03c05-22",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "Which three basic operations can modify relation states in the relational model?",
+      "choices": [
+        "Read, Commit, and Roll Back",
+        "Select, Project, and Join",
+        "Insert, Delete, and Update",
+        "Create, Describe, and Sort"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Insert adds tuples, Delete removes tuples, and Update or Modify changes attribute values in existing tuples. Select, Project, and Join are retrieval operations (§5.3)."
+    },
+    {
+      "id": "p03c05-23",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In the COMPANY schema, DEPARTMENT has no tuple with Dnumber 7. What happens to the referential-integrity constraint if you insert an EMPLOYEE tuple whose Dno is 7?",
+      "choices": [
+        "It is satisfied because foreign keys need only use the same data type",
+        "It is violated because Dno has no matching department key under referential integrity",
+        "It is satisfied because Dno is not part of the EMPLOYEE primary key",
+        "It is violated only if the employee's Super_ssn is also non-NULL"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "EMPLOYEE.Dno references DEPARTMENT.Dnumber, so a non-NULL Dno must match an existing department primary-key value. Merely having a compatible type does not satisfy referential integrity (§5.3.1)."
+    },
+    {
+      "id": "p03c05-24",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "An Insert operation violates an integrity constraint. What is the usual default response, and what may the DBMS do to help?",
+      "choices": [
+        "Convert the violating value to NULL without notifying the user",
+        "Accept the insertion, then mark the resulting database state as invalid",
+        "Delete the referencing relation and ask the user to recreate it",
+        "Reject it; the DBMS may explain the violation or request a correction"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The default is to reject an insertion that violates constraints; the DBMS could provide a reason or ask the user to correct the value. Automatically accepting an invalid state is not the described response (§5.3.1)."
+    },
+    {
+      "id": "p03c05-25",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In the COMPANY state, WORKS_ON contains rows whose Essn is 999887777. What constraint issue results from deleting the EMPLOYEE tuple whose Ssn is 999887777?",
+      "code": "EMPLOYEE.Ssn includes: 999887777\nWORKS_ON.Essn includes: 999887777",
+      "choices": [
+        "Key integrity, because the remaining employee keys become non-unique",
+        "Entity integrity, because deleting a tuple makes its former key NULL",
+        "Referential integrity: WORKS_ON retains a dangling reference",
+        "Domain integrity, because a value disappears from the Ssn domain"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Deleting the employee would leave WORKS_ON foreign-key values without a referenced EMPLOYEE tuple, so referential integrity is at issue. Deletion does not turn the old key into NULL or create duplicate keys (§5.3.2)."
+    },
+    {
+      "id": "p03c05-26",
+      "type": "multi",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "If deleting a tuple would violate referential integrity, which responses does the book describe? Select all that apply.",
+      "choices": [
+        "Delete referencing tuples as well (cascade)",
+        "Reject the deletion (restrict)",
+        "Reorder relation tuples, then retry deletion",
+        "Set referencing values to NULL or a valid default"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "The described options are restrict, cascade, and setting the offending referencing values to NULL or a valid default. Reordering tuples does not resolve a referential-integrity violation (§5.3.2)."
+    },
+    {
+      "id": "p03c05-27",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "EMPLOYEE.Ssn is a primary key referenced by WORKS_ON.Essn. If the employee with Ssn 111 is directly updated to Ssn 222 while another employee already has Ssn 222 and WORKS_ON still contains Essn 111, which constraints are violated? Select all that apply.",
+      "code": "EMPLOYEE.Ssn = {111, 222}\nWORKS_ON.Essn includes: 111\nUpdate the employee with Ssn 111 to Ssn 222",
+      "choices": [
+        "Referential integrity: WORKS_ON still references Ssn 111",
+        "The domain constraint, because 222 is not an employee identifier value",
+        "Key constraint: Ssn 222 duplicates an existing key",
+        "Entity integrity, because the new Ssn is NULL"
+      ],
+      "answer": [
+        0,
+        2
+      ],
+      "explanation": "The new Ssn duplicates another employee's primary key, violating the key constraint; existing WORKS_ON references to 111 also lose their referenced tuple. The new value is non-NULL and is not described as outside its domain (§5.3.3)."
+    },
+    {
+      "id": "p03c05-28",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What is a transaction in the context of a relational database?",
+      "choices": [
+        "A retrieval query that always returns exactly one tuple",
+        "An atomic unit of database operations that leaves a valid state",
+        "A single Update operation that changes one attribute in one tuple",
+        "A relation schema that defines the database's primary and foreign keys"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A transaction is an executing program with database operations that together form an atomic unit of work; at its end, the database must satisfy its constraints. It may include multiple retrievals and updates, not just one Update (§5.3.4)."
+    }
+  ]
 }

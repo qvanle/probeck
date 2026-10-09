@@ -2,5 +2,740 @@
   "id": "er-model",
   "title": "Data Modeling Using the Entity–Relationship Model",
   "description": "Ch 3 · 3.1–3.10",
-  "questions": []
+  "questions": [
+    {
+      "id": "p02c03-01",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "In database design, what are functional requirements?",
+      "choices": [
+        "User-defined database operations and transactions required by intended user groups",
+        "The entity types, relationships, and constraints describing required data",
+        "The DBMS-specific schema produced by translating a conceptual schema",
+        "The internal file structures and indexes used to store database files"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Functional requirements describe user-defined database operations, including retrievals and updates; the other choices describe schema or storage design. (§3.1)"
+    },
+    {
+      "id": "p02c03-02",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Which statements describe functional requirements in the database design process? Select all that apply.",
+      "choices": [
+        "A DBMS-specific schema produced when a conceptual model is mapped.",
+        "They include user-defined operations to be applied to the database.",
+        "They include both retrievals and updates.",
+        "Indexes and access paths for physical data storage."
+      ],
+      "answer": [
+        1,
+        2
+      ],
+      "explanation": "Functional requirements describe the operations users need, including retrievals and updates. Indexes and DBMS-specific schemas belong to later physical and logical design. (§3.1)"
+    },
+    {
+      "id": "p02c03-03",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Before choosing a DBMS or storage layout, designers need an artifact that describes required data and helps check for missing or conflicting user requirements. Which artifact serves this purpose?",
+      "choices": [
+        "The transaction implementation",
+        "The logical schema in a specific DBMS model",
+        "The internal schema",
+        "The high-level conceptual schema"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The conceptual schema describes users’ data requirements without implementation details and can be used to check coverage and conflicts. (§3.1)"
+    },
+    {
+      "id": "p02c03-04",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Which subjects does the sample COMPANY database primarily track?",
+      "choices": [
+        "Employees, departments, projects, and dependents",
+        "Customers, accounts, deposits, and withdrawals",
+        "Suppliers, parts, and projects",
+        "Students, courses, instructors, and class sections"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The COMPANY miniworld describes employees, departments, projects, and dependents kept for insurance purposes. (§3.2)"
+    },
+    {
+      "id": "p02c03-05",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "An EMPLOYEE works on a PROJECT controlled by a department other than the employee’s own department. Is this allowed by the COMPANY requirements?",
+      "choices": [
+        "Yes, but only when the employee also manages the controlling department.",
+        "No; an employee may work only on projects controlled by the employee’s department.",
+        "Yes; employees may work on projects not controlled by their department.",
+        "No; each project must be controlled by the employee who works on it."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The COMPANY requirements explicitly allow an employee to work on projects that are not controlled by the department to which the employee is assigned. (§3.2)"
+    },
+    {
+      "id": "p02c03-06",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "For insurance purposes, which set of details does COMPANY store for each DEPENDENT?",
+      "choices": [
+        "First name, office, phone, rank, and courses taught",
+        "First name, sex, birth date, and relationship to the employee",
+        "Social Security number, salary, address, and supervisor",
+        "Department, manager, locations, and projects"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The stated dependent data includes given name, sex, birth date, and the dependent’s relationship to the employee. (§3.2)"
+    },
+    {
+      "id": "p02c03-07",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What is an entity in the ER model?",
+      "choices": [
+        "A named collection of attributes shared by similar objects",
+        "A rule limiting the number of related objects",
+        "A value set that can be assigned to an attribute",
+        "A real-world object with independent existence"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "An entity is a real-world object with an independent existence; it may have physical or conceptual existence. (§3.3)"
+    },
+    {
+      "id": "p02c03-08",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Which statement correctly distinguishes the EMPLOYEE entity type from its entity set?",
+      "choices": [
+        "Entity type: shared attributes; entity set: current entities.",
+        "The employee key identifies its entity set.",
+        "The entity type is a relationship among employees; the entity set is their attributes.",
+        "The entity type is the current employees; the entity set is their shared structure."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "An entity type describes the shared structure of entities, while its entity set is the collection of its entities at a particular time. (§3.3)"
+    },
+    {
+      "id": "p02c03-09",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which statements correctly classify ER attribute examples? Select all that apply.",
+      "choices": [
+        "Birth_date is derived from Age, so Age is the stored attribute.",
+        "Address can be composite when users refer to components such as street and city.",
+        "College_degrees can be multivalued for a person.",
+        "Age can be derived from a stored Birth_date and the current date."
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "The book uses Address as a composite example, college degrees as potentially multivalued, and age as derived from stored birth date. The statement that birth date is derived and age stored reverses those roles. (§3.3)"
+    },
+    {
+      "id": "p02c03-10",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "When is it useful to model an attribute such as Address as composite?",
+      "choices": [
+        "When users need to refer to meaningful components separately",
+        "When every entity must have several values for the attribute",
+        "When its value is calculated from another attribute",
+        "When it uniquely identifies each entity without using any other attribute"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Composite attributes are useful when users sometimes treat a value as a whole and sometimes refer to meaningful component values. (§3.3)"
+    },
+    {
+      "id": "p02c03-11",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "What property must a key attribute have for an entity type?",
+      "choices": [
+        "It must be selected as the primary key in the ER model.",
+        "Its value is the same for every entity in the set.",
+        "Values uniquely identify entities of that type within the entity set.",
+        "It can be omitted whenever its value is unknown."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A key attribute’s values must distinguish every entity in any entity set of that type; the ER model described here does not designate a primary key. (§3.3)"
+    },
+    {
+      "id": "p02c03-12",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Which situations can a NULL value represent in the ER model described in the book? Select all that apply.",
+      "choices": [
+        "Height is known but its value is missing.",
+        "Whether a person has a home phone is unknown.",
+        "A duplicate key value that breaks entity uniqueness.",
+        "Apartment number is inapplicable to a single-family home."
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "NULL can mean not applicable, a value exists but is missing, or it is unknown whether a value exists. It does not represent a violation of a key’s uniqueness constraint. (§3.3)"
+    },
+    {
+      "id": "p02c03-13",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In the COMPANY design, which value can be derived from relationships rather than stored independently for each department?",
+      "choices": [
+        "The location of each project it controls",
+        "The department’s unique number",
+        "The number of employees related to the department",
+        "The start date on which its manager began managing"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Number_of_employees can be derived by counting employees related to the department through the employment relationship. (§3.3)"
+    },
+    {
+      "id": "p02c03-14",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A CAR is identified by the combination of Registration State and Number. What makes this composite key minimal?",
+      "choices": [
+        "The combination is chosen as a primary key before the ER design is mapped.",
+        "Neither component alone uniquely identifies a CAR.",
+        "The combination includes every attribute of CAR, so no other key can exist.",
+        "Each component has its own unique values, so either is a separate key."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A composite key is minimal when every component is needed for uniqueness; in the example, State and Number together form Registration, but neither alone is a key. (§3.3)"
+    },
+    {
+      "id": "p02c03-15",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Before explicit relationship types are introduced, the preliminary COMPANY design must represent the projects each employee works on and the hours for each project. Which representation matches the book’s initial design?",
+      "choices": [
+        "A derived Project_count attribute of DEPARTMENT",
+        "A key attribute Hours on PROJECT",
+        "A single-valued Hours attribute on EMPLOYEE",
+        "Multivalued composite Works_on(Project, Hours)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The preliminary design uses a multivalued composite Works_on attribute containing Project and Hours; it is later refined into the M:N WORKS_ON relationship. (§3.3)"
+    },
+    {
+      "id": "p02c03-16",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What does an ER relationship type define?",
+      "choices": [
+        "Associations among participating entities of types in the ER schema",
+        "A set of allowed values for one simple attribute",
+        "A collection of entities that share the same attributes",
+        "A storage structure used to connect database files"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A relationship type defines associations among entities drawn from the participating entity types. (§3.4)"
+    },
+    {
+      "id": "p02c03-17",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "What does one relationship instance in a relationship among EMPLOYEE and DEPARTMENT associate?",
+      "choices": [
+        "A DEPARTMENT entity and one of its attribute values",
+        "One EMPLOYEE entity and one DEPARTMENT entity",
+        "Any number of EMPLOYEE entities and no DEPARTMENT entity",
+        "One EMPLOYEE entity and all departments in the entity set"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Each relationship instance associates exactly one entity from each participating type; WORKS_FOR therefore links one employee with one department. (§3.4)"
+    },
+    {
+      "id": "p02c03-18",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What is the degree of a binary relationship type?",
+      "choices": [
+        "Each entity can participate in at most two instances.",
+        "It has two possible cardinality ratios.",
+        "It has two participating entity types.",
+        "It has two attributes on each entity type."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Relationship degree counts participating entity types; a degree-two relationship is binary. (§3.4)"
+    },
+    {
+      "id": "p02c03-19",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "What does total participation of an entity type in a relationship mean?",
+      "choices": [
+        "Every entity of that type must participate in exactly one relationship instance.",
+        "The entity type can participate in an unlimited number of instances.",
+        "All entity types participate in the relationship.",
+        "Every entity participates in at least one instance."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Total participation requires every entity in the entity set to be related through at least one instance; it does not by itself set a maximum. (§3.4)"
+    },
+    {
+      "id": "p02c03-20",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Every EMPLOYEE works for at most one DEPARTMENT, while one DEPARTMENT may have many employees. What is the cardinality ratio, written DEPARTMENT:EMPLOYEE, for WORKS_FOR?",
+      "choices": [
+        "1:N, one department for each employee at most and many employees per department",
+        "N:1 (many departments per employee, one employee per department)",
+        "M:N (many departments per employee and many employees per department)",
+        "1:1 (one department per employee and one employee per department)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A department can be related to many employees and an employee to at most one department, giving 1:N from DEPARTMENT to EMPLOYEE. (§3.4)"
+    },
+    {
+      "id": "p02c03-21",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A company rule says that every employee must work for a department. Which participation constraint follows for EMPLOYEE in WORKS_FOR?",
+      "choices": [
+        "A derived participation constraint based on employee count",
+        "Partial participation, because some employees may lack a department",
+        "Total participation: every employee must be in WORKS_FOR",
+        "A 1:1 cardinality ratio, because every employee has a department"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The rule requires every EMPLOYEE entity to participate in WORKS_FOR, which is total participation (existence dependency). (§3.4)"
+    },
+    {
+      "id": "p02c03-22",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A 1:N relationship has an attribute that records when the association began. If the designer migrates that attribute to an entity type, where can it go without losing the relationship-specific value?",
+      "choices": [
+        "To neither entity type under any circumstances",
+        "Only to the entity type on the N-side",
+        "Only to the entity type on the 1-side",
+        "To either participating entity type with no constraint"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In a 1:N relationship, the attribute can be migrated to the N-side because each N-side entity participates in at most one relationship instance. (§3.4)"
+    },
+    {
+      "id": "p02c03-23",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In COMPANY, an employee may work on many projects and each project may have many employees. Hours varies by employee-project pair. Where should Hours be modeled?",
+      "choices": [
+        "As a key attribute of DEPARTMENT, since departments control projects",
+        "As an attribute of EMPLOYEE, since each employee has one total weekly-hours value",
+        "As an attribute of PROJECT, since each project has one hours value for all employees",
+        "As an attribute of the M:N WORKS_ON relationship, since the pair determines it"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Hours is determined by the combination of an employee and a project, so it belongs to the M:N WORKS_ON relationship rather than either entity alone. (§3.4)"
+    },
+    {
+      "id": "p02c03-24",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In recursive SUPERVISION, EMPLOYEE participates once as supervisor and once as supervisee. Each supervisee has at most one direct supervisor, while a supervisor may supervise many employees. What does the relationship design require?",
+      "choices": [
+        "A 1:N supervisor-to-supervisee ratio with role names",
+        "M:N ratio, without supervisor or supervisee roles",
+        "A 1:1 ratio with a separate supervisor entity",
+        "A ternary relationship with three named roles"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The supervisor role relates to many supervisees, while each supervisee has at most one supervisor; role names distinguish the same entity type’s two participations. (§3.4)"
+    },
+    {
+      "id": "p02c03-25",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What makes an entity type weak in the ER model?",
+      "choices": [
+        "Its entities have values that are unknown when first entered.",
+        "No key of its own; identified by owner key and partial key.",
+        "It participates in at least one relationship with total participation.",
+        "It has only one attribute and no relationship attributes."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A weak entity type lacks its own key; its entities are identified through an owner entity and a partial key value. (§3.5)"
+    },
+    {
+      "id": "p02c03-26",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Two employees may each have a dependent named Alex, and DEPENDENT has no independent key. In COMPANY, what identifies one such dependent?",
+      "choices": [
+        "The department controlling the employee’s current project",
+        "The dependent’s Birth_date alone, because dates identify people",
+        "The employee owner plus the dependent’s partial key",
+        "The dependent’s Name alone, because names are globally unique"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The employee is the owner, and the dependent name can distinguish dependents belonging to that same employee; another employee may have a dependent with the same name. (§3.5)"
+    },
+    {
+      "id": "p02c03-27",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A DRIVER_LICENSE cannot exist unless linked to a PERSON, but it has a unique License_number of its own. Is DRIVER_LICENSE weak solely because of this dependency?",
+      "choices": [
+        "Yes; the PERSON entity must be part of every key in the ER model.",
+        "No; a driver license cannot participate in a relationship with a person.",
+        "Yes; any entity with total participation in a relationship is weak.",
+        "No; License_number is its own key."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The book’s DRIVER_LICENSE example has existence dependency but its own License_number key, so it is not weak. (§3.5)"
+    },
+    {
+      "id": "p02c03-28",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "After COMPANY references are refined into explicit relationship types, which DEPARTMENT attributes are removed because MANAGES represents them? Select all that apply.",
+      "choices": [
+        "Manager_start_date (recorded for MANAGES)",
+        "Number, a DEPARTMENT identifier",
+        "Locations, the multivalued attribute",
+        "Manager (represented by MANAGES)"
+      ],
+      "answer": [
+        0,
+        3
+      ],
+      "explanation": "Manager becomes the MANAGES relationship, and Manager_start_date becomes an attribute of MANAGES. Number and Locations remain DEPARTMENT attributes. (§3.6)"
+    },
+    {
+      "id": "p02c03-29",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Users confirm that every DEPARTMENT must have a manager, but not every EMPLOYEE manages a department. What participation constraints follow for MANAGES?",
+      "choices": [
+        "DEPARTMENT total; EMPLOYEE partial in MANAGES",
+        "Both EMPLOYEE and DEPARTMENT partial",
+        "EMPLOYEE total; DEPARTMENT partial",
+        "Both EMPLOYEE and DEPARTMENT total"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Every department must participate in MANAGES, so DEPARTMENT is total; only some employees manage, so EMPLOYEE is partial. (§3.6)"
+    },
+    {
+      "id": "p02c03-30",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Each PROJECT is controlled by a department, but some DEPARTMENT entities control no projects. What are the participation constraints in CONTROLS?",
+      "choices": [
+        "Both PROJECT and DEPARTMENT partial",
+        "PROJECT total; DEPARTMENT partial",
+        "PROJECT partial; DEPARTMENT total",
+        "Both PROJECT and DEPARTMENT total"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Every project participates in CONTROLS, whereas a department may control none; therefore PROJECT is total and DEPARTMENT is partial. (§3.6)"
+    },
+    {
+      "id": "p02c03-31",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Which notation identifies a weak entity type and its partial key in the ER diagrams described in the book?",
+      "choices": [
+        "A dotted rectangle, a double oval, and an unmarked partial key",
+        "A double oval, a dotted relationship line, and a bold partial key",
+        "Double entity and relationship borders; dotted or dashed partial-key underline",
+        "A single rectangle, a single identifying diamond, and a solid underline for the partial key"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Weak entities use double rectangles, their identifying relationships use double diamonds, and partial keys have a dotted or dashed underline. (§3.7)"
+    },
+    {
+      "id": "p02c03-32",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "When turning a narrative database description into an initial ER schema, what naming clue does the book recommend?",
+      "choices": [
+        "Sentence order determines entity keys, while repeated words determine cardinality.",
+        "Nouns often suggest entity types, and verbs often suggest relationship types.",
+        "Verbs often suggest key attributes, and adjectives often suggest entity sets.",
+        "Nouns always suggest relationship types, and verbs always suggest attributes."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "As a general naming practice, nouns in the requirements tend to give rise to entity types and verbs to relationship types. (§3.7)"
+    },
+    {
+      "id": "p02c03-33",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A preliminary UNIVERSITY schema repeats a Department attribute in STUDENT, INSTRUCTOR, and COURSE. The designer decides departments need their own names and relationships. What refinement fits the book’s guidance?",
+      "choices": [
+        "Replace the three entity types with one multivalued Department attribute.",
+        "Make Department a derived attribute of COURSE only.",
+        "Create DEPARTMENT as a separate entity type and relate it to STUDENT, INSTRUCTOR, and COURSE.",
+        "Keep each Department attribute and copy its value into every related entity."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "An attribute repeated across entity types may be promoted to an independent entity type with appropriate relationships, reducing repetition and allowing further properties to be represented. (§3.7)"
+    },
+    {
+      "id": "p02c03-34",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "For an entity’s participation in relationship R, what does the constraint (0, 1) state in min-max notation?",
+      "choices": [
+        "Every entity participates in exactly one R instance.",
+        "The entity participates in at least one and in no more than one R instance.",
+        "The entity participates in zero or more R instances with no upper bound.",
+        "Zero or one R instances; participation may be partial."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Min-max values give the lower and upper participation counts for each entity; a minimum of zero means partial participation, and a maximum of one limits its instances. (§3.7)"
+    },
+    {
+      "id": "p02c03-35",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "What are the three sections of a UML class box in the class diagrams discussed in the book?",
+      "choices": [
+        "Class name, attributes, and operations",
+        "Entity set, relationship instances, and keys",
+        "Class name, relationship names, and database files",
+        "Attributes, value sets, and cardinality ratios"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A UML class box has a top section for the class name, a middle section for attributes, and a bottom section for operations. (§3.8)"
+    },
+    {
+      "id": "p02c03-36",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In UML class diagrams, what do multiplicities 1 and * mean, respectively, and where are they placed compared with the ER min-max labels in the book’s diagrams?",
+      "choices": [
+        "1 means 1..* and * means 0..1; multiplicities replace association lines.",
+        "1 means exactly one; * means zero or more; labels sit opposite ER min-max ends.",
+        "1 means 0..1 and * means 1..*; multiplicities appear at the same ends as ER min-max labels.",
+        "1 means exactly one relationship type and * means many entity types; labels appear inside class boxes."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A single 1 denotes 1..1 and * denotes 0..* in UML; the multiplicity labels are placed at the opposite ends from those in the book’s ER min-max notation. (§3.8)"
+    },
+    {
+      "id": "p02c03-37",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "A UML design models DEPENDENT objects whose names distinguish dependents belonging to the same EMPLOYEE. Which construct can represent the owner link and this discriminator?",
+      "choices": [
+        "An operation listed below the EMPLOYEE attributes",
+        "An aggregation with no qualifier or partial key",
+        "A qualified association on EMPLOYEE uses a qualifier",
+        "A derived attribute on the DEPENDENT class"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A UML qualified association can represent the identifying relationship and place the partial key, called a discriminator, in a box attached to the owner class. (§3.8)"
+    },
+    {
+      "id": "p02c03-38",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What is a ternary relationship type?",
+      "choices": [
+        "A relationship type with three attributes and two entity types",
+        "A relationship type in which each entity participates three times",
+        "A set of three binary relationship types with identical meanings",
+        "A relationship type with three participating entity types"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Relationship degree counts participating entity types; degree three is called ternary. (§3.9)"
+    },
+    {
+      "id": "p02c03-39",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A database separately records that supplier S can supply part P, project J uses P, and S supplies some part to J. What can be concluded about a ternary SUPPLY instance (S, J, P)?",
+      "choices": [
+        "No: pairwise facts do not entail the ternary tuple.",
+        "It exists only if each binary relationship has total participation.",
+        "It is equivalent to the three binary facts whenever the part has a unique name.",
+        "It must exist because all three pairwise relationships exist."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The three binary relationships have different pairwise meanings and do not necessarily imply the specific supplier-project-part association represented by SUPPLY. (§3.9)"
+    },
+    {
+      "id": "p02c03-40",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In ternary SUPPLY(SUPPLIER, PROJECT, PART), a rule says that for each project-part pair, at most one supplier is used. Which combination identifies a SUPPLY instance under this rule?",
+      "choices": [
+        "All three participating entities are always required",
+        "SUPPLIER and PROJECT",
+        "SUPPLIER and PART",
+        "PROJECT and PART"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A fixed PROJECT-PART pair determines a single SUPPLIER, so the (project, part) combination is a key for the relationship set. (§3.9)"
+    },
+    {
+      "id": "p02c03-41",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "For a ternary relationship, what is the difference between a 1/M/N mark on a participation arc and a (min,max) constraint?",
+      "choices": [
+        "The 1/M/N marks specify attribute domains, while (min,max) identifies weak entities.",
+        "1/M/N constrains which participant combination determines an instance; (min,max) gives participation bounds.",
+        "1/M/N gives participation bounds; (min,max) determines the relationship key.",
+        "Both notations specify exactly the same constraints and can always be substituted for one another."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "On n-ary relationships, cardinality marks can express key constraints; min-max values constrain how many relationship instances each entity participates in and do not determine the key. (§3.9)"
+    },
+    {
+      "id": "p02c03-42",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Which statement matches two stated requirements for UNIVERSITY SECTION entities?",
+      "choices": [
+        "Course name is unique across sections, and every section has one student.",
+        "Room number is unique across the university, and students can take only one section.",
+        "SecId is unique; every section has at least five students.",
+        "SecNo is unique across all years, and each section must have exactly five students."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The requirements make SecId unique for all sections and specify that a section must have at least five students. (§3.10)"
+    },
+    {
+      "id": "p02c03-43",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In the UNIVERSITY example, which components make up the composite STUDENT attribute SName?",
+      "choices": [
+        "First name, middle name, and last name",
+        "Student ID, major code, and birth date",
+        "Address, phone, and department name",
+        "Course name, course code, and course level"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "SName is described as composed of FName, MName, and LName. (§3.10)"
+    },
+    {
+      "id": "p02c03-44",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Which attribute combinations are stated to be unique for UNIVERSITY SECTION entities? Select all that apply.",
+      "choices": [
+        "Course level, credits, building, and student ID",
+        "Section number, semester, year, and course code",
+        "Semester, year, classroom, and days/times",
+        "Semester, year, days/times, and instructor ID"
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "The example lists unique combinations for section number within a course and term, classroom scheduling within a term, and instructor scheduling within a term. It does not state a uniqueness constraint for course level, credits, building, and student ID. (§3.10)"
+    },
+    {
+      "id": "p02c03-45",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "A SECTION must have at least five students, with no specified upper limit. What min-max constraint represents SECTION participation in TAKES?",
+      "choices": [
+        "(5,N)",
+        "(0,N), allowing participation to start at zero",
+        "(1,1), requiring exactly one student per section",
+        "(1,N), requiring at least one student per section"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The minimum of five students and unrestricted maximum are expressed as (5,N) for SECTION participation in TAKES. (§3.10)"
+    }
+  ]
 }

@@ -2,5 +2,515 @@
   "id": "advanced-sql",
   "title": "More SQL: Complex Queries, Triggers, Views, Schema Modification",
   "description": "Ch 7 · 7.1–7.4",
-  "questions": []
+  "questions": [
+    {
+      "id": "p03c07-01",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "In SQL's three-valued logic, what is the result of comparing a non-NULL value with NULL using `=`?",
+      "choices": [
+        "A syntax error on NULL",
+        "TRUE because NULLs match",
+        "FALSE because NULLs differ",
+        "UNKNOWN (neither TRUE nor FALSE)"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A comparison involving NULL evaluates to UNKNOWN because the value cannot be established as equal or unequal. SQL therefore uses TRUE, FALSE, and UNKNOWN (§7.1)."
+    },
+    {
+      "id": "p03c07-02",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "An EMPLOYEE row has `Super_ssn = NULL`. What happens to that row when `Super_ssn <> '333445555'` is tested? EMPLOYEE has columns `Fname`, `Lname`, and `Super_ssn`.",
+      "code": "SELECT Fname, Lname\nFROM EMPLOYEE\nWHERE Super_ssn <> '333445555';",
+      "choices": [
+        "It is excluded because the predicate is UNKNOWN.",
+        "It is selected only when another NULL row exists.",
+        "The query treats NULL as an empty string.",
+        "It is selected because NULL is not the listed SSN."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Comparing NULL with a value using `<>` yields UNKNOWN, and a WHERE clause retains only rows whose condition is TRUE. NULL is not treated as an empty string (§7.1)."
+    },
+    {
+      "id": "p03c07-03",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "Which predicate correctly tests whether an SQL attribute has a NULL value?",
+      "choices": [
+        "`attribute <> NULL`",
+        "`attribute IS NULL`",
+        "`attribute IN (NULL)`",
+        "`attribute = NULL`"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "SQL uses `IS NULL` (or `IS NOT NULL`) for this test; ordinary equality and inequality comparisons with NULL do not return TRUE or FALSE (§7.1)."
+    },
+    {
+      "id": "p03c07-04",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "Which comparison is equivalent to `value IN (subquery)` in SQL?",
+      "choices": [
+        "`value > ANY (subquery)` and `value IN (subquery)`",
+        "`value = ANY (subquery)` and `value = SOME (subquery)`",
+        "`value <> ANY (subquery)` and `value <> SOME (subquery)`",
+        "`value = ALL (subquery)` and `value IN (subquery)`"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The chapter states that `= ANY` and `= SOME` both return TRUE when the value equals at least one member, so both are equivalent to IN (§7.1)."
+    },
+    {
+      "id": "p03c07-05",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "EMPLOYEE has columns `Salary` and `Dno`; assume department 5 has no NULL salaries. What does this condition require of an employee's salary?",
+      "code": "Salary > ALL (SELECT Salary\n             FROM EMPLOYEE\n             WHERE Dno = 5)",
+      "choices": [
+        "It is greater than the average salary in department 5.",
+        "It is greater than at least one department-5 salary.",
+        "It exceeds every department-5 salary, including the maximum.",
+        "It equals the maximum salary in department 5."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Combining `>` with ALL makes the comparison TRUE only when the value is greater than every value returned by the subquery. `> ANY` would mean greater than at least one (§7.1)."
+    },
+    {
+      "id": "p03c07-06",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What makes a nested SQL query correlated with its outer query?",
+      "choices": [
+        "It uses an explicit set in its WHERE clause.",
+        "It contains an aggregate function.",
+        "It returns more than one tuple.",
+        "It references an outer-query attribute."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A nested query is correlated when a condition in it refers to an attribute of a relation declared in the outer query. Conceptually, it is evaluated for each outer tuple (§7.1)."
+    },
+    {
+      "id": "p03c07-07",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "EMPLOYEE has `Ssn`, `Fname`, and `Lname`; DEPENDENT has `Essn`. What names are returned by this query?",
+      "code": "SELECT E.Fname, E.Lname\nFROM EMPLOYEE AS E\nWHERE EXISTS (SELECT *\n              FROM DEPENDENT AS D\n              WHERE D.Essn = E.Ssn);",
+      "choices": [
+        "Employees who have at least one dependent.",
+        "Employees who have no dependents.",
+        "Dependents whose SSN matches an employee's SSN.",
+        "Employees who have exactly one dependent."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The correlated subquery finds dependents linked to the current employee, and EXISTS is TRUE when that result contains at least one tuple. NOT EXISTS would select employees with none (§7.1)."
+    },
+    {
+      "id": "p03c07-08",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "EMPLOYEE has `Ssn`, `Fname`, and `Lname`; PROJECT has `Pnumber` and `Dnum`; WORKS_ON has `Essn` and `Pno`. What condition is tested by this query?",
+      "code": "SELECT E.Fname, E.Lname\nFROM EMPLOYEE AS E\nWHERE NOT EXISTS (SELECT *\n                  FROM PROJECT AS P\n                  WHERE P.Dnum = 5\n                    AND NOT EXISTS (SELECT *\n                                    FROM WORKS_ON AS W\n                                    WHERE W.Essn = E.Ssn\n                                      AND W.Pno = P.Pnumber));",
+      "choices": [
+        "The employee works on no project controlled by department 5.",
+        "The employee works on at least one project controlled by department 5.",
+        "The employee works on every project controlled by department 5.",
+        "The employee manages every department 5 project."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The inner NOT EXISTS identifies a department 5 project the employee does not work on; the outer NOT EXISTS requires that no such project exists. This is the chapter's pattern for expressing 'works on all' (§7.1)."
+    },
+    {
+      "id": "p03c07-09",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "WORKS_ON has columns `Essn` and `Pno`. What does this query return?",
+      "code": "SELECT DISTINCT Essn\nFROM WORKS_ON\nWHERE Pno IN (1, 2, 3);",
+      "choices": [
+        "Every WORKS_ON row for projects numbered above 3.",
+        "Each employee SSN once when Pno is 1, 2, or 3, using DISTINCT.",
+        "Each project number once if any employee works on it.",
+        "Only SSNs of employees assigned to all three projects."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The explicit set in IN matches any of the listed project numbers, and DISTINCT removes repeated employee SSNs from the result (§7.1)."
+    },
+    {
+      "id": "p03c07-10",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "EMPLOYEE has `Fname`, `Lname`, `Ssn`, and `Super_ssn`. What does this self-join query produce?",
+      "code": "SELECT E.Lname AS Employee_name, S.Lname AS Supervisor_name\nFROM EMPLOYEE AS E, EMPLOYEE AS S\nWHERE E.Super_ssn = S.Ssn;",
+      "choices": [
+        "One row per supervisor with employee names.",
+        "All employee rows, with NULL supervisor names for unmatched rows.",
+        "Only employees whose first and last names match their supervisor's.",
+        "Matched employee-supervisor pairs with both last names."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The aliases E and S let EMPLOYEE play the employee and supervisor roles. The equality condition pairs each employee with a matching supervisor; unmatched employees are excluded by this inner join (§7.1)."
+    },
+    {
+      "id": "p03c07-11",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "How does a NATURAL JOIN determine its join condition and represent same-named join attributes?",
+      "choices": [
+        "Equal on same-named attributes; each pair appears once.",
+        "It joins every pair of rows and removes all shared attributes.",
+        "It requires an ON condition and keeps both copies of each join attribute.",
+        "It joins only primary keys and keeps both key columns."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A NATURAL JOIN creates an implicit equality condition for each pair of same-named attributes and includes each pair only once in the result (§7.1)."
+    },
+    {
+      "id": "p03c07-12",
+      "type": "multi",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "For an SQL outer join, select every correct description of which input rows are preserved and how unmatched rows are represented.",
+      "choices": [
+        "INNER JOIN keeps all left rows, even when they have no match.",
+        "LEFT keeps all left rows; unmatched right columns become NULL.",
+        "RIGHT keeps all right rows; unmatched left columns become NULL.",
+        "FULL keeps unmatched rows from both sides; missing columns are NULL."
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "Left, right, and full outer joins preserve the named side or both sides and use NULL padding for missing matches. Preserving an unmatched left row is not the behavior of an inner join (§7.1)."
+    },
+    {
+      "id": "p03c07-13",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "EMPLOYEE contains 8 rows, and `Salary` is NULL in exactly one row. What pair of results is returned, in order?",
+      "code": "SELECT COUNT(*), COUNT(Salary)\nFROM EMPLOYEE;",
+      "choices": [
+        "8 and 7",
+        "7 and 8 (the two counts are reversed)",
+        "8 and 8 (both counts include every row)",
+        "7 and 7 (both counts exclude the NULL salary)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "COUNT(*) counts all 8 tuples, while COUNT(Salary) counts only the 7 non-NULL salary values. Column aggregates discard NULLs (§7.1)."
+    },
+    {
+      "id": "p03c07-14",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "EMPLOYEE has columns `Dno` and `Salary`. How are rows organized by this query, including if some Dno values are NULL?",
+      "code": "SELECT Dno, COUNT(*), AVG(Salary)\nFROM EMPLOYEE\nGROUP BY Dno;",
+      "choices": [
+        "One result row for each salary value, grouped within each Dno.",
+        "One result per employee with the company-wide average repeated.",
+        "One group per non-NULL Dno; NULL rows are omitted.",
+        "One group per Dno, including a NULL group if present under GROUP BY Dno."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "GROUP BY partitions employees by Dno and applies the aggregates to each group. Rows whose grouping attribute is NULL form their own group (§7.1)."
+    },
+    {
+      "id": "p03c07-15",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "EMPLOYEE has columns `Dno` and `Salary`. Return each department's count of employees earning over 40000, but only for departments with more than five employees in total. Which query applies the two conditions at the right stages?",
+      "choices": [
+        "`SELECT Dno, COUNT(*) FROM EMPLOYEE GROUP BY Dno HAVING COUNT(*) > 5 AND MAX(Salary) > 40000;`",
+        "`SELECT Dno, COUNT(*) FROM EMPLOYEE WHERE Salary > 40000 GROUP BY Dno HAVING COUNT(*) > 5 AND COUNT(DISTINCT Ssn) > 5 AND AVG(Salary) > 40000;`",
+        "`SELECT Dno, COUNT(CASE WHEN Salary > 40000 THEN 1 END) FROM EMPLOYEE WHERE Dno IS NOT NULL GROUP BY Dno HAVING COUNT(*) > 5;`",
+        "`SELECT Dno, COUNT(*) FROM EMPLOYEE GROUP BY Dno HAVING MIN(Salary) > 40000 AND COUNT(*) > 5;`"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "COUNT(CASE WHEN Salary > 40000 THEN 1 END) counts only the high-paid employees in each group, while HAVING COUNT(*) > 5 still tests the department's total headcount. Putting the salary test in WHERE instead filters rows before COUNT(*) is evaluated, so the headcount condition would apply only to high-paid employees, and conditions such as MAX(Salary) or MIN(Salary) in HAVING do not count high-paid employees at all (§7.1)."
+    },
+    {
+      "id": "p03c07-16",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "EMPLOYEE has columns `Salary` and `Dno`. An employee currently earns 50000 and has Dno 4. What salary does this CASE expression produce?",
+      "code": "CASE WHEN Dno = 5 THEN Salary + 2000\n     WHEN Dno = 4 THEN Salary + 1500\n     WHEN Dno = 1 THEN Salary + 3000\n     ELSE Salary + 0 END",
+      "choices": [
+        "51500",
+        "52000 from adding 2000 to the salary",
+        "53000 from adding 3000 to the salary",
+        "50000 before the CASE adjustment"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The CASE branch for `Dno = 4` matches and adds 1500 to the current salary. CASE chooses a value based on the conditions (§7.1)."
+    },
+    {
+      "id": "p03c07-17",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "EMPLOYEE has columns `Ssn` and `Super_ssn`, where Super_ssn identifies the employee's direct supervisor. What pairs does this recursive query build?",
+      "code": "WITH RECURSIVE SUP_EMP (SupSsn, EmpSsn) AS\n  (SELECT Super_ssn, Ssn\n   FROM EMPLOYEE\n   WHERE Super_ssn IS NOT NULL\n   UNION\n   SELECT S.SupSsn, E.Ssn\n   FROM EMPLOYEE AS E, SUP_EMP AS S\n   WHERE E.Super_ssn = S.EmpSsn)\nSELECT * FROM SUP_EMP;",
+      "choices": [
+        "Only direct supervisor and employee pairs.",
+        "All direct and indirect supervisor-employee pairs.",
+        "Pairs of employees who share the same supervisor, but no supervisor names.",
+        "Only pairs where the employee is the top-level supervisor."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The base query creates direct pairs; the recursive query extends each known supervisor-to-employee path by one level. UNION accumulates pairs until a fixed point is reached (§7.1)."
+    },
+    {
+      "id": "p03c07-18",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What does the SQL Boolean function `UNIQUE(Q)` test about the result of query Q?",
+      "choices": [
+        "Whether Q returns exactly one tuple.",
+        "Whether Q returns at least one tuple.",
+        "Whether Q returns no NULL values.",
+        "No duplicate tuples occur in Q's result."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "UNIQUE returns TRUE if the nested query result contains no duplicate tuples and FALSE otherwise. It tests set-like uniqueness (§7.1)."
+    },
+    {
+      "id": "p03c07-19",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What is the role of a CREATE ASSERTION constraint in SQL?",
+      "choices": [
+        "It limits one column to a fixed list of values only.",
+        "A condition that must hold in every database state.",
+        "It runs a stored procedure after every query.",
+        "It creates a virtual table from a SELECT statement."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "An assertion specifies a general declarative constraint whose condition must hold for every database state. It can express constraints beyond built-in table constraints (§7.2)."
+    },
+    {
+      "id": "p03c07-20",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "An assertion uses this condition to enforce that no employee earns more than their department manager. What must be true for the assertion to be satisfied? EMPLOYEE has `Salary`, `Dno`, and `Ssn`; DEPARTMENT has `Dnumber` and `Mgr_ssn`.",
+      "code": "CHECK (NOT EXISTS (SELECT *\n                     FROM EMPLOYEE AS E, EMPLOYEE AS M, DEPARTMENT AS D\n                     WHERE E.Salary > M.Salary\n                       AND E.Dno = D.Dnumber\n                       AND D.Mgr_ssn = M.Ssn))",
+      "choices": [
+        "Every department has a NULL salary.",
+        "Managers earn less than employees.",
+        "The inner query returns no violating tuples.",
+        "The inner query returns at least one violating tuple."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The inner query finds violations; NOT EXISTS requires that result to be empty. If it returns any tuple, the CHECK condition is false and the assertion is violated (§7.2)."
+    },
+    {
+      "id": "p03c07-21",
+      "type": "multi",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "The chapter describes a trigger as an event-condition-action rule. Select all three parts of that rule.",
+      "choices": [
+        "The action carried out when the rule applies.",
+        "The rows returned by the triggering SQL statement.",
+        "The database event that activates the rule.",
+        "The condition that determines whether to run the action."
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "A trigger's ECA components are its event, optional condition, and action. Its query result is not a component of the rule (§7.2)."
+    },
+    {
+      "id": "p03c07-22",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A trigger is defined for an employee salary update and includes a WHEN condition. Which statement correctly describes its timing and condition?",
+      "choices": [
+        "BEFORE/AFTER set action timing; WHEN gates the action on TRUE.",
+        "BEFORE and AFTER both run only after commit, and WHEN names the action.",
+        "BEFORE runs only for inserts; AFTER runs only for deletes, and WHEN selects a table.",
+        "BEFORE runs after the update; AFTER runs before it, and WHEN is ignored."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "BEFORE and AFTER specify whether the action occurs before or after the triggering operation. When a WHEN condition is present, the action runs only if it evaluates to TRUE (§7.2)."
+    },
+    {
+      "id": "p03c07-23",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "Which description best matches an SQL view?",
+      "choices": [
+        "A schema command that renames a base table.",
+        "A virtual table defined by a query on base tables or views.",
+        "A stored copy that is not queryable as a table.",
+        "A trigger that recomputes all database constraints."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "An SQL view is a single derived table based on other tables or views; it is virtual and need not exist physically (§7.3)."
+    },
+    {
+      "id": "p03c07-24",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Assume view WORKS_ON1 has columns `Fname`, `Lname`, `Pname`, and `Hours`, defined from EMPLOYEE, WORKS_ON, and PROJECT. What does this query ask for?",
+      "code": "SELECT Fname, Lname\nFROM WORKS_ON1\nWHERE Pname = 'ProductX';",
+      "choices": [
+        "A list of base tables used to define WORKS_ON1.",
+        "Employee names for ProductX rows in WORKS_ON1.",
+        "The names of all employees who do not work on ProductX.",
+        "The project number and hours for every project named ProductX."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A view can be queried like a table: this query selects the employee name columns from rows whose project name is ProductX. The view hides the underlying joins (§7.3)."
+    },
+    {
+      "id": "p03c07-25",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Which statement correctly distinguishes the two view implementation approaches described in the chapter?",
+      "choices": [
+        "Query modification prevents base table updates; materialization makes every view updatable.",
+        "Query modification runs only on triggers; materialization runs only on assertions.",
+        "Query modification rewrites against base tables; materialization stores and maintains view rows.",
+        "Query modification stores a permanent result; materialization substitutes the view definition into each query."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Query modification transforms a query on the view into one on its defining tables. Materialization physically creates the view result and requires a strategy to keep it current (§7.3)."
+    },
+    {
+      "id": "p03c07-26",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "According to the chapter's stated guideline, which single-table view has the required attributes for updates to be mapped to its base table?",
+      "choices": [
+        "A view containing columns from two joined tables and no key.",
+        "A view defined with GROUP BY and aggregate functions.",
+        "A view containing only a computed SUM column.",
+        "Primary key plus NOT NULL columns without defaults."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "The chapter notes that a single-table view is updatable when it includes the base relation's primary key and all NOT NULL attributes that lack defaults. Join-defined and aggregate views are generally not updatable (§7.3)."
+    },
+    {
+      "id": "p03c07-27",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "A view is defined with `WITH CHECK OPTION` as shown. EMPLOYEE has columns `Fname`, `Lname`, and `Dno`. What happens if a user inserts a row through this view with `Dno = 4`?",
+      "code": "CREATE VIEW DEPT5EMP AS\nSELECT Fname, Lname, Dno\nFROM EMPLOYEE\nWHERE Dno = 5\nWITH CHECK OPTION;",
+      "choices": [
+        "Rejected: the inserted row violates the view condition, so WITH CHECK OPTION rejects it.",
+        "The insert is accepted and the row's Dno is changed to 5 automatically.",
+        "The view is dropped because it cannot include Dno.",
+        "The insert is accepted, but the row is hidden from this view."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "WITH CHECK OPTION makes the system reject view updates that would create rows that do not satisfy the view's defining condition. A row with Dno 4 fails the Dno = 5 predicate (§7.3)."
+    },
+    {
+      "id": "p03c07-28",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "When dropping a schema object that other objects reference, how do CASCADE and RESTRICT differ?",
+      "choices": [
+        "CASCADE and RESTRICT both remove dependencies, but at different times.",
+        "CASCADE drops dependents; RESTRICT requires none.",
+        "CASCADE permits the drop only when there are no dependencies; RESTRICT removes dependent objects.",
+        "CASCADE deletes rows but keeps definitions; RESTRICT deletes definitions but keeps rows."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "CASCADE automatically drops referencing constraints, views, and other dependent elements. RESTRICT allows the command only if the object has no dependent elements (§7.4)."
+    },
+    {
+      "id": "p03c07-29",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "DEPENDENT is a base table. Which command removes all its rows while leaving its table definition available?",
+      "choices": [
+        "`DROP TABLE DEPENDENT;`",
+        "`DROP TABLE DEPENDENT CASCADE;`",
+        "`DELETE FROM DEPENDENT;`",
+        "`ALTER TABLE DEPENDENT DROP COLUMN Essn;`"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "DELETE removes rows and leaves the relation definition in the catalog. DROP TABLE, with or without CASCADE, removes both the rows and the table definition, and ALTER TABLE ... DROP COLUMN changes the schema instead of deleting rows (§7.4)."
+    },
+    {
+      "id": "p03c07-30",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "EMPLOYEE already has rows. What is true after adding `Job` with this statement and supplying no default value?",
+      "code": "ALTER TABLE EMPLOYEE ADD COLUMN Job VARCHAR(12);",
+      "choices": [
+        "Existing rows receive an empty string, so NOT NULL is required.",
+        "Existing rows are deleted until values for Job are supplied.",
+        "The statement fails because ALTER TABLE cannot add a column to a populated table.",
+        "Existing rows get NULL; NOT NULL requires a default."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Without a default, the new column is NULL for existing rows immediately after the ALTER. Because of those NULLs, the chapter says NOT NULL is not allowed in this case (§7.4)."
+    }
+  ]
 }

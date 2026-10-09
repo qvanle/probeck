@@ -2,5 +2,647 @@
   "id": "eer-model",
   "title": "The Enhanced Entity–Relationship Model",
   "description": "Ch 4 · 4.1–4.7",
-  "questions": []
+  "questions": [
+    {
+      "id": "p02c04-01",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What must be true of an entity that belongs to a subclass?",
+      "choices": [
+        "It must be stored in the database as only one entity type.",
+        "It belongs to the subclass's superclass and inherits its attributes and relationships.",
+        "It must belong to every other subclass of that superclass.",
+        "It must have a separate real-world identity from its superclass entity type."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A subclass is a subset of its superclass, so each subclass member must also be a superclass member. (§4.1)"
+    },
+    {
+      "id": "p02c04-02",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "An ENGINEER subclass of EMPLOYEE has a local attribute Eng_type. What else does an engineer entity inherit through the subclass relationship?",
+      "choices": [
+        "Only EMPLOYEE relationships that are also defined locally on ENGINEER.",
+        "Only the EMPLOYEE attributes, but none of its relationships.",
+        "EMPLOYEE attributes and relationships, plus Eng_type.",
+        "The local attributes of every other EMPLOYEE subclass."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Subclass members inherit all superclass attributes and relationships, while keeping their own specific properties such as Eng_type. (§4.1)"
+    },
+    {
+      "id": "p02c04-03",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Which statement best describes a SECRETARY entity and its corresponding EMPLOYEE entity in an EER model?",
+      "choices": [
+        "The EMPLOYEE is a copy of the SECRETARY and has no independent superclass membership.",
+        "They are the same database record in every possible implementation.",
+        "They are distinct real-world entities connected by an ordinary 1:1 relationship.",
+        "The same entity in the SECRETARY subclass; storage may use a linked record."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Superclass and subclass members represent the same real-world entity in general and specific roles, though an implementation may use separate linked records. An ordinary 1:1 relationship instead relates distinct entities. (§4.1)"
+    },
+    {
+      "id": "p02c04-04",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What is specialization in the EER model?",
+      "choices": [
+        "A subclass defined by distinguishing characteristics.",
+        "Replacing a superclass with a relationship type among its entities.",
+        "Removing shared attributes.",
+        "Combining unrelated entity types into a category that is their union."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Specialization defines a set of subclasses of a superclass according to characteristics that distinguish their members. (§4.2)"
+    },
+    {
+      "id": "p02c04-05",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A designer observes that CAR and TRUCK share Vehicle_id, License_plate_no, and Price. What is the generalization shown in the book's example?",
+      "choices": [
+        "Move shared attributes to a category that is a subset of both CAR and TRUCK types.",
+        "VEHICLE superclass with common attributes; CAR and TRUCK subclasses for specialized attributes.",
+        "Define CAR and TRUCK as categories that contain all VEHICLE entities.",
+        "Define VEHICLE as a relationship between CAR and TRUCK."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Generalization identifies common features of existing entity types and forms a superclass; CAR and TRUCK become subclasses of VEHICLE. (§4.2)"
+    },
+    {
+      "id": "p02c04-06",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In an EER specialization diagram, a line from a subclass to the specialization circle carries a subset symbol, and Eng_type is attached to ENGINEER. What do these indicate?",
+      "choices": [
+        "The specialization is total, and Eng_type defines a category.",
+        "The superclass is a subset of ENGINEER, and Eng_type applies to every employee.",
+        "ENGINEER is a subset of its superclass, and Eng_type is specific to ENGINEER.",
+        "ENGINEER is a relationship type, and Eng_type is its key."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The subset symbol marks the superclass/subclass direction, while attributes attached to a subclass rectangle are local to that subclass. (§4.2)"
+    },
+    {
+      "id": "p02c04-07",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which are the two main reasons to define subclasses in a conceptual schema? Select all that apply.",
+      "choices": [
+        "Some relationship types involve only a subset of superclass entities.",
+        "A separate key for each subclass even when entities are shared.",
+        "Remove inherited relationships from subclasses with local attributes.",
+        "Some attributes apply only to a subset of superclass entities."
+      ],
+      "answer": [
+        0,
+        3
+      ],
+      "explanation": "Subclasses can group entities that have particular attributes or that participate in relationships not shared by the whole superclass. The other options are not reasons given for specialization. (§4.2)"
+    },
+    {
+      "id": "p02c04-08",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "If EMPLOYEE has a Job_type attribute, which predicate defines membership in the SECRETARY subclass in the book's example?",
+      "choices": [
+        "Job_type is not null",
+        "Job_type = 'Engineer'",
+        "Job_type = 'Secretary'",
+        "Job_type is different from every other employee's value"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The example defines SECRETARY by the condition that the superclass attribute Job_type equals 'Secretary'. (§4.3)"
+    },
+    {
+      "id": "p02c04-09",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A single-valued EMPLOYEE attribute Job_type defines every subclass, and each subclass uses a different constant value. What constraint follows?",
+      "choices": [
+        "The specialization is a category because its classes use one attribute.",
+        "Disjoint: one single-valued Job_type cannot have two values.",
+        "The subclasses are necessarily overlapping because Job_type is on the superclass.",
+        "The specialization is necessarily partial because it is attribute-defined."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "An attribute-defined specialization with distinct values of a single-valued attribute implies disjoint subclasses. Attribute-defined membership alone does not determine completeness. (§4.3)"
+    },
+    {
+      "id": "p02c04-10",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "How is membership in a user-defined subclass determined?",
+      "choices": [
+        "By comparing its key with the keys of all superclass entities.",
+        "By inheriting membership from another subclass automatically.",
+        "By evaluating a defining predicate on superclass attributes.",
+        "By assigning each entity individually through database users explicitly."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A user-defined subclass has no membership condition; users specify its members individually when they add entities. (§4.3)"
+    },
+    {
+      "id": "p02c04-11",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In a PERSON specialization into EMPLOYEE, ALUMNUS, and STUDENT, a person may belong to both EMPLOYEE and STUDENT. Which disjointness constraint fits this rule?",
+      "choices": [
+        "Overlapping, because one entity may belong to multiple subclasses.",
+        "Disjoint, because every person is still one PERSON entity.",
+        "Neither; disjointness applies only to attribute-defined subclasses.",
+        "Disjoint, because each subclass has a different name."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Overlapping subclasses may share entities. Here a single person can be both an employee and a student, so the specialization cannot be disjoint. (§4.3)"
+    },
+    {
+      "id": "p02c04-12",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Every EMPLOYEE must be either HOURLY_EMPLOYEE or SALARIED_EMPLOYEE, and an employee may satisfy both classifications. How should this specialization be constrained?",
+      "choices": [
+        "Overlapping and total",
+        "Disjoint and partial",
+        "Disjoint and total",
+        "Overlapping and partial"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Membership in at least one subclass makes the specialization total; permission to belong to both makes it overlapping. These constraints are independent. (§4.3)"
+    },
+    {
+      "id": "p02c04-13",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A new EMPLOYEE satisfies the defining predicate for both ENGINEER and MANAGER. What does insertion into the superclass require for these predicate-defined subclasses?",
+      "choices": [
+        "Wait until a relationship involving the employee is created.",
+        "Insert it into both subclasses whose predicates it satisfies.",
+        "Insert it into exactly one subclass chosen by the database user.",
+        "Insert it into the subclass with the fewest existing members."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "An inserted superclass entity is automatically inserted into every predicate-defined subclass for which it satisfies the defining predicate. (§4.3)"
+    },
+    {
+      "id": "p02c04-14",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Which insertion or deletion rules follow from specialization constraints? Select all that apply.",
+      "choices": [
+        "Inserting into a superclass automatically assigns every entity to every user-defined subclass.",
+        "A partial specialization prohibits superclass entities from having any subclass membership.",
+        "Deleting an entity from a superclass also deletes it from all subclasses to which it belongs.",
+        "Inserting into a total specialization requires membership in at least one subclass."
+      ],
+      "answer": [
+        2,
+        3
+      ],
+      "explanation": "Superclass deletion propagates to its subclass memberships, and a total specialization requires each inserted superclass entity to enter at least one subclass. User-defined membership is assigned individually, and partial specialization permits subclass members. (§4.3)"
+    },
+    {
+      "id": "p02c04-15",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What distinguishes a specialization hierarchy from a specialization lattice?",
+      "choices": [
+        "A hierarchy contains only one specialization; a lattice contains only categories.",
+        "Hierarchy: one parent per subclass; lattice: multiple parents allowed, so subclasses can share parent classes.",
+        "A hierarchy permits overlapping subclasses; a lattice requires disjoint subclasses by definition.",
+        "A hierarchy is built top-down; a lattice must be built bottom-up."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Each subclass in a hierarchy has only one parent, producing a tree. A lattice permits a subclass to participate in multiple superclass/subclass relationships. (§4.3)"
+    },
+    {
+      "id": "p02c04-16",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In a UNIVERSITY lattice, STUDENT_ASSISTANT inherits from both EMPLOYEE and STUDENT, which both inherit from PERSON. How should PERSON's attributes appear in STUDENT_ASSISTANT?",
+      "choices": [
+        "Only if STUDENT_ASSISTANT is converted to a category.",
+        "Twice, once for each inheritance path.",
+        "Once; properties from a shared ancestor appear once.",
+        "Not at all, because shared subclasses cannot inherit from an ancestor class."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Multiple inheritance carries properties from both direct superclasses, but a property originating in the same ancestor and arriving along multiple paths is included only once. (§4.3)"
+    },
+    {
+      "id": "p02c04-17",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Which design sequence is top-down specialization rather than bottom-up generalization?",
+      "choices": [
+        "Start with entity instances, then remove every shared attribute from their classes.",
+        "Start with a category and split it into unrelated superclass entity types.",
+        "Discover STAFF and FACULTY first, then combine their common properties into EMPLOYEE.",
+        "PERSON, then its more specific EMPLOYEE, ALUMNUS, and STUDENT subclasses."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Specialization is top-down conceptual refinement: designers begin with a broad class and define more specific groupings. Generalization instead synthesizes a broader class from existing types. (§4.3)"
+    },
+    {
+      "id": "p02c04-18",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What set relationship defines a category (union type) in the EER model?",
+      "choices": [
+        "A category is a subset of the union of its defining superclasses.",
+        "It is a superclass whose subclasses must be disjoint.",
+        "It is a subset of the intersection of two or more superclass entity sets.",
+        "It is equal to the union of all entity sets in the database."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A category is a class whose members come from the union of two or more defining superclasses, and the category is a subset of that union. (§4.4)"
+    },
+    {
+      "id": "p02c04-19",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "OWNER is a category over COMPANY, BANK, and PERSON. How does its membership differ from ENGINEERING_MANAGER as a shared subclass of multiple superclasses?",
+      "choices": [
+        "An OWNER contains every COMPANY, BANK, and PERSON, while a shared subclass contains none of them.",
+        "An OWNER must be in all three source classes, while ENGINEERING_MANAGER may be in any one.",
+        "OWNER comes from one source class; a shared-subclass member belongs to all its superclasses at all parent levels.",
+        "An OWNER can have no superclass, while a shared subclass must have exactly one."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A category is a subset of a union, so an OWNER may be a company, bank, or person. A shared subclass is a subset of the intersection of its superclasses and must satisfy all of them. (§4.4)"
+    },
+    {
+      "id": "p02c04-20",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "OWNER is a partial category over COMPANY, BANK, and PERSON. Which statement correctly describes a PERSON entity included in OWNER?",
+      "choices": [
+        "OWNER is a subset of the intersection, and this member inherits only OWNER attributes.",
+        "OWNER may include any entity type, and this member inherits no superclass attributes.",
+        "OWNER must include every entity in all three source classes, and the member inherits from all three.",
+        "OWNER may include some of the union; a PERSON member inherits PERSON attributes."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A partial category may contain a subset of the union of its defining superclasses. A member inherits from the source superclass it belongs to, here PERSON. (§4.4)"
+    },
+    {
+      "id": "p02c04-21",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A designer is choosing between a category and specialization/generalization to represent two classes. Which condition favors specialization/generalization, according to the book?",
+      "choices": [
+        "The classes have no common attributes or relationships.",
+        "The classes share entity meaning, attributes, and key.",
+        "The classes describe different kinds of entities and have different keys.",
+        "Only some members of each class need to be included in a union."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "When the classes represent the same entity type and share numerous attributes, including keys, specialization/generalization is preferred. Categories suit unions of distinct entity types. (§4.4)"
+    },
+    {
+      "id": "p02c04-22",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In the sample UNIVERSITY schema, how is GRAD_STUDENT defined as a subclass of STUDENT?",
+      "choices": [
+        "Class = 5 OR Class = 6",
+        "Every STUDENT who has a faculty advisor",
+        "Every STUDENT who is registered in the current quarter",
+        "Class = 1 OR Class = 2"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "GRAD_STUDENT is predicate-defined by Class equal to 5 or 6, the codes used for MS and PhD students in this example. (§4.5)"
+    },
+    {
+      "id": "p02c04-23",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Which condition defines CURRENT_SECTION in the sample UNIVERSITY schema?",
+      "choices": [
+        "The section is taught by a faculty member who is a researcher.",
+        "The section number is the same as the course number.",
+        "Qtr equals Current_qtr and Year equals Current_year for the active term.",
+        "The section has at least one student registered."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "CURRENT_SECTION is selected by a predicate requiring both the current quarter and current year. (§4.5)"
+    },
+    {
+      "id": "p02c04-24",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Which entities belong to the INSTRUCTOR_RESEARCHER category in the sample UNIVERSITY schema?",
+      "choices": [
+        "All GRAD_STUDENT entities, whether or not they receive teaching or research support.",
+        "All FACULTY, plus GRAD_STUDENT entities supported through teaching or research.",
+        "Only FACULTY who are principal investigators on grants.",
+        "All STUDENT entities and all DEPARTMENT entities."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "INSTRUCTOR_RESEARCHER is a category over FACULTY and GRAD_STUDENT: it includes all faculty and supported graduate students. (§4.5)"
+    },
+    {
+      "id": "p02c04-25",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which attributes does the sample UNIVERSITY schema record on each SUPPORT relationship instance between a grant and a researcher? Select all that apply.",
+      "choices": [
+        "Percentage of time spent on the project",
+        "Researcher's own birth date, not SUPPORT data",
+        "Start date when the researcher began support",
+        "End date of support, if known for that grant"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "Each SUPPORT instance stores Start, End when known, and Time (the researcher's percentage of time on the project). Birth date belongs to PERSON, not SUPPORT. (§4.5)"
+    },
+    {
+      "id": "p02c04-26",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A proposed subclass has only a few local attributes and no local relationships. Which design choice does the book suggest considering?",
+      "choices": [
+        "Replace the superclass with a relationship type.",
+        "Merge it into the superclass, using NULLs for absent local attributes.",
+        "Convert it to a category with the superclass as its only defining type.",
+        "Keep it separate because every subclass must have a local relationship."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The design guidelines allow merging a small subclass with few local attributes and no specific relationships into the superclass, using NULLs and a type attribute as appropriate. (§4.5)"
+    },
+    {
+      "id": "p02c04-27",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "For a specialization Z = {S1, …, Sn} of superclass G, which condition defines Z as total?",
+      "choices": [
+        "Each subclass has a different key from G.",
+        "At least one subclass is also a superclass.",
+        "Every pair of subclasses has an empty intersection.",
+        "The union of the subclasses equals G."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A specialization is total when its subclasses collectively include every entity in the superclass: their union equals G. (§4.5)"
+    },
+    {
+      "id": "p02c04-28",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "In the formal EER definitions, what set condition expresses that S is a subclass of C?",
+      "choices": [
+        "S ⊆ C (every S member is a C member)",
+        "S ∩ C = ∅ (no shared members)",
+        "C ⊆ S (reverse inclusion)",
+        "S = C (the sets are equal)"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A subclass's entities must always form a subset of its superclass's entities, expressed as S ⊆ C. (§4.5)"
+    },
+    {
+      "id": "p02c04-29",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "In the UML notation described in the chapter, what do blank and filled specialization/generalization triangles indicate?",
+      "choices": [
+        "Blank means abstract; filled means concrete.",
+        "Blank: disjoint; filled: overlapping.",
+        "Blank means overlapping subclasses; filled means disjoint subclasses.",
+        "Blank means total; filled means partial."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The chapter uses a blank triangle for disjoint specialization/generalization and a filled triangle for overlapping. (§4.6)"
+    },
+    {
+      "id": "p02c04-30",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What does UML call the root superclass and the terminal subclasses in a specialization/generalization diagram?",
+      "choices": [
+        "The root is the discriminator; terminal subclasses are instances.",
+        "The root is the leaf class; terminal subclasses are base classes.",
+        "The root is the base class; terminal subclasses are leaf classes.",
+        "The root is the abstract class; terminal subclasses are template classes."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The root superclass is called the base class, and subclasses with no further subclasses are leaf classes. (§4.6)"
+    },
+    {
+      "id": "p02c04-31",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A database design must specify classes whose objects are persistently stored. Which UML class kind is the chapter primarily concerned with for this purpose?",
+      "choices": [
+        "Association classes, which contain only relationship names.",
+        "Abstract classes, which cannot have objects belonging to them.",
+        "Template classes, which are patterns for defining other classes.",
+        "Concrete classes, which can have instantiated objects."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Concrete classes may have objects instantiated to belong to them; database design is mainly concerned with concrete classes whose objects are persistently stored. (§4.6)"
+    },
+    {
+      "id": "p02c04-32",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "How does the chapter characterize an ontology in its discussion of knowledge representation?",
+      "choices": [
+        "A formal specification of a conceptualization used to model a domain.",
+        "A table that stores keys for every entity type.",
+        "A procedure for converting categories into relationships.",
+        "A diagram containing only superclass names."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The text gives the commonly used characterization of an ontology as a specification of a conceptualization. (§4.7)"
+    },
+    {
+      "id": "p02c04-33",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Which capabilities does the chapter identify as characteristic of knowledge representation schemes compared with most current database systems? Select all that apply.",
+      "choices": [
+        "Representing entity attributes without knowledge rules.",
+        "Rules, incomplete/default, temporal, and spatial knowledge.",
+        "Inference to derive facts and answer queries.",
+        "Restricting representation to schemas and direct queries."
+      ],
+      "answer": [
+        1,
+        2
+      ],
+      "explanation": "KR schemes generally cover more kinds of knowledge and can infer facts, while most current databases focus on structured schemas and direct queries. (§4.7)"
+    },
+    {
+      "id": "p02c04-34",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "A model groups similar objects into classes, then examines particular objects belonging to a class. Which pairing matches these steps?",
+      "choices": [
+        "Both steps are generalization.",
+        "Both steps are identification.",
+        "The first is instantiation; the second is classification.",
+        "Classification, then instantiation."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Classification assigns similar objects to classes; instantiation is the inverse process of generating or examining distinct class objects. (§4.7)"
+    },
+    {
+      "id": "p02c04-35",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Which two identification tasks does the chapter distinguish? Select all that apply.",
+      "choices": [
+        "Relating database objects to their real-world counterparts.",
+        "Ensuring every object belongs to exactly one leaf subclass.",
+        "Determining whether a specialization is total or partial.",
+        "Distinguishing database objects and schema classes from one another."
+      ],
+      "answer": [
+        0,
+        3
+      ],
+      "explanation": "Identification operates at two levels: uniquely distinguishing database objects/classes and identifying database objects with the real-world entities they represent. The other options describe different modeling constraints. (§4.7)"
+    },
+    {
+      "id": "p02c04-36",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Which statement correctly relates specialization and generalization as abstraction processes?",
+      "choices": [
+        "Specialization and generalization are unrelated processes with no inverse relationship.",
+        "Specialization refines; generalization synthesizes a broader class.",
+        "Specialization creates a union category; generalization creates a shared subclass.",
+        "Specialization identifies objects; generalization identifies schema names."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Specialization is conceptual refinement into subclasses, while generalization is the inverse synthesis of a higher-level class from more specific classes. (§4.7)"
+    },
+    {
+      "id": "p02c04-37",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "A system models a CAR as an aggregate of ENGINE, CHASSIS, and TIRES. What structural difference does the chapter give between deleting this aggregate and deleting an association instance?",
+      "choices": [
+        "Both deletions must remove every related object from the database.",
+        "Neither deletion can affect the existence of any related objects.",
+        "Aggregate deletion deletes components; association deletion can preserve participants.",
+        "Deleting the CAR aggregate leaves its components intact; deleting an association deletes every participant."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Aggregate objects are composed of their components, so deleting an aggregate amounts to deleting those components. Objects joined by an association can continue to exist when the association is removed. (§4.7)"
+    },
+    {
+      "id": "p02c04-38",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "An application needs to treat a particular INTERVIEW relationship instance as an object that can itself be related to a JOB_OFFER. Which statement matches the chapter's account of EER aggregation?",
+      "choices": [
+        "Represent INTERVIEW as a new weak entity type to relate it to JOB_OFFER.",
+        "EER directly relates relationship instances.",
+        "A total specialization makes every interview instance a job offer.",
+        "Relationships may directly relate to other relationships."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The EER model as presented does not explicitly support combining objects related by a relationship instance into a higher-level object. The chapter's ER solution creates a weak entity type INTERVIEW and relates it to JOB_OFFER. (§4.7)"
+    },
+    {
+      "id": "p02c04-39",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "How does the intended scope of an ontology generally compare with that of a database schema?",
+      "choices": [
+        "A schema contains rules and exceptions, while an ontology is limited to keys and attributes.",
+        "Ontology scope is usually broader than a database schema.",
+        "An ontology stores only current database tuples, while a schema describes every concept in a community's domain.",
+        "An ontology and a schema always cover the same subject matter at the same level of detail."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The chapter describes ontologies as broader accounts of a domain of interest, while database schemas are typically limited to the miniworld portion needed for data storage and management. (§4.7)"
+    }
+  ]
 }

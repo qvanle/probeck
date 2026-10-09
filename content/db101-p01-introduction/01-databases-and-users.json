@@ -10,13 +10,13 @@
       "recall": true,
       "prompt": "Which description matches the book’s definition of a database?",
       "choices": [
+        "A collection of facts chosen without regard to their meaning",
         "A list of files that can only be read by one program",
         "A set of commands that changes stored records",
-        "A collection of related data with implicit meaning",
-        "A collection of facts chosen without regard to their meaning"
+        "A collection of related data with implicit meaning for a specific purpose"
       ],
       "answer": [
-        2
+        3
       ],
       "explanation": "A database is a collection of related data, and data consists of known facts that can be recorded and have implicit meaning (§1.1)."
     },
@@ -26,13 +26,13 @@
       "difficulty": 2,
       "prompt": "Which collection is designed as a database rather than an arbitrary pile of facts?",
       "choices": [
+        "A coherent student-record collection for registration and grading",
         "A temporary list of unrelated values copied from several public pages",
         "A folder of measurements with no defined relationships or intended users",
-        "A set of program instructions that describe how to print a report",
-        "An organization’s student records, built to support registration and grading"
+        "A set of program instructions that describe how to print a report"
       ],
       "answer": [
-        3
+        0
       ],
       "explanation": "A database represents a miniworld as a logically coherent collection and is built for a specific purpose and intended users (§1.1)."
     },
@@ -43,13 +43,13 @@
       "recall": true,
       "prompt": "In the UNIVERSITY example, what does a coding scheme do for the STUDENT class value?",
       "choices": [
-        "It uses agreed values such as 1 through 5 to represent class categories",
+        "It stores the student’s grades in a separate file",
+        "Agreed codes 1–5 represent STUDENT class categories",
         "It checks whether a student has completed course prerequisites",
-        "It assigns each student a different course number",
-        "It stores the student’s grades in a separate file"
+        "It assigns each student a different course number"
       ],
       "answer": [
-        0
+        1
       ],
       "explanation": "The example codes freshman through graduate student as values 1 through 5, respectively (§1.2)."
     },
@@ -59,14 +59,14 @@
       "difficulty": 2,
       "prompt": "For the UNIVERSITY database, which actions change stored data rather than retrieve it? Select all that apply.",
       "choices": [
+        "Change Smith’s class from freshman to sophomore",
         "List the prerequisites of the Database course",
         "Add a new section for the Database course",
-        "List the names and grades of students in a specified section",
-        "Change Smith’s class from freshman to sophomore"
+        "List names and grades of students in one section"
       ],
       "answer": [
-        1,
-        3
+        0,
+        2
       ],
       "explanation": "Adding a section and changing Smith’s class are updates. Listing grades or prerequisites retrieves information (§1.2)."
     },
@@ -77,13 +77,13 @@
       "recall": true,
       "prompt": "What is metadata in the self-describing database approach?",
       "choices": [
-        "The current student, course, and grade records themselves",
-        "The application programs that send requests to the DBMS",
         "The results returned by the most recent query",
-        "The catalog’s description of database structure and constraints"
+        "Catalog metadata: database structure and constraints",
+        "The current student, course, and grade records themselves",
+        "The application programs that send requests to the DBMS"
       ],
       "answer": [
-        3
+        1
       ],
       "explanation": "Metadata is descriptive information stored in the catalog, including the structure and constraints of the database (§1.3.1)."
     },
@@ -93,13 +93,13 @@
       "difficulty": 1,
       "prompt": "Which traits distinguish the database approach from traditional file processing? Select all that apply.",
       "choices": [
+        "Concurrent transactions are managed so updates remain controlled",
         "Each application embeds its own fixed file definitions",
         "A catalog describes the database structure and constraints",
-        "Different users can work with views of shared data",
-        "Concurrent transactions are managed so updates remain controlled"
+        "Different users can work with views of shared data"
       ],
       "answer": [
-        1,
+        0,
         2,
         3
       ],
@@ -111,13 +111,13 @@
       "difficulty": 2,
       "prompt": "A STUDENT record gains a birth-date field. Why can a DBMS access program often keep working without a code change?",
       "choices": [
+        "The DBMS converts old files into applications",
         "A view prevents the database schema from changing",
-        "The new field is stored only in the application’s query results",
-        "The DBMS stores the file structure in its catalog separately from access programs",
-        "The DBMS automatically converts every old file into a new application"
+        "The new field is stored only in application query results",
+        "The catalog stores file structure separately from access programs"
       ],
       "answer": [
-        2
+        3
       ],
       "explanation": "Because the catalog describes the data structure separately from access programs, changing the catalog’s STUDENT description can preserve program-data independence (§1.3.2)."
     },
@@ -127,13 +127,13 @@
       "difficulty": 2,
       "prompt": "A university keeps student, course, and grade data in one database. How can the transcript office and prerequisite reviewers each see a useful presentation of that data?",
       "choices": [
-        "Let each group define a view containing the data it needs",
+        "Give each group a separate copy of every database file",
+        "Give each group a view of the data it needs",
         "Move the grade records into the catalog",
-        "Require both groups to use the same query results",
-        "Give each group a separate copy of every database file"
+        "Require both groups to use the same query results"
       ],
       "answer": [
-        0
+        1
       ],
       "explanation": "A view can be a subset of stored data or include derived data, allowing each user group to work with a relevant perspective on the database (§1.3.3)."
     },
@@ -144,8 +144,8 @@
       "prompt": "Two reservation transactions try to assign the same seat. Which statement correctly describes isolation and atomicity?",
       "choices": [
         "Isolation chooses the fastest query plan; atomicity prevents users from reading the database",
-        "Isolation permits only one transaction per database; atomicity saves a copy before every query",
-        "Isolation makes each transaction appear independent; atomicity makes all its operations happen or none happen",
+        "Isolation serializes transactions; atomicity saves before each query",
+        "Isolation makes transactions appear independent; atomicity runs all operations or none",
         "Isolation makes all operations permanent; atomicity allows transactions to see one another’s partial work"
       ],
       "answer": [
@@ -159,14 +159,14 @@
       "difficulty": 1,
       "prompt": "Which responsibilities belong to a database administrator (DBA)? Select all that apply.",
       "choices": [
+        "Authorize access to the database",
         "Coordinate and monitor database use",
-        "Choose record structures by gathering prospective users’ requirements",
-        "Acquire needed hardware and software resources",
-        "Authorize access to the database"
+        "Gather user requirements for record structures",
+        "Acquire needed hardware and software resources"
       ],
       "answer": [
         0,
-        2,
+        1,
         3
       ],
       "explanation": "The DBA authorizes access, coordinates and monitors use, and acquires resources as needed. Identifying data and choosing structures are database-design responsibilities (§1.4.1–1.4.2)."
@@ -177,15 +177,15 @@
       "difficulty": 1,
       "prompt": "Which descriptions correctly match database end-user categories? Select all that apply.",
       "choices": [
-        "Casual users make occasional, varied requests; standalone users maintain personal databases with ready-made packages",
-        "Parametric users repeatedly perform standard database tasks through carefully programmed canned transactions",
-        "Sophisticated users learn DBMS facilities and build applications for complex requirements",
-        "System analysts maintain personal databases with ready-made packages; DBAs run canned transactions as their main task"
+        "System analysts maintain personal databases with ready-made tools; DBAs routinely run canned tasks.",
+        "Casual users make occasional, varied requests; standalone users maintain personal databases with ready-made packages.",
+        "Parametric users repeatedly perform standard database tasks through carefully programmed canned transactions.",
+        "Sophisticated users learn DBMS facilities and build applications for complex requirements."
       ],
       "answer": [
-        0,
         1,
-        2
+        2,
+        3
       ],
       "explanation": "Casual, parametric, sophisticated, and standalone users are the end-user categories, and standalone users maintain personal databases with packaged software. The option that gives those tasks to system analysts and DBAs confuses end users with analyst and DBA responsibilities (§1.4.1, §1.4.3–1.4.4)."
     },
@@ -193,15 +193,15 @@
       "id": "p01c01-12",
       "type": "single",
       "difficulty": 2,
-      "prompt": "One team gathers end-user needs and specifies routine transactions; another codes and maintains them. Which roles are being performed, in that order?",
+      "prompt": "One team gathers end-user needs and specifies routine transactions; another codes and maintains them. Which roles perform these tasks, respectively?",
       "choices": [
+        "DBA, then database designer",
         "Application programmer, then system analyst",
-        "System analyst, then application programmer",
-        "Database designer, then operator",
-        "DBA, then database designer"
+        "System analyst → application programmer",
+        "Database designer, then operator"
       ],
       "answer": [
-        1
+        2
       ],
       "explanation": "System analysts determine requirements and specify canned transactions; application programmers implement, test, and maintain them (§1.4.4)."
     },
@@ -211,15 +211,15 @@
       "difficulty": 1,
       "prompt": "Which jobs are workers behind the scene in a database environment? Select all that apply.",
       "choices": [
+        "DBMS system designers and implementers",
         "Tool developers who create optional database tools",
         "Operators and maintenance personnel who run the system environment",
-        "Casual users who formulate occasional interactive queries",
-        "DBMS system designers and implementers"
+        "Casual users make occasional interactive database requests"
       ],
       "answer": [
         0,
         1,
-        3
+        2
       ],
       "explanation": "DBMS implementers, tool developers, and operations or maintenance personnel are workers behind the scene. Casual users are actors on the scene (§1.5)."
     },
@@ -229,13 +229,13 @@
       "difficulty": 2,
       "prompt": "A person maintains the database server’s hardware and software environment but does not use the database contents for a daily task. Which category fits?",
       "choices": [
+        "Sophisticated end user who performs advanced database queries",
+        "System analyst",
         "Database designer",
-        "Operator and maintenance personnel",
-        "Sophisticated end user",
-        "System analyst"
+        "Operator and maintenance personnel who keep the DBMS environment available"
       ],
       "answer": [
-        1
+        3
       ],
       "explanation": "Operators and maintenance personnel are responsible for running and maintaining the hardware and software environment (§1.5)."
     },
@@ -245,13 +245,13 @@
       "difficulty": 2,
       "prompt": "A database stores a repeated student name to speed up a grade lookup. What should the DBMS do to reduce the risk of conflicting copies?",
       "choices": [
-        "Treat each copy as unrelated data and allow it to change independently",
-        "Remove the catalog entry for the original student record",
         "Control the intentional redundancy with consistency checks",
-        "Prevent users from retrieving the grade report"
+        "Prevent users from retrieving the grade report",
+        "Treat each copy as unrelated data and allow it to change independently",
+        "Remove the catalog entry for the original student record"
       ],
       "answer": [
-        2
+        0
       ],
       "explanation": "Controlled redundancy can improve query performance, but the DBMS should check that duplicated values agree with their corresponding records (§1.6.1)."
     },
@@ -261,13 +261,13 @@
       "difficulty": 2,
       "prompt": "An employee may view salary data but is not allowed to change it. How can a DBMS enforce that restriction?",
       "choices": [
-        "Use account authorization that distinguishes retrieval from update privileges",
+        "Give the employee a separate copy of the database",
+        "Separate retrieval and update privileges by account",
         "Store the salary in a view that every user can modify",
-        "Turn off integrity constraints for the employee’s account",
-        "Give the employee a separate copy of the database"
+        "Turn off integrity constraints for the employee’s account"
       ],
       "answer": [
-        0
+        1
       ],
       "explanation": "A DBMS authorization subsystem can restrict users by account and control retrieval and update operations separately (§1.6.2)."
     },
@@ -278,13 +278,13 @@
       "recall": true,
       "prompt": "When is a program object called persistent?",
       "choices": [
-        "When it is defined in a database catalog but never stored",
+        "Copied into each query plan",
+        "Catalog definition only",
         "When it can be used only while the creating program is running",
-        "When it survives program termination and can later be retrieved",
-        "When it is copied into a query plan before each update"
+        "It survives program termination"
       ],
       "answer": [
-        2
+        3
       ],
       "explanation": "A persistent object survives the end of program execution and can later be retrieved (§1.6.3)."
     },
@@ -294,15 +294,15 @@
       "difficulty": 2,
       "prompt": "Which DBMS mechanisms can help execute disk-based queries efficiently? Select all that apply.",
       "choices": [
+        "Indexes that provide search paths to records",
         "Buffers that keep some database pages in main memory",
         "A query optimizer that chooses an execution plan",
-        "A backup copy that replaces query processing",
-        "Indexes that provide search paths to records"
+        "A backup copy that replaces query processing"
       ],
       "answer": [
         0,
         1,
-        3
+        2
       ],
       "explanation": "Indexes speed searches, buffering keeps database parts in memory, and query optimization chooses an efficient execution plan. Backup supports recovery rather than query execution (§1.6.4–1.6.5)."
     },
@@ -312,14 +312,14 @@
       "difficulty": 2,
       "prompt": "Which data-entry problems can the DBMS reject automatically when the corresponding constraints are defined? Select all that apply.",
       "choices": [
-        "A grade uses a value outside its permitted data type",
         "Two course records use the same value for a unique course number",
-        "A grade is validly recorded as C even though the student earned A",
-        "A section refers to a course record that does not exist"
+        "A grade conflicts with policy despite the recorded entry",
+        "A section refers to a course record that does not exist",
+        "A grade uses a value outside its permitted data type"
       ],
       "answer": [
         0,
-        1,
+        2,
         3
       ],
       "explanation": "Defined type, uniqueness, and referential-integrity constraints can reject invalid values, duplicate keys, and broken references. A valid grade entered incorrectly may satisfy the defined constraints and go undetected (§1.6.8)."
@@ -330,13 +330,13 @@
       "difficulty": 1,
       "prompt": "Which additional capabilities or organizational effects does the section identify for the database approach? Select all that apply.",
       "choices": [
+        "A database can reduce development time for new reports and adapt as requirements evolve",
         "Once running, a database prevents later changes to application requirements",
         "Triggers can invoke additional operations in response to updates to a table",
-        "The DBA can set shared naming and formatting standards across departments and users",
-        "A database can reduce development time for new reports and adapt as requirements evolve"
+        "The DBA can set shared naming and formatting standards across departments and users"
       ],
       "answer": [
-        1,
+        0,
         2,
         3
       ],
@@ -348,13 +348,13 @@
       "difficulty": 1,
       "prompt": "Why were early hierarchical and network database systems harder to adapt to new queries?",
       "choices": [
-        "They stored every data item in a catalog instead of a database",
-        "They required all user groups to work from separate databases",
         "They relied on high-level query languages that hid all relationships",
-        "Their storage organization was closely tied to conceptual relationships and programs"
+        "Storage tied to conceptual relationships and programs required navigational access",
+        "They stored every data item in a catalog instead of a database",
+        "They required all user groups to work from separate databases"
       ],
       "answer": [
-        3
+        1
       ],
       "explanation": "Early systems tied data storage organization closely to their conceptual structures and programs, making new access patterns and reorganizations difficult (§1.7.1)."
     },
@@ -364,13 +364,13 @@
       "difficulty": 3,
       "prompt": "Why did relational systems make new queries and changing requirements easier to handle than earlier systems?",
       "choices": [
+        "They linked each query to a fixed physical record path",
         "They replaced database schemas with unstructured files",
-        "They separated physical storage from conceptual representation and offered high-level query languages",
-        "They required application programmers to rewrite the storage system for each request",
-        "They linked each query to a fixed physical record path"
+        "They separated storage from conceptual schemas and enabled high-level queries",
+        "They required application programmers to rewrite the storage system for each request"
       ],
       "answer": [
-        1
+        2
       ],
       "explanation": "Relational systems separated physical storage from conceptual representation and introduced high-level query languages, improving query flexibility and adaptation (§1.7.2)."
     },
@@ -380,13 +380,13 @@
       "difficulty": 2,
       "prompt": "A service stores posts at very large scale and needs fast retrieval of nontraditional data. Which database trend in the chapter addresses this kind of need?",
       "choices": [
+        "Traditional file systems that store only fixed-length numeric records",
         "Hierarchical systems that require a new program for each query",
         "Object databases used exclusively for small personal databases",
-        "Big-data and NOSQL systems, with storage choices suited to application requirements",
-        "Traditional file systems that store only fixed-length numeric records"
+        "Big-data and NOSQL systems for massive, nontraditional data"
       ],
       "answer": [
-        2
+        3
       ],
       "explanation": "The chapter describes big-data and NOSQL systems as emerging to manage massive data stores, including nontraditional data, with choices shaped by application requirements (§1.7.6)."
     },
@@ -396,15 +396,15 @@
       "difficulty": 1,
       "prompt": "Which costs can contribute to the overhead of using a general-purpose DBMS? Select all that apply.",
       "choices": [
-        "Initial hardware, software, and training investment",
         "Generality in defining and processing data",
         "Security, concurrency, recovery, and integrity functions",
-        "A guarantee that every application meets strict real-time deadlines"
+        "Every application meets strict real-time deadlines",
+        "Initial hardware, software, and training investment"
       ],
       "answer": [
         0,
         1,
-        2
+        3
       ],
       "explanation": "The book lists initial investment and training, DBMS generality, and overhead from security, concurrency, recovery, and integrity functions. A DBMS does not guarantee strict timing (§1.8)."
     },
@@ -414,13 +414,13 @@
       "difficulty": 2,
       "prompt": "A fixed, single-user embedded application has very limited storage and strict timing requirements. Why might a general-purpose DBMS be a poor fit?",
       "choices": [
+        "Its overhead may outweigh benefits in this setting",
+        "It requires every user to make occasional interactive queries",
         "It cannot support a customized application program",
-        "It cannot store data for an application with fixed requirements",
-        "Its generality and resource demands may outweigh its benefits under these constraints",
-        "It requires every user to make occasional interactive queries"
+        "It cannot store data for an application with fixed requirements"
       ],
       "answer": [
-        2
+        0
       ],
       "explanation": "The book identifies fixed applications, stringent real-time needs, limited embedded storage, and lack of multiple users as cases where a general-purpose DBMS’s overhead may not be worthwhile (§1.8)."
     }

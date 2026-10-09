@@ -2,5 +2,516 @@
   "id": "basic-sql",
   "title": "Basic SQL",
   "description": "Ch 6 · 6.1–6.5",
-  "questions": []
+  "questions": [
+    {
+      "id": "p03c06-01",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "In SQL's organization model, which description correctly distinguishes a schema from a catalog?",
+      "choices": [
+        "A schema is an authorization identifier; a catalog is its owner.",
+        "A schema is a named collection of catalogs; a catalog groups tables.",
+        "Schema: named database elements and their definitions; catalog: named schemas.",
+        "A schema stores one table; a catalog stores only query results."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "A schema has a name and groups elements such as tables, types, constraints, views, and domains; a catalog collects schemas. (§6.1.1)"
+    },
+    {
+      "id": "p03c06-02",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "COMPANY_A and COMPANY_B are schemas in different SQL catalogs. Under the book's rule, can a foreign key in a table in COMPANY_A reference a table in COMPANY_B?",
+      "choices": [
+        "No, because foreign keys must reference tables in the same schema.",
+        "Yes, if both tables use the same attribute names.",
+        "Yes, because a catalog is only a default schema alias.",
+        "No; foreign keys cannot cross catalogs."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "SQL permits referential integrity constraints between relations only when their schemas are within the same catalog; the schemas need not be identical. (§6.1.1)"
+    },
+    {
+      "id": "p03c06-03",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "A base table is declared with `CREATE TABLE`, listing its attributes in order. Which statement about that table is guaranteed by the book's SQL model?",
+      "choices": [
+        "Declared attribute order; no guaranteed row order.",
+        "Its attributes and rows are both unordered.",
+        "Its rows are ordered by the primary key even when no key is declared.",
+        "Its rows are stored, and their order matches insertion order."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A base relation and its rows are created and stored; SQL treats attributes as ordered by declaration but does not define an order among rows. (§6.1.2)"
+    },
+    {
+      "id": "p03c06-04",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which type-and-description groups match SQL attribute types described in the chapter? Select all that apply.",
+      "choices": [
+        "BOOLEAN has only TRUE and FALSE; NULL does not add UNKNOWN as a third logical value.",
+        "INTEGER/SMALLINT and FLOAT/REAL/DOUBLE PRECISION are numeric; DECIMAL(p, s) specifies precision and scale.",
+        "CHAR(n) is fixed length; VARCHAR(n) varies up to n; CLOB stores large text values.",
+        "BIT(n) is fixed length; BIT VARYING(n) varies up to n; BLOB stores large binary values."
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "The chapter lists numeric, fixed and varying character, and fixed and varying bit-string types, as well as CLOB and BLOB for large values. SQL's Boolean logic also includes UNKNOWN when NULL is present. (§6.1.3)"
+    },
+    {
+      "id": "p03c06-05",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "In the COMPANY schema, suppose a value `'Li'` is stored in these columns. What distinguishes the two declarations?",
+      "code": "CREATE TABLE NAME_SAMPLE (Fixed_name CHAR(5), Variable_name VARCHAR(5));",
+      "choices": [
+        "CHAR pads to length; VARCHAR stores variable length.",
+        "VARCHAR(5) pads a shorter value; CHAR(5) stores only the characters supplied.",
+        "CHAR(5) allows up to five characters; VARCHAR(5) always stores exactly five.",
+        "Both columns always store exactly two characters."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "CHAR is fixed length and shorter values are padded on the right; VARCHAR is varying length with a five-character maximum here. (§6.1.3)"
+    },
+    {
+      "id": "p03c06-06",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Which is a DATE literal in the format described for SQL, with year, month, and day?",
+      "choices": [
+        "TIMESTAMP '2014-09-27 00:00:00' /* timestamp literal */",
+        "DATE '2014-09-27' /* SQL DATE literal, year-month-day format */",
+        "TIME '09:27:00' /* time-of-day literal */",
+        "'27-09-2014' /* untyped character string, not DATE */"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The book shows a DATE literal with the DATE keyword followed by a quoted YYYY-MM-DD value. (§6.1.3)"
+    },
+    {
+      "id": "p03c06-07",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "A COMPANY schema uses department numbers in DEPARTMENT.Dnumber, EMPLOYEE.Dno, and PROJECT.Dnum. Why might the designer define a domain such as `D_NUM` and use it for those attributes?",
+      "choices": [
+        "It prevents the values from being changed by UPDATE.",
+        "It makes each attribute a foreign key automatically.",
+        "It ensures department numbers are physically stored together.",
+        "A shared named type for related attributes."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A domain lets multiple attributes share a named type, making the schema more readable and easier to change consistently; it does not itself create foreign keys. (§6.1.3)"
+    },
+    {
+      "id": "p03c06-08",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In COMPANY.EMPLOYEE, `Dno` is declared `INT NOT NULL DEFAULT 1`. An INSERT omits Dno. What value is used for that column?",
+      "code": "Dno INT NOT NULL DEFAULT 1",
+      "choices": [
+        "1, from the declared default.",
+        "The INSERT must fail because Dno is NOT NULL.",
+        "NULL, because the INSERT omitted the column.",
+        "0, because Dno is numeric."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "When an attribute is omitted from an INSERT, its declared default is used; NOT NULL prevents NULL but does not block the default. (§6.2.1)"
+    },
+    {
+      "id": "p03c06-09",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "For COMPANY.DEPARTMENT, `Dnumber` has this constraint. Which integer values satisfy it?",
+      "code": "Dnumber INT NOT NULL CHECK (Dnumber > 0 AND Dnumber < 21)",
+      "choices": [
+        "Any positive integer, including values above 20",
+        "0 through 20, inclusive",
+        "1 through 20, inclusive",
+        "1 through 21, inclusive"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The CHECK condition is strict at both ends: Dnumber must be greater than 0 and less than 21, so the permitted integers are 1 through 20. (§6.2.1)"
+    },
+    {
+      "id": "p03c06-10",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Consider these COMPANY key declarations. Which statements are correct? Select all that apply.",
+      "code": "CREATE TABLE WORKS_ON (Essn CHAR(9) NOT NULL, Pno INT NOT NULL, PRIMARY KEY (Essn, Pno));\nCREATE TABLE DEPARTMENT (Dnumber INT PRIMARY KEY, Dname VARCHAR(15) UNIQUE);",
+      "choices": [
+        "Every key constraint must have a name introduced by CONSTRAINT.",
+        "WORKS_ON allows many projects per employee but forbids duplicate Essn-Pno pairs.",
+        "Dnumber is the primary key of DEPARTMENT.",
+        "UNIQUE on Dname specifies an alternate unique key."
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "A composite primary key makes each Essn-Pno pair unique, Dnumber is the department primary key, and UNIQUE declares an alternate key; constraint names are optional. (§6.2.2–§6.2.3)"
+    },
+    {
+      "id": "p03c06-11",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which actions does the chapter list as alternatives that can be specified with `ON DELETE` or `ON UPDATE` for a COMPANY foreign key? Select all that apply.",
+      "choices": [
+        "ON DELETE CASCADE",
+        "ON DELETE SET DEFAULT",
+        "ON DELETE ROLLBACK",
+        "ON DELETE SET NULL"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "The designer can specify SET NULL, CASCADE, or SET DEFAULT as alternatives; the default behavior is to reject the violating operation, known as RESTRICT. ROLLBACK is not a referential triggered action. (§6.2.2)"
+    },
+    {
+      "id": "p03c06-12",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In COMPANY.EMPLOYEE, `Ssn` is the referenced key and `Super_ssn` is its nullable foreign key. Which statement correctly describes both actions in this constraint?",
+      "code": "FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn)\nON DELETE SET NULL ON UPDATE CASCADE",
+      "choices": [
+        "FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE SET DEFAULT ON UPDATE CASCADE",
+        "FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE CASCADE ON UPDATE NO ACTION",
+        "CONSTRAINT Supervisor_fk FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE SET NULL ON UPDATE CASCADE",
+        "FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE CASCADE ON UPDATE SET NULL"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "ON DELETE SET NULL clears referencing Super_ssn values; ON UPDATE CASCADE copies a changed referenced Ssn into those foreign keys. (§6.2.2)"
+    },
+    {
+      "id": "p03c06-13",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "For the chapter's simple SQL retrieval query form, which clauses are mandatory? Select all that apply.",
+      "choices": [
+        "SELECT",
+        "FROM",
+        "WHERE",
+        "ORDER BY"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "explanation": "SELECT and FROM are required in a simple retrieval query; WHERE and ORDER BY are optional. (§6.3.7)"
+    },
+    {
+      "id": "p03c06-14",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In COMPANY, EMPLOYEE has `Fname`, `Lname`, `Address`, and `Dno`; DEPARTMENT has `Dname` and `Dnumber`. What does this query retrieve?",
+      "code": "SELECT E.Fname, E.Lname, E.Address\nFROM EMPLOYEE AS E, DEPARTMENT AS D\nWHERE D.Dname = 'Research' AND D.Dnumber = E.Dno;",
+      "choices": [
+        "Names of Research employees whose department number differs from Dno.",
+        "Names and addresses of employees assigned to the department named Research.",
+        "Names and addresses of every employee, paired with every department named Research.",
+        "Names and addresses of employees whose last name is Research."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The WHERE predicate selects the Research department and joins its Dnumber to each employee’s Dno; the SELECT list projects each matching employee’s name and address. (§6.3.1)"
+    },
+    {
+      "id": "p03c06-15",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In COMPANY.EMPLOYEE, some `Salary` values are NULL. What happens to a row with NULL Salary in this query?",
+      "code": "SELECT Ssn\nFROM EMPLOYEE\nWHERE Salary > 30000;",
+      "choices": [
+        "It is returned only if Ssn is also NULL.",
+        "It is returned because NULL is treated as greater than every number.",
+        "It is returned because a missing value makes the condition true.",
+        "UNKNOWN fails WHERE: only TRUE rows remain."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A comparison with NULL does not evaluate to TRUE; the row fails the WHERE selection condition, which retains only tuples whose condition is TRUE. (§6.1.3, §6.3.1)"
+    },
+    {
+      "id": "p03c06-16",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Suppose EMPLOYEE and DEPARTMENT both have an attribute named `Name`. In a query using both tables, which reference unambiguously means the DEPARTMENT attribute?",
+      "choices": [
+        "DEPARTMENT.Name",
+        "Name.DEPARTMENT (the relation qualifier is in the wrong position)",
+        "Name",
+        "EMPLOYEE.Name"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "When an attribute name is shared by tables in a multitable query, qualify it with its relation name and a period. (§6.3.2)"
+    },
+    {
+      "id": "p03c06-17",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In COMPANY.EMPLOYEE, `Super_ssn` refers to another employee's `Ssn`. Why does this query give EMPLOYEE two aliases?",
+      "code": "SELECT E.Fname, E.Lname, S.Fname, S.Lname\nFROM EMPLOYEE AS E, EMPLOYEE AS S\nWHERE E.Super_ssn = S.Ssn;",
+      "choices": [
+        "To sort E rows before the S rows are joined.",
+        "To ensure duplicate employees are removed from the result.",
+        "To name EMPLOYEE’s subordinate and supervisor roles in the self-join.",
+        "To make the first EMPLOYEE a base table and the second a view."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The aliases name two references to the same EMPLOYEE relation, so the query can match each subordinate row E with a supervisor row S. (§6.3.2)"
+    },
+    {
+      "id": "p03c06-18",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "In COMPANY.EMPLOYEE, `Dno` is a department number. What does `*` request in this query?",
+      "code": "SELECT *\nFROM EMPLOYEE\nWHERE Dno = 5;",
+      "choices": [
+        "All EMPLOYEE rows, regardless of Dno.",
+        "Only the employee's primary-key attribute.",
+        "Every column of matching EMPLOYEE rows.",
+        "All attributes from every COMPANY table."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "An asterisk in SELECT stands for all attributes of the relation named in FROM; the WHERE condition still limits the qualifying rows. (§6.3.3)"
+    },
+    {
+      "id": "p03c06-19",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In COMPANY, EMPLOYEE has `Ssn` and DEPARTMENT has `Dname`. What does this query return?",
+      "code": "SELECT E.Ssn, D.Dname\nFROM EMPLOYEE AS E, DEPARTMENT AS D;",
+      "choices": [
+        "One row for each employee, with that employee's department name.",
+        "Only employees with no department assignment.",
+        "Only employee-department pairs where the employee works for that department.",
+        "All possible pairs of an employee Ssn and a department name."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "With multiple relations in FROM and no WHERE clause, every tuple combination is selected, forming the cross product; no join condition connects Dno to Dnumber here. (§6.3.3)"
+    },
+    {
+      "id": "p03c06-20",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In COMPANY.EMPLOYEE, several employees may have the same `Salary`. Which statement describes these two queries?",
+      "code": "SELECT Salary FROM EMPLOYEE;\nSELECT DISTINCT Salary FROM EMPLOYEE;",
+      "choices": [
+        "Without DISTINCT, duplicates remain; with it, each value appears once.",
+        "The first returns one salary per department; the second returns one per employee.",
+        "The first removes duplicate salary values; the second preserves every employee row.",
+        "Both return one copy of each salary because query results are always sets."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A query without DISTINCT is equivalent to SELECT ALL and does not eliminate duplicates; DISTINCT removes duplicate result tuples. (§6.3.4)"
+    },
+    {
+      "id": "p03c06-21",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Which statements about SQL's set operations are correct? Select all that apply.",
+      "choices": [
+        "Ordinary UNION preserves all duplicate occurrences from both inputs.",
+        "Ordinary UNION, EXCEPT, and INTERSECT eliminate duplicate tuples from their results.",
+        "UNION ALL uses multiset behavior and can retain duplicate tuples.",
+        "EXCEPT ALL and INTERSECT ALL treat duplicate occurrences as separate tuples."
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "The ordinary set operations return sets with duplicates removed; the ALL forms operate on multisets, treating duplicate occurrences separately. (§6.3.4)"
+    },
+    {
+      "id": "p03c06-22",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In COMPANY.EMPLOYEE, `Address` is a character string. What pattern does the WHERE condition match?",
+      "code": "Address LIKE '%Houston,TX%'",
+      "choices": [
+        "Substring Houston,TX anywhere in Address; percent signs match any string.",
+        "Addresses whose entire value is exactly Houston,TX.",
+        "Addresses with any one character in place of each percent sign.",
+        "Addresses start with Houston,TX and have one more character."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "In LIKE patterns, percent matches a sequence of zero or more characters, while underscore matches one character. (§6.3.5)"
+    },
+    {
+      "id": "p03c06-23",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In COMPANY.EMPLOYEE, `Salary` is numeric. Which salary values satisfy this condition?",
+      "code": "Salary BETWEEN 30000 AND 40000",
+      "choices": [
+        "Values greater than 30000 and less than 40000 only.",
+        "Values at least 30000 and at most 40000.",
+        "Values at most 30000 or at least 40000.",
+        "Values greater than 30000 with no upper bound."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "BETWEEN is inclusive at both endpoints and is equivalent here to Salary >= 30000 AND Salary <= 40000. (§6.3.5)"
+    },
+    {
+      "id": "p03c06-24",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In COMPANY, `DEPARTMENT D` has `Dname` and `EMPLOYEE E` has `Lname` and `Fname`. What is the resulting sort order?",
+      "code": "ORDER BY D.Dname DESC, E.Lname, E.Fname",
+      "choices": [
+        "Rows remain unordered because ORDER BY does not accept multiple attributes.",
+        "Dname descending, then Lname ascending, then Fname ascending.",
+        "Dname ascending, then Lname descending, then Fname descending.",
+        "All three attributes descending unless ASC is written."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "DESC applies to Dname; ascending is the default for later keys, so Lname and Fname sort ascending within Dname ties. (§6.3.6)"
+    },
+    {
+      "id": "p03c06-25",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In COMPANY.EMPLOYEE, `Fname`, `Lname`, `Ssn`, and `Dno` are required; `Salary` allows NULL and has no default. What happens to Salary in this insert?",
+      "code": "INSERT INTO EMPLOYEE (Fname, Lname, Ssn, Dno)\nVALUES ('Rita', 'Ng', '123123123', 4);",
+      "choices": [
+        "Salary is copied from the employee with the closest Ssn.",
+        "The insert fails because every EMPLOYEE column must be named.",
+        "Salary gets NULL.",
+        "Salary is set to zero because its type is numeric."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "When an explicit INSERT column list omits an attribute, its default is used; without one, the default is NULL unless the attribute is NOT NULL. (§6.4.1)"
+    },
+    {
+      "id": "p03c06-26",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In COMPANY, EMPLOYEE has `Lname` and `Ssn`, PROJECT has `Pname` and `Pnumber`, and WORKS_ON has `Essn`, `Pno`, and `Hours`. A `WORKS_ON_INFO` table with the target columns shown is loaded by this statement. What is true if a source table changes afterward?",
+      "code": "INSERT INTO WORKS_ON_INFO (Emp_name, Proj_name, Hours_per_week)\nSELECT E.Lname, P.Pname, W.Hours\nFROM EMPLOYEE AS E, PROJECT AS P, WORKS_ON AS W\nWHERE E.Ssn = W.Essn AND W.Pno = P.Pnumber;",
+      "choices": [
+        "The source tables are emptied after their rows are copied.",
+        "The statement creates a view that always reads current source rows.",
+        "Inserted rows automatically track later changes to source tables.",
+        "The table contains the query result inserted at that time and may become outdated."
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "INSERT…SELECT loads rows from the query result; later changes to its source relations do not keep this stored table current, unlike a view. (§6.4.1)"
+    },
+    {
+      "id": "p03c06-27",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Assuming referential constraints permit the operation and no cascading action applies, what does this command do to COMPANY.EMPLOYEE?",
+      "code": "DELETE FROM EMPLOYEE;",
+      "choices": [
+        "DELETE clears rows but keeps the table.",
+        "Removes the EMPLOYEE table and its definition.",
+        "Removes one arbitrary EMPLOYEE row.",
+        "Does nothing because DELETE requires a WHERE clause."
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A DELETE without WHERE removes all tuples from the relation, while the table remains; DROP TABLE removes the table definition. (§6.4.2)"
+    },
+    {
+      "id": "p03c06-28",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "In COMPANY.EMPLOYEE, which value is used on the right side of this assignment for each selected row?",
+      "code": "UPDATE EMPLOYEE\nSET Salary = Salary * 1.1\nWHERE Dno = 5;",
+      "choices": [
+        "The value of Salary after multiplication has already been applied.",
+        "The Salary value from the row before that row is modified.",
+        "The Salary value from the previously updated employee row.",
+        "The average Salary across all employees in department 5."
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In the SET expression, the old Salary on the right is read before modification and the result becomes the new Salary on the left for each selected row. (§6.4.3)"
+    },
+    {
+      "id": "p03c06-29",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which feature groups does §6.5 identify as SQL topics developed elsewhere in the book? Select all that apply.",
+      "choices": [
+        "Transactions, privileges, object-relational features, XML, and OLAP.",
+        "Every simple query requires SELECT and FROM; other clauses are never used.",
+        "Nested queries, aggregates, grouping, joins, views, triggers, assertions, and schema changes.",
+        "Embedded/dynamic SQL, SQL/CLI, SQL/PSM, JDBC, and SQLJ."
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "Section 6.5 points to later chapters for complex queries and schema features, programming interfaces, transactions and authorization, triggers, object-relational capabilities, XML, and OLAP. (§6.5)"
+    },
+    {
+      "id": "p03c06-30",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "According to §6.5, which statement about physical database design and indexes is accurate?",
+      "choices": [
+        "The SQL standards prohibit all implementations from supporting index commands.",
+        "SQL requires every index to be declared inside CREATE TABLE as a conceptual constraint.",
+        "Some systems support CREATE INDEX as a privileged physical-design command.",
+        "Indexes are part of the SELECT clause and cannot be created separately."
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Physical storage, file structures, and access paths such as indexes are vendor-specific physical-design concerns; some systems still provide CREATE INDEX under special privilege. (§6.5)"
+    }
+  ]
 }
