@@ -340,7 +340,7 @@
         2,
         3
       ],
-      "explanation": "The section describes triggers, organization-wide standards, reduced time for new application development, and flexibility as requirements change. The last choice contradicts that flexibility (§1.6.9–1.6.10)."
+      "explanation": "The section describes triggers, organization-wide standards, reduced time for new application development, and flexibility as requirements change. The claim that a running database prevents later requirement changes contradicts that flexibility (§1.6.9–1.6.10)."
     },
     {
       "id": "p01c01-21",
