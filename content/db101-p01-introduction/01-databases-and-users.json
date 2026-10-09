@@ -8,7 +8,7 @@
       "type": "single",
       "difficulty": 1,
       "recall": true,
-      "prompt": "Which description matches the book’s definition of a database?",
+      "prompt": "Which description defines a database?",
       "choices": [
         "A collection of facts chosen without regard to their meaning",
         "A list of files that can only be read by one program",
@@ -41,7 +41,7 @@
       "type": "single",
       "difficulty": 1,
       "recall": true,
-      "prompt": "In the UNIVERSITY example, what does a coding scheme do for the STUDENT class value?",
+      "prompt": "A STUDENT table stores codes 1–5 in `Class`, with each code assigned to a class category. What purpose does this coding scheme serve?",
       "choices": [
         "It stores the student’s grades in a separate file",
         "Agreed codes 1–5 represent STUDENT class categories",
@@ -51,24 +51,24 @@
       "answer": [
         1
       ],
-      "explanation": "The example codes freshman through graduate student as values 1 through 5, respectively (§1.2)."
+      "explanation": "A coding scheme assigns agreed values to categories so stored class values can be interpreted consistently (§1.2)."
     },
     {
       "id": "p01c01-04",
       "type": "multi",
       "difficulty": 2,
-      "prompt": "For the UNIVERSITY database, which actions change stored data rather than retrieve it? Select all that apply.",
+      "prompt": "A university database stores student records and course prerequisites. Which operations modify stored data instead of only returning information? Select all that apply.",
       "choices": [
         "Change Smith’s class from freshman to sophomore",
         "List the prerequisites of the Database course",
-        "Add a new section for the Database course",
-        "List names and grades of students in one section"
+        "Add a new course offering for the Database course",
+        "List names and grades of students in one course offering"
       ],
       "answer": [
         0,
         2
       ],
-      "explanation": "Adding a section and changing Smith’s class are updates. Listing grades or prerequisites retrieves information (§1.2)."
+      "explanation": "Adding a course offering or changing Smith’s class updates stored data. Listing grades or prerequisites retrieves information (§1.2)."
     },
     {
       "id": "p01c01-05",
@@ -195,10 +195,10 @@
       "difficulty": 2,
       "prompt": "One team gathers end-user needs and specifies routine transactions; another codes and maintains them. Which roles perform these tasks, respectively?",
       "choices": [
-        "DBA, then database designer",
-        "Application programmer, then system analyst",
-        "System analyst → application programmer",
-        "Database designer, then operator"
+        "DBA, followed by database designer.",
+        "Application programmer, followed by system analyst.",
+        "System analyst, followed by application programmer.",
+        "Database designer, followed by operator."
       ],
       "answer": [
         2
@@ -314,7 +314,7 @@
       "choices": [
         "Two course records use the same value for a unique course number",
         "A grade conflicts with policy despite the recorded entry",
-        "A section refers to a course record that does not exist",
+        "A course offering refers to a course record that does not exist",
         "A grade uses a value outside its permitted data type"
       ],
       "answer": [
@@ -328,7 +328,7 @@
       "id": "p01c01-20",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "Which additional capabilities or organizational effects does the section identify for the database approach? Select all that apply.",
+      "prompt": "Which capabilities and organizational effects can a DBMS provide? Select all that apply.",
       "choices": [
         "A database can reduce development time for new reports and adapt as requirements evolve",
         "Once running, a database prevents later changes to application requirements",
@@ -340,7 +340,7 @@
         2,
         3
       ],
-      "explanation": "The section describes triggers, organization-wide standards, reduced time for new application development, and flexibility as requirements change. The claim that a running database prevents later requirement changes contradicts that flexibility (§1.6.9–1.6.10)."
+      "explanation": "A DBMS can support triggers, organization-wide standards, faster development of new applications, and flexibility as requirements change (§1.6.9–1.6.10)."
     },
     {
       "id": "p01c01-21",
@@ -378,7 +378,7 @@
       "id": "p01c01-23",
       "type": "single",
       "difficulty": 2,
-      "prompt": "A service stores posts at very large scale and needs fast retrieval of nontraditional data. Which database trend in the chapter addresses this kind of need?",
+      "prompt": "A service stores posts at very large scale and needs fast retrieval of nontraditional data. Which kind of database system is designed for this need?",
       "choices": [
         "Traditional file systems that store only fixed-length numeric records",
         "Hierarchical systems that require a new program for each query",
@@ -388,7 +388,7 @@
       "answer": [
         3
       ],
-      "explanation": "The chapter describes big-data and NOSQL systems as emerging to manage massive data stores, including nontraditional data, with choices shaped by application requirements (§1.7.6)."
+      "explanation": "Big-data and NOSQL systems support massive stores, including nontraditional data; the appropriate system depends on application needs (§1.7.6)."
     },
     {
       "id": "p01c01-24",
@@ -406,7 +406,7 @@
         1,
         3
       ],
-      "explanation": "The book lists initial investment and training, DBMS generality, and overhead from security, concurrency, recovery, and integrity functions. A DBMS does not guarantee strict timing (§1.8)."
+      "explanation": "Potential DBMS overhead includes initial investment and training, generality, and the costs of security, concurrency, recovery, and integrity functions. A DBMS does not guarantee strict timing (§1.8)."
     },
     {
       "id": "p01c01-25",
@@ -422,7 +422,7 @@
       "answer": [
         0
       ],
-      "explanation": "The book identifies fixed applications, stringent real-time needs, limited embedded storage, and lack of multiple users as cases where a general-purpose DBMS’s overhead may not be worthwhile (§1.8)."
+      "explanation": "A general-purpose DBMS may add more overhead than benefit for a fixed single-user application with strict timing and limited storage (§1.8)."
     }
   ]
 }

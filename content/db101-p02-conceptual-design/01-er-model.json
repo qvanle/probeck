@@ -57,7 +57,7 @@
       "id": "p02c03-04",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Which subjects does the sample COMPANY database primarily track?",
+      "prompt": "A company database is designed to track employees, departments, projects, and employee dependents for insurance. Which groups belong in its subject area?",
       "choices": [
         "Employees, departments, projects, and dependents",
         "Customers, accounts, deposits, and withdrawals",
@@ -73,7 +73,7 @@
       "id": "p02c03-05",
       "type": "single",
       "difficulty": 2,
-      "prompt": "An EMPLOYEE works on a PROJECT controlled by a department other than the employee’s own department. Is this allowed by the COMPANY requirements?",
+      "prompt": "A company policy permits employees to work on projects controlled by departments other than their own. An employee is assigned to such a project. Is the assignment allowed?",
       "choices": [
         "Yes, but only when the employee also manages the controlling department.",
         "No; an employee may work only on projects controlled by the employee’s department.",
@@ -89,7 +89,7 @@
       "id": "p02c03-06",
       "type": "single",
       "difficulty": 2,
-      "prompt": "For insurance purposes, which set of details does COMPANY store for each DEPENDENT?",
+      "prompt": "An employer needs each DEPENDENT record for insurance to store the dependent’s first name, sex, birth date, and relationship to the employee. Which set of details matches that requirement?",
       "choices": [
         "First name, office, phone, rank, and courses taught",
         "First name, sex, birth date, and relationship to the employee",
@@ -150,7 +150,7 @@
         2,
         3
       ],
-      "explanation": "The book uses Address as a composite example, college degrees as potentially multivalued, and age as derived from stored birth date. The statement that birth date is derived and age stored reverses those roles. (§3.3)"
+      "explanation": "An address can be composite, college degrees can be multivalued, and age can be derived from a stored birth date. Birth date is stored rather than derived from age (§3.3)."
     },
     {
       "id": "p02c03-10",
@@ -188,7 +188,7 @@
       "id": "p02c03-12",
       "type": "multi",
       "difficulty": 2,
-      "prompt": "Which situations can a NULL value represent in the ER model described in the book? Select all that apply.",
+      "prompt": "In an ER schema, which situations can a NULL attribute value represent? Select all that apply.",
       "choices": [
         "Height is known but its value is missing.",
         "Whether a person has a home phone is unknown.",
@@ -206,7 +206,7 @@
       "id": "p02c03-13",
       "type": "single",
       "difficulty": 2,
-      "prompt": "In the COMPANY design, which value can be derived from relationships rather than stored independently for each department?",
+      "prompt": "A relational design records `CONTROLS(Department, Project)`, `WORKS_FOR(Employee, Department)`, and `MANAGES(Department, Employee, Start_date)`. Which department value can be calculated by counting related tuples rather than stored as an attribute?",
       "choices": [
         "The location of each project it controls",
         "The department’s unique number",
@@ -216,7 +216,7 @@
       "answer": [
         2
       ],
-      "explanation": "Number_of_employees can be derived by counting employees related to the department through the employment relationship. (§3.3)"
+      "explanation": "The number of employees in a department can be calculated by counting its WORKS_FOR tuples. Department number is a stored identifier; project locations and manager start dates are not counts derived from related tuples (§3.3)."
     },
     {
       "id": "p02c03-14",
@@ -232,13 +232,13 @@
       "answer": [
         1
       ],
-      "explanation": "A composite key is minimal when every component is needed for uniqueness; in the example, State and Number together form Registration, but neither alone is a key. (§3.3)"
+      "explanation": "A composite key is minimal when every component is necessary for uniqueness; neither State nor Registration Number alone identifies a CAR (§3.3)."
     },
     {
       "id": "p02c03-15",
       "type": "single",
       "difficulty": 3,
-      "prompt": "Before explicit relationship types are introduced, the preliminary COMPANY design must represent the projects each employee works on and the hours for each project. Which representation matches the book’s initial design?",
+      "prompt": "A preliminary ER design has not yet introduced relationship types. EMPLOYEE entities may work on many PROJECT entities, and `Hours` is specific to each employee-project pair. Which representation can store each project together with its hours on EMPLOYEE?",
       "choices": [
         "A derived Project_count attribute of DEPARTMENT",
         "A key attribute Hours on PROJECT",
@@ -443,13 +443,13 @@
       "answer": [
         3
       ],
-      "explanation": "The book’s DRIVER_LICENSE example has existence dependency but its own License_number key, so it is not weak. (§3.5)"
+      "explanation": "An entity can depend on another for existence and still be strong if it has its own key. A DRIVER_LICENSE with a unique License_number is therefore not weak (§3.5)."
     },
     {
       "id": "p02c03-28",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "After COMPANY references are refined into explicit relationship types, which DEPARTMENT attributes are removed because MANAGES represents them? Select all that apply.",
+      "prompt": "`DEPARTMENT(Number, Locations, Manager, Manager_start_date)` stores a manager identifier and the date that person began managing it. If `MANAGES(Department, Employee, Start_date)` represents the manager link and its start date, which DEPARTMENT attributes can be removed? Select all that apply.",
       "choices": [
         "Manager_start_date (recorded for MANAGES)",
         "Number, a DEPARTMENT identifier",
@@ -460,7 +460,7 @@
         0,
         3
       ],
-      "explanation": "Manager becomes the MANAGES relationship, and Manager_start_date becomes an attribute of MANAGES. Number and Locations remain DEPARTMENT attributes. (§3.6)"
+      "explanation": "MANAGES represents both the manager link and its start date, so the matching stored DEPARTMENT attributes are redundant. Number identifies the department, and Locations remains a department property (§3.7)."
     },
     {
       "id": "p02c03-29",
@@ -498,12 +498,12 @@
       "id": "p02c03-31",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Which notation identifies a weak entity type and its partial key in the ER diagrams described in the book?",
+      "prompt": "Which ER notation convention marks a weak entity type, its identifying relationship, and its partial key?",
       "choices": [
         "A dotted rectangle, a double oval, and an unmarked partial key",
         "A double oval, a dotted relationship line, and a bold partial key",
-        "Double entity and relationship borders; dotted or dashed partial-key underline",
-        "A single rectangle, a single identifying diamond, and a solid underline for the partial key"
+        "A double rectangle and double diamond; dotted or dashed partial-key underline",
+        "A single rectangle, a single identifying diamond, and a solid partial-key underline"
       ],
       "answer": [
         2
@@ -514,7 +514,7 @@
       "id": "p02c03-32",
       "type": "single",
       "difficulty": 2,
-      "prompt": "When turning a narrative database description into an initial ER schema, what naming clue does the book recommend?",
+      "prompt": "When mapping a narrative requirements description to an initial ER schema, which wording clue is often useful?",
       "choices": [
         "Sentence order determines entity keys, while repeated words determine cardinality.",
         "Nouns often suggest entity types, and verbs often suggest relationship types.",
@@ -530,7 +530,7 @@
       "id": "p02c03-33",
       "type": "single",
       "difficulty": 2,
-      "prompt": "A preliminary UNIVERSITY schema repeats a Department attribute in STUDENT, INSTRUCTOR, and COURSE. The designer decides departments need their own names and relationships. What refinement fits the book’s guidance?",
+      "prompt": "A draft schema stores `Department` separately on STUDENT, INSTRUCTOR, and COURSE. Users say departments have names and relationships of their own. Which refinement removes repeated department data and lets departments participate in their own relationships?",
       "choices": [
         "Replace the three entity types with one multivalued Department attribute.",
         "Make Department a derived attribute of COURSE only.",
@@ -562,7 +562,7 @@
       "id": "p02c03-35",
       "type": "single",
       "difficulty": 1,
-      "prompt": "What are the three sections of a UML class box in the class diagrams discussed in the book?",
+      "prompt": "What are the three parts of a UML class box?",
       "choices": [
         "Class name, attributes, and operations",
         "Entity set, relationship instances, and keys",
@@ -572,13 +572,13 @@
       "answer": [
         0
       ],
-      "explanation": "A UML class box has a top section for the class name, a middle section for attributes, and a bottom section for operations. (§3.8)"
+      "explanation": "A UML class box has a top compartment for the class name, a middle compartment for attributes, and a bottom compartment for operations (§3.8)."
     },
     {
       "id": "p02c03-36",
       "type": "single",
       "difficulty": 2,
-      "prompt": "In UML class diagrams, what do multiplicities 1 and * mean, respectively, and where are they placed compared with the ER min-max labels in the book’s diagrams?",
+      "prompt": "Assume ER min-max labels appear beside the entity type whose participation they constrain. In UML class diagrams, what do multiplicities 1 and * mean, respectively, and where are their labels placed?",
       "choices": [
         "1 means 1..* and * means 0..1; multiplicities replace association lines.",
         "1 means exactly one; * means zero or more; labels sit opposite ER min-max ends.",
@@ -588,7 +588,7 @@
       "answer": [
         1
       ],
-      "explanation": "A single 1 denotes 1..1 and * denotes 0..* in UML; the multiplicity labels are placed at the opposite ends from those in the book’s ER min-max notation. (§3.8)"
+      "explanation": "In UML, 1 denotes exactly one and * denotes zero or more. UML multiplicity labels appear at the opposite association ends from ER min-max labels (§3.8)."
     },
     {
       "id": "p02c03-37",
@@ -675,23 +675,23 @@
       "id": "p02c03-42",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Which statement matches two stated requirements for UNIVERSITY SECTION entities?",
+      "prompt": "For `COURSE_OFFERING` entities, assume `SecId` is unique across all offerings and every offering must have at least five students. Which statement correctly combines these rules?",
       "choices": [
-        "Course name is unique across sections, and every section has one student.",
-        "Room number is unique across the university, and students can take only one section.",
-        "SecId is unique; every section has at least five students.",
-        "SecNo is unique across all years, and each section must have exactly five students."
+        "Course name is unique across offerings, and every offering has one student",
+        "Room number is unique across the university, and students can take only one offering",
+        "SecId is unique; every offering has at least five students",
+        "SecNo is unique across all years, and each offering must have exactly five students"
       ],
       "answer": [
         2
       ],
-      "explanation": "The requirements make SecId unique for all sections and specify that a section must have at least five students. (§3.10)"
+      "explanation": "The stated rules require SecId to be unique across all course offerings and each offering to have at least five students (§3.10)."
     },
     {
       "id": "p02c03-43",
       "type": "single",
       "difficulty": 2,
-      "prompt": "In the UNIVERSITY example, which components make up the composite STUDENT attribute SName?",
+      "prompt": "A STUDENT has a composite `SName` attribute with separately addressable given, middle, and family name components. Which component list represents that attribute?",
       "choices": [
         "First name, middle name, and last name",
         "Student ID, major code, and birth date",
@@ -707,35 +707,35 @@
       "id": "p02c03-44",
       "type": "multi",
       "difficulty": 2,
-      "prompt": "Which attribute combinations are stated to be unique for UNIVERSITY SECTION entities? Select all that apply.",
+      "prompt": "A `COURSE_OFFERING` has `CourseCode`, `OfferNo`, `Term`, `Year`, `Room`, `DaysTimes`, and `InstructorId`. The design requires uniqueness for (OfferNo, Term, Year, CourseCode), (Term, Year, Room, DaysTimes), and (Term, Year, DaysTimes, InstructorId). Which combinations are unique? Select all that apply.",
       "choices": [
         "Course level, credits, building, and student ID",
-        "Section number, semester, year, and course code",
-        "Semester, year, classroom, and days/times",
-        "Semester, year, days/times, and instructor ID"
+        "Offering number, term, year, and course code",
+        "Term, year, classroom, and days/times",
+        "Term, year, days/times, and instructor ID"
       ],
       "answer": [
         1,
         2,
         3
       ],
-      "explanation": "The example lists unique combinations for section number within a course and term, classroom scheduling within a term, and instructor scheduling within a term. It does not state a uniqueness constraint for course level, credits, building, and student ID. (§3.10)"
+      "explanation": "The three combinations stated in the prompt are the required uniqueness constraints; the unrelated course, building, and student attributes are not among them (§3.10)."
     },
     {
       "id": "p02c03-45",
       "type": "single",
       "difficulty": 3,
-      "prompt": "A SECTION must have at least five students, with no specified upper limit. What min-max constraint represents SECTION participation in TAKES?",
+      "prompt": "A `COURSE_OFFERING` must have at least five students enrolled, with no specified upper limit. What min-max constraint represents an offering’s participation in TAKES?",
       "choices": [
         "(5,N)",
         "(0,N), allowing participation to start at zero",
-        "(1,1), requiring exactly one student per section",
-        "(1,N), requiring at least one student per section"
+        "(1,1), requiring exactly one student per offering",
+        "(1,N), requiring at least one student per offering"
       ],
       "answer": [
         0
       ],
-      "explanation": "The minimum of five students and unrestricted maximum are expressed as (5,N) for SECTION participation in TAKES. (§3.10)"
+      "explanation": "A minimum of five students and no fixed upper bound are represented as (5,N) for COURSE_OFFERING participation in TAKES (§3.10)."
     }
   ]
 }

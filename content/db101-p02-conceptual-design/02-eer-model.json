@@ -67,13 +67,13 @@
       "answer": [
         0
       ],
-      "explanation": "Specialization defines a set of subclasses of a superclass according to characteristics that distinguish their members. (§4.2)"
+      "explanation": "Specialization defines subclasses of a superclass using characteristics that distinguish their members (§4.2)."
     },
     {
       "id": "p02c04-05",
       "type": "single",
       "difficulty": 2,
-      "prompt": "A designer observes that CAR and TRUCK share Vehicle_id, License_plate_no, and Price. What is the generalization shown in the book's example?",
+      "prompt": "CAR and TRUCK share `Vehicle_id`, `License_plate_no`, and `Price`, while each has additional type-specific attributes. What generalization captures the shared attributes?",
       "choices": [
         "Move shared attributes to a category that is a subset of both CAR and TRUCK types.",
         "VEHICLE superclass with common attributes; CAR and TRUCK subclasses for specialized attributes.",
@@ -123,7 +123,7 @@
       "type": "single",
       "difficulty": 1,
       "recall": true,
-      "prompt": "If EMPLOYEE has a Job_type attribute, which predicate defines membership in the SECRETARY subclass in the book's example?",
+      "prompt": "For `EMPLOYEE(Job_type)`, define SECRETARY as the subclass whose members have `Job_type = 'Secretary'`. Which predicate tests membership in SECRETARY?",
       "choices": [
         "Job_type is not null",
         "Job_type = 'Engineer'",
@@ -133,7 +133,7 @@
       "answer": [
         2
       ],
-      "explanation": "The example defines SECRETARY by the condition that the superclass attribute Job_type equals 'Secretary'. (§4.3)"
+      "explanation": "The supplied predicate selects employees whose Job_type value is Secretary (§4.3)."
     },
     {
       "id": "p02c04-09",
@@ -254,7 +254,7 @@
       "id": "p02c04-16",
       "type": "single",
       "difficulty": 3,
-      "prompt": "In a UNIVERSITY lattice, STUDENT_ASSISTANT inherits from both EMPLOYEE and STUDENT, which both inherit from PERSON. How should PERSON's attributes appear in STUDENT_ASSISTANT?",
+      "prompt": "In an EER lattice, STUDENT_ASSISTANT inherits from both EMPLOYEE and STUDENT, and both inherit from PERSON. How many times should PERSON’s attributes appear in STUDENT_ASSISTANT?",
       "choices": [
         "Only if STUDENT_ASSISTANT is converted to a category.",
         "Twice, once for each inheritance path.",
@@ -303,7 +303,7 @@
       "id": "p02c04-19",
       "type": "single",
       "difficulty": 3,
-      "prompt": "OWNER is a category over COMPANY, BANK, and PERSON. How does its membership differ from ENGINEERING_MANAGER as a shared subclass of multiple superclasses?",
+      "prompt": "How does membership in a category over COMPANY, BANK, and PERSON differ from membership in a shared subclass of multiple superclasses?",
       "choices": [
         "An OWNER contains every COMPANY, BANK, and PERSON, while a shared subclass contains none of them.",
         "An OWNER must be in all three source classes, while ENGINEERING_MANAGER may be in any one.",
@@ -313,13 +313,13 @@
       "answer": [
         2
       ],
-      "explanation": "A category is a subset of a union, so an OWNER may be a company, bank, or person. A shared subclass is a subset of the intersection of its superclasses and must satisfy all of them. (§4.4)"
+      "explanation": "A category is a subset of the union of its defining superclasses. A shared-subclass member belongs to every superclass in that shared-subclass definition (§4.4)."
     },
     {
       "id": "p02c04-20",
       "type": "single",
       "difficulty": 2,
-      "prompt": "OWNER is a partial category over COMPANY, BANK, and PERSON. Which statement correctly describes a PERSON entity included in OWNER?",
+      "prompt": "OWNER is a partial category over COMPANY, BANK, and PERSON. If a PERSON entity belongs to OWNER, which statement describes its membership and inherited attributes?",
       "choices": [
         "OWNER is a subset of the intersection, and this member inherits only OWNER attributes.",
         "OWNER may include any entity type, and this member inherits no superclass attributes.",
@@ -335,7 +335,7 @@
       "id": "p02c04-21",
       "type": "single",
       "difficulty": 2,
-      "prompt": "A designer is choosing between a category and specialization/generalization to represent two classes. Which condition favors specialization/generalization, according to the book?",
+      "prompt": "A designer is choosing between a category and specialization/generalization to represent two classes. Which condition favors specialization/generalization?",
       "choices": [
         "The classes have no common attributes or relationships.",
         "The classes share entity meaning, attributes, and key.",
@@ -351,39 +351,39 @@
       "id": "p02c04-22",
       "type": "single",
       "difficulty": 2,
-      "prompt": "In the sample UNIVERSITY schema, how is GRAD_STUDENT defined as a subclass of STUDENT?",
+      "prompt": "For `STUDENT(Ssn, Name, Class)`, class codes 5 and 6 mean graduate students, while codes 1 and 2 mean undergraduates. Which predicate defines GRAD_STUDENT?",
       "choices": [
-        "Class = 5 OR Class = 6",
-        "Every STUDENT who has a faculty advisor",
-        "Every STUDENT who is registered in the current quarter",
-        "Class = 1 OR Class = 2"
+        "Class is 5 or 6.",
+        "The student has a faculty advisor.",
+        "The student is registered in the current term.",
+        "Class is 1 or 2."
       ],
       "answer": [
         0
       ],
-      "explanation": "GRAD_STUDENT is predicate-defined by Class equal to 5 or 6, the codes used for MS and PhD students in this example. (§4.5)"
+      "explanation": "The supplied class-code rule makes GRAD_STUDENT membership equivalent to Class = 5 or Class = 6 (§4.5)."
     },
     {
       "id": "p02c04-23",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Which condition defines CURRENT_SECTION in the sample UNIVERSITY schema?",
+      "prompt": "`COURSE_OFFERING(CourseNo, OfferNo, Qtr, Year)` stores the term for each offering; `Current_qtr` and `Current_year` identify the active term. Which predicate selects offerings in that term?",
       "choices": [
-        "The section is taught by a faculty member who is a researcher.",
-        "The section number is the same as the course number.",
-        "Qtr equals Current_qtr and Year equals Current_year for the active term.",
-        "The section has at least one student registered."
+        "The offering is taught by a faculty member who is a researcher",
+        "The offering number is the same as the course number",
+        "Qtr equals Current_qtr and Year equals Current_year for the active term",
+        "The offering has at least one student registered"
       ],
       "answer": [
         2
       ],
-      "explanation": "CURRENT_SECTION is selected by a predicate requiring both the current quarter and current year. (§4.5)"
+      "explanation": "The active-term predicate selects a course offering only when both its quarter and year match the current values (§4.5)."
     },
     {
       "id": "p02c04-24",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Which entities belong to the INSTRUCTOR_RESEARCHER category in the sample UNIVERSITY schema?",
+      "prompt": "Define `INSTRUCTOR_RESEARCHER` as a category containing every FACULTY member plus GRAD_STUDENT members supported for teaching or research. Which entities satisfy its membership rule?",
       "choices": [
         "All GRAD_STUDENT entities, whether or not they receive teaching or research support.",
         "All FACULTY, plus GRAD_STUDENT entities supported through teaching or research.",
@@ -399,7 +399,7 @@
       "id": "p02c04-25",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "Which attributes does the sample UNIVERSITY schema record on each SUPPORT relationship instance between a grant and a researcher? Select all that apply.",
+      "prompt": "Each `SUPPORT(Grant, Researcher)` relationship records the researcher’s percentage of time on the grant, the support start date, and an end date if known. Which attributes belong to SUPPORT? Select all that apply.",
       "choices": [
         "Percentage of time spent on the project",
         "Researcher's own birth date, not SUPPORT data",
@@ -417,7 +417,7 @@
       "id": "p02c04-26",
       "type": "single",
       "difficulty": 2,
-      "prompt": "A proposed subclass has only a few local attributes and no local relationships. Which design choice does the book suggest considering?",
+      "prompt": "A subclass has few local attributes, no local relationships, and can be distinguished by a superclass `Type` attribute. If NULLs are acceptable for other types, which simplification can the designer consider?",
       "choices": [
         "Replace the superclass with a relationship type.",
         "Merge it into the superclass, using NULLs for absent local attributes.",
@@ -468,7 +468,7 @@
       "type": "single",
       "difficulty": 1,
       "recall": true,
-      "prompt": "In the UML notation described in the chapter, what do blank and filled specialization/generalization triangles indicate?",
+      "prompt": "In UML specialization/generalization diagrams, what do blank and filled triangles indicate?",
       "choices": [
         "Blank means abstract; filled means concrete.",
         "Blank: disjoint; filled: overlapping.",
@@ -478,7 +478,7 @@
       "answer": [
         1
       ],
-      "explanation": "The chapter uses a blank triangle for disjoint specialization/generalization and a filled triangle for overlapping. (§4.6)"
+      "explanation": "A blank triangle indicates disjoint subclasses, while a filled triangle indicates overlapping subclasses (§4.6)."
     },
     {
       "id": "p02c04-30",
@@ -501,7 +501,7 @@
       "id": "p02c04-31",
       "type": "single",
       "difficulty": 2,
-      "prompt": "A database design must specify classes whose objects are persistently stored. Which UML class kind is the chapter primarily concerned with for this purpose?",
+      "prompt": "A database design must specify UML classes whose objects can be instantiated and persistently stored. Which class kind has instances?",
       "choices": [
         "Association classes, which contain only relationship names.",
         "Abstract classes, which cannot have objects belonging to them.",
@@ -518,7 +518,7 @@
       "type": "single",
       "difficulty": 1,
       "recall": true,
-      "prompt": "How does the chapter characterize an ontology in its discussion of knowledge representation?",
+      "prompt": "In knowledge representation, what is an ontology?",
       "choices": [
         "A formal specification of a conceptualization used to model a domain.",
         "A table that stores keys for every entity type.",
@@ -528,15 +528,15 @@
       "answer": [
         0
       ],
-      "explanation": "The text gives the commonly used characterization of an ontology as a specification of a conceptualization. (§4.7)"
+      "explanation": "An ontology is a formal specification of a conceptualization used to model a domain (§4.7)."
     },
     {
       "id": "p02c04-33",
       "type": "multi",
       "difficulty": 3,
-      "prompt": "Which capabilities does the chapter identify as characteristic of knowledge representation schemes compared with most current database systems? Select all that apply.",
+      "prompt": "Which capabilities can knowledge-representation schemes support beyond storing fixed schemas and directly querying explicit tuples? Select all that apply.",
       "choices": [
-        "Representing entity attributes without knowledge rules.",
+        "Restricting all stored facts to numeric keys with no inference rules.",
         "Rules, incomplete/default, temporal, and spatial knowledge.",
         "Inference to derive facts and answer queries.",
         "Restricting representation to schemas and direct queries."
@@ -567,7 +567,7 @@
       "id": "p02c04-35",
       "type": "multi",
       "difficulty": 3,
-      "prompt": "Which two identification tasks does the chapter distinguish? Select all that apply.",
+      "prompt": "Which two kinds of identification are needed in knowledge representation? Select all that apply.",
       "choices": [
         "Relating database objects to their real-world counterparts.",
         "Ensuring every object belongs to exactly one leaf subclass.",
@@ -600,7 +600,7 @@
       "id": "p02c04-37",
       "type": "single",
       "difficulty": 3,
-      "prompt": "A system models a CAR as an aggregate of ENGINE, CHASSIS, and TIRES. What structural difference does the chapter give between deleting this aggregate and deleting an association instance?",
+      "prompt": "A CAR aggregate consists of ENGINE, CHASSIS, and TIRES. What structural difference follows when deleting this aggregate versus deleting an association instance among its components?",
       "choices": [
         "Both deletions must remove every related object from the database.",
         "Neither deletion can affect the existence of any related objects.",
@@ -616,17 +616,17 @@
       "id": "p02c04-38",
       "type": "single",
       "difficulty": 3,
-      "prompt": "An application needs to treat a particular INTERVIEW relationship instance as an object that can itself be related to a JOB_OFFER. Which statement matches the chapter's account of EER aggregation?",
+      "prompt": "An application needs to treat an INTERVIEW relationship instance as an object that can itself be related to a JOB_OFFER. Which EER modeling choice supports this?",
       "choices": [
-        "Represent INTERVIEW as a new weak entity type to relate it to JOB_OFFER.",
-        "EER directly relates relationship instances.",
-        "A total specialization makes every interview instance a job offer.",
-        "Relationships may directly relate to other relationships."
+        "Represent INTERVIEW as a weak entity type, relate it to its participants, then relate it to JOB_OFFER",
+        "Add a direct relationship from the INTERVIEW relationship instance to JOB_OFFER",
+        "Use total specialization so every INTERVIEW instance is a JOB_OFFER",
+        "Make JOB_OFFER an attribute of the INTERVIEW relationship"
       ],
       "answer": [
         0
       ],
-      "explanation": "The EER model as presented does not explicitly support combining objects related by a relationship instance into a higher-level object. The chapter's ER solution creates a weak entity type INTERVIEW and relates it to JOB_OFFER. (§4.7)"
+      "explanation": "EER relationships cannot directly participate in another relationship. Model INTERVIEW as a weak entity linked to its participants, then relate it to JOB_OFFER (§4.7)."
     },
     {
       "id": "p02c04-39",
@@ -642,7 +642,7 @@
       "answer": [
         1
       ],
-      "explanation": "The chapter describes ontologies as broader accounts of a domain of interest, while database schemas are typically limited to the miniworld portion needed for data storage and management. (§4.7)"
+      "explanation": "Ontologies generally model a broader domain, while database schemas focus on the miniworld needed for data storage and management (§4.7)."
     }
   ]
 }

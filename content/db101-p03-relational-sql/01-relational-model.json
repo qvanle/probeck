@@ -60,7 +60,7 @@
       "prompt": "For STUDENT(Name, Ssn, Home_phone, Address, Office_phone, Age, Gpa), what is the relation's degree?",
       "choices": [
         "7, the number of attributes in the schema",
-        "5, the number of example student tuples",
+        "The number of tuples currently stored in the relation",
         "The number of possible combinations in all domains",
         "The number of distinct domains used by the attributes"
       ],
@@ -99,7 +99,7 @@
       "answer": [
         3
       ],
-      "explanation": "In the alternative view, a tuple is a mapping or set of attribute-value pairs, so the ordering of pairs does not matter if the correspondence is maintained. The book mostly uses ordered attributes for simpler notation (§5.1)."
+      "explanation": "Viewing a tuple as a mapping makes the order of attribute-value pairs irrelevant as long as each value stays paired with its attribute. Ordered notation is a compact alternative (§5.1)."
     },
     {
       "id": "p03c05-07",
@@ -134,13 +134,13 @@
         1,
         3
       ],
-      "explanation": "The book identifies unknown, unavailable, and inapplicable or undefined values as possible meanings of NULL; the prompt represents inapplicable and unknown values. Two NULLs do not imply equal underlying values (§5.1)."
+      "explanation": "NULL can represent a value that is unknown, unavailable, or inapplicable. The prompt includes unknown and inapplicable cases; two NULLs do not imply equal underlying values (§5.1)."
     },
     {
       "id": "p03c05-09",
       "type": "single",
       "difficulty": 3,
-      "prompt": "Suppose STUDENT(Name, Ssn) is interpreted as a predicate and the current relation contains exactly the facts for Ada and Bo. Under the book's closed-world assumption, how is a proposed fact for Cy treated if it is absent from the relation?",
+      "prompt": "Suppose `STUDENT(Name, Ssn)` is interpreted as a predicate and its current relation contains exactly the facts for Ada and Bo. Under the closed-world assumption, how is a proposed fact for Cy treated if it is absent from the relation?",
       "choices": [
         "Invalid, because predicates cannot represent facts about entities",
         "True, because any tuple matching the schema satisfies the predicate",
@@ -169,7 +169,7 @@
         2,
         3
       ],
-      "explanation": "The book groups constraints as inherent model-based, schema-based, and application-based semantic constraints. Physical tuple display order is not one of these categories (§5.2)."
+      "explanation": "Relational constraints can be inherent to the model, schema-based, or application-based semantic rules. Physical tuple display order is not a constraint category (§5.2)."
     },
     {
       "id": "p03c05-11",
@@ -241,7 +241,7 @@
       "id": "p03c05-15",
       "type": "multi",
       "difficulty": 2,
-      "prompt": "STUDENT has primary key Ssn and an explicitly declared NOT NULL constraint on Name. A proposed tuple has NULL for both fields. Which constraints does the book distinguish as violated? Select all that apply.",
+      "prompt": "STUDENT has primary key `Ssn` and an explicitly declared `NOT NULL` constraint on `Name`. A proposed tuple has NULL for both fields. Which constraints are violated? Select all that apply.",
       "choices": [
         "Entity integrity for the primary key Ssn",
         "Referential integrity fails because Name is NULL",
@@ -274,7 +274,7 @@
       "id": "p03c05-17",
       "type": "multi",
       "difficulty": 3,
-      "prompt": "In COMPANY, EMPLOYEE.Ssn is the primary key and EMPLOYEE.Dno references DEPARTMENT.Dnumber. The current department numbers are 1, 4, and 5. Which constraints would inserting these EMPLOYEE values violate?",
+      "prompt": "In a relational schema, EMPLOYEE.Ssn is a primary key and EMPLOYEE.Dno references DEPARTMENT.Dnumber. The current department numbers are 1, 4, and 5. Which constraints would inserting the displayed EMPLOYEE values violate?",
       "code": "EMPLOYEE(Ssn, Dno) = (NULL, 7)\nDEPARTMENT.Dnumber = {1, 4, 5}",
       "choices": [
         "Key uniqueness, because Ssn duplicates a non-NULL key value",
@@ -309,7 +309,7 @@
       "id": "p03c05-19",
       "type": "single",
       "difficulty": 3,
-      "prompt": "In COMPANY, EMPLOYEE.Super_ssn identifies the employee who supervises the current employee. Which relationship does this attribute represent in the relational schema?",
+      "prompt": "`EMPLOYEE.Super_ssn` references `EMPLOYEE.Ssn` and stores the supervisor’s identifier. What relationship does this self-referencing foreign key represent?",
       "choices": [
         "A foreign key from EMPLOYEE back to EMPLOYEE.Ssn",
         "A foreign key from EMPLOYEE to DEPARTMENT.Dnumber",
@@ -325,7 +325,7 @@
       "id": "p03c05-20",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "Which are examples of semantic integrity constraints described in §5.2.5? Select all that apply.",
+      "prompt": "Which are examples of semantic integrity constraints, meaning application-specific business rules? Select all that apply.",
       "choices": [
         "Salary must not exceed the supervisor’s",
         "Weekly project hours may not exceed 56",
@@ -375,7 +375,7 @@
       "id": "p03c05-23",
       "type": "single",
       "difficulty": 2,
-      "prompt": "In the COMPANY schema, DEPARTMENT has no tuple with Dnumber 7. What happens to the referential-integrity constraint if you insert an EMPLOYEE tuple whose Dno is 7?",
+      "prompt": "Assume `EMPLOYEE.Dno` is a foreign key referencing `DEPARTMENT.Dnumber`, and no DEPARTMENT row has Dnumber 7. What happens to referential integrity if an EMPLOYEE tuple with Dno 7 is inserted?",
       "choices": [
         "It is satisfied because foreign keys need only use the same data type",
         "It is violated because Dno has no matching department key under referential integrity",
@@ -407,7 +407,7 @@
       "id": "p03c05-25",
       "type": "single",
       "difficulty": 3,
-      "prompt": "In the COMPANY state, WORKS_ON contains rows whose Essn is 999887777. What constraint issue results from deleting the EMPLOYEE tuple whose Ssn is 999887777?",
+      "prompt": "Assume `WORKS_ON.Essn` is a foreign key referencing `EMPLOYEE.Ssn`. What constraint issue results from deleting the employee shown in the data?",
       "code": "EMPLOYEE.Ssn includes: 999887777\nWORKS_ON.Essn includes: 999887777",
       "choices": [
         "Key integrity, because the remaining employee keys become non-unique",
@@ -418,14 +418,14 @@
       "answer": [
         2
       ],
-      "explanation": "Deleting the employee would leave WORKS_ON foreign-key values without a referenced EMPLOYEE tuple, so referential integrity is at issue. Deletion does not turn the old key into NULL or create duplicate keys (§5.3.2)."
+      "explanation": "Deleting the referenced EMPLOYEE tuple while the WORKS_ON foreign key still contains its Ssn would leave a dangling reference and violate referential integrity (§5.3.2)."
     },
     {
       "id": "p03c05-26",
       "type": "multi",
       "difficulty": 1,
       "recall": true,
-      "prompt": "If deleting a tuple would violate referential integrity, which responses does the book describe? Select all that apply.",
+      "prompt": "If deleting a tuple would violate referential integrity, which responses can preserve that constraint? Select all that apply.",
       "choices": [
         "Delete referencing tuples as well (cascade)",
         "Reject the deletion (restrict)",

@@ -69,14 +69,14 @@
       "answer": [
         1
       ],
-      "explanation": "The chapter states that `= ANY` and `= SOME` both return TRUE when the value equals at least one member, so both are equivalent to IN (§7.1)."
+      "explanation": "`= ANY` and `= SOME` return TRUE when a value equals at least one value in the subquery result, so both are equivalent to IN (§7.1)."
     },
     {
       "id": "p03c07-05",
       "type": "single",
       "difficulty": 2,
-      "prompt": "EMPLOYEE has columns `Salary` and `Dno`; assume department 5 has no NULL salaries. What does this condition require of an employee's salary?",
-      "code": "Salary > ALL (SELECT Salary\n             FROM EMPLOYEE\n             WHERE Dno = 5)",
+      "prompt": "EMPLOYEE has columns `Salary` and `Dno`; department 5 has at least one employee and no NULL salaries. What does this condition require of an employee’s salary?",
+      "code": "SELECT E.Salary FROM EMPLOYEE AS E WHERE E.Salary > ALL (SELECT Salary FROM EMPLOYEE WHERE Dno = 5);",
       "choices": [
         "It is greater than the average salary in department 5.",
         "It is greater than at least one department-5 salary.",
@@ -137,7 +137,7 @@
       "answer": [
         2
       ],
-      "explanation": "The inner NOT EXISTS identifies a department 5 project the employee does not work on; the outer NOT EXISTS requires that no such project exists. This is the chapter's pattern for expressing 'works on all' (§7.1)."
+      "explanation": "The inner NOT EXISTS finds a department-5 project the employee does not work on. The outer NOT EXISTS requires that no such project exists, so the employee works on every department-5 project (§7.1)."
     },
     {
       "id": "p03c07-09",
@@ -247,7 +247,7 @@
       "id": "p03c07-15",
       "type": "single",
       "difficulty": 3,
-      "prompt": "EMPLOYEE has columns `Dno` and `Salary`. Return each department's count of employees earning over 40000, but only for departments with more than five employees in total. Which query applies the two conditions at the right stages?",
+      "prompt": "EMPLOYEE has columns `Ssn`, `Dno`, and `Salary`, with `Dno` NOT NULL. Return each department’s count of employees earning over 40000, but only for departments with more than five employees in total. Which query applies the two conditions at the right stages?",
       "choices": [
         "`SELECT Dno, COUNT(*) FROM EMPLOYEE GROUP BY Dno HAVING COUNT(*) > 5 AND MAX(Salary) > 40000;`",
         "`SELECT Dno, COUNT(*) FROM EMPLOYEE WHERE Salary > 40000 GROUP BY Dno HAVING COUNT(*) > 5 AND COUNT(DISTINCT Ssn) > 5 AND AVG(Salary) > 40000;`",
@@ -263,13 +263,13 @@
       "id": "p03c07-16",
       "type": "single",
       "difficulty": 2,
-      "prompt": "EMPLOYEE has columns `Salary` and `Dno`. An employee currently earns 50000 and has Dno 4. What salary does this CASE expression produce?",
-      "code": "CASE WHEN Dno = 5 THEN Salary + 2000\n     WHEN Dno = 4 THEN Salary + 1500\n     WHEN Dno = 1 THEN Salary + 3000\n     ELSE Salary + 0 END",
+      "prompt": "An employee has `Salary = 50000` and `Dno = 4`. What salary does this CASE expression produce?",
+      "code": "SELECT CASE WHEN Dno = 5 THEN Salary + 2000 WHEN Dno = 4 THEN Salary + 1500 WHEN Dno = 1 THEN Salary + 3000 ELSE Salary + 0 END AS Adjusted_salary FROM (VALUES (4, 50000)) AS T(Dno, Salary);",
       "choices": [
-        "51500",
-        "52000 from adding 2000 to the salary",
-        "53000 from adding 3000 to the salary",
-        "50000 before the CASE adjustment"
+        "51500 after adding 1500 to the salary.",
+        "52000 after adding 2000 to the salary.",
+        "53000 after adding 3000 to the salary.",
+        "50000 before any CASE adjustment."
       ],
       "answer": [
         0
@@ -332,7 +332,7 @@
       "type": "single",
       "difficulty": 2,
       "prompt": "An assertion uses this condition to enforce that no employee earns more than their department manager. What must be true for the assertion to be satisfied? EMPLOYEE has `Salary`, `Dno`, and `Ssn`; DEPARTMENT has `Dnumber` and `Mgr_ssn`.",
-      "code": "CHECK (NOT EXISTS (SELECT *\n                     FROM EMPLOYEE AS E, EMPLOYEE AS M, DEPARTMENT AS D\n                     WHERE E.Salary > M.Salary\n                       AND E.Dno = D.Dnumber\n                       AND D.Mgr_ssn = M.Ssn))",
+      "code": "CREATE ASSERTION manager_salary_check CHECK (NOT EXISTS (SELECT * FROM EMPLOYEE AS E, EMPLOYEE AS M, DEPARTMENT AS D WHERE E.Salary > M.Salary AND E.Dno = D.Dnumber AND D.Mgr_ssn = M.Ssn));",
       "choices": [
         "Every department has a NULL salary.",
         "Managers earn less than employees.",
@@ -349,7 +349,7 @@
       "type": "multi",
       "difficulty": 1,
       "recall": true,
-      "prompt": "The chapter describes a trigger as an event-condition-action rule. Select all three parts of that rule.",
+      "prompt": "A trigger follows an event-condition-action (ECA) rule. What are the three parts of that rule? Select all that apply.",
       "choices": [
         "The action carried out when the rule applies.",
         "The rows returned by the triggering SQL statement.",
@@ -361,7 +361,7 @@
         2,
         3
       ],
-      "explanation": "A trigger's ECA components are its event, optional condition, and action. Its query result is not a component of the rule (§7.2)."
+      "explanation": "A trigger’s ECA components are its event, optional condition, and action. Its query result is not a component of the rule (§7.2)."
     },
     {
       "id": "p03c07-22",
@@ -417,7 +417,7 @@
       "id": "p03c07-25",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Which statement correctly distinguishes the two view implementation approaches described in the chapter?",
+      "prompt": "SQL can implement a view by rewriting queries or by materializing results. Which statement distinguishes these two approaches?",
       "choices": [
         "Query modification prevents base table updates; materialization makes every view updatable.",
         "Query modification runs only on triggers; materialization runs only on assertions.",
@@ -433,7 +433,7 @@
       "id": "p03c07-26",
       "type": "single",
       "difficulty": 3,
-      "prompt": "According to the chapter's stated guideline, which single-table view has the required attributes for updates to be mapped to its base table?",
+      "prompt": "A single-table view must identify a base-table row and supply every required base-table value for updates to map unambiguously. Which attributes should the view include?",
       "choices": [
         "A view containing columns from two joined tables and no key.",
         "A view defined with GROUP BY and aggregate functions.",
@@ -443,13 +443,13 @@
       "answer": [
         3
       ],
-      "explanation": "The chapter notes that a single-table view is updatable when it includes the base relation's primary key and all NOT NULL attributes that lack defaults. Join-defined and aggregate views are generally not updatable (§7.3)."
+      "explanation": "For a single-table view, the base-table primary key identifies the updated row, and required NOT NULL columns without defaults must be available to supply valid values. Join-defined and aggregate views are generally not updatable (§7.3)."
     },
     {
       "id": "p03c07-27",
       "type": "single",
       "difficulty": 3,
-      "prompt": "A view is defined with `WITH CHECK OPTION` as shown. EMPLOYEE has columns `Fname`, `Lname`, and `Dno`. What happens if a user inserts a row through this view with `Dno = 4`?",
+      "prompt": "A view `DEPT5EMP` is defined below. EMPLOYEE has columns `Fname`, `Lname`, and `Dno`. What happens if a user inserts a row through this view with `Dno = 4`?",
       "code": "CREATE VIEW DEPT5EMP AS\nSELECT Fname, Lname, Dno\nFROM EMPLOYEE\nWHERE Dno = 5\nWITH CHECK OPTION;",
       "choices": [
         "Rejected: the inserted row violates the view condition, so WITH CHECK OPTION rejects it.",
@@ -510,7 +510,7 @@
       "answer": [
         3
       ],
-      "explanation": "Without a default, the new column is NULL for existing rows immediately after the ALTER. Because of those NULLs, the chapter says NOT NULL is not allowed in this case (§7.4)."
+      "explanation": "Without a default, existing rows receive NULL in the new column. A NOT NULL constraint would therefore require a default value (§7.4)."
     }
   ]
 }

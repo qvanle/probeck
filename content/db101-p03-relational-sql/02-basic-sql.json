@@ -24,7 +24,7 @@
       "id": "p03c06-02",
       "type": "single",
       "difficulty": 2,
-      "prompt": "COMPANY_A and COMPANY_B are schemas in different SQL catalogs. Under the book's rule, can a foreign key in a table in COMPANY_A reference a table in COMPANY_B?",
+      "prompt": "COMPANY_A and COMPANY_B are schemas in different SQL catalogs. SQL foreign-key constraints require the referencing and referenced tables to belong to the same catalog, though they may be in different schemas. Can a foreign key in COMPANY_A reference a table in COMPANY_B?",
       "choices": [
         "No, because foreign keys must reference tables in the same schema.",
         "Yes, if both tables use the same attribute names.",
@@ -40,7 +40,7 @@
       "id": "p03c06-03",
       "type": "single",
       "difficulty": 1,
-      "prompt": "A base table is declared with `CREATE TABLE`, listing its attributes in order. Which statement about that table is guaranteed by the book's SQL model?",
+      "prompt": "A SQL base table declares its attributes in a particular order. Which ordering guarantee applies to its rows and attributes?",
       "choices": [
         "Declared attribute order; no guaranteed row order.",
         "Its attributes and rows are both unordered.",
@@ -50,17 +50,17 @@
       "answer": [
         0
       ],
-      "explanation": "A base relation and its rows are created and stored; SQL treats attributes as ordered by declaration but does not define an order among rows. (§6.1.2)"
+      "explanation": "SQL preserves declared attribute order in a base table but does not guarantee an order among its rows (§6.1.2)."
     },
     {
       "id": "p03c06-04",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "Which type-and-description groups match SQL attribute types described in the chapter? Select all that apply.",
+      "prompt": "Which type-and-description groups correctly describe SQL attribute types? Select all that apply.",
       "choices": [
         "BOOLEAN has only TRUE and FALSE; NULL does not add UNKNOWN as a third logical value.",
         "INTEGER/SMALLINT and FLOAT/REAL/DOUBLE PRECISION are numeric; DECIMAL(p, s) specifies precision and scale.",
-        "CHAR(n) is fixed length; VARCHAR(n) varies up to n; CLOB stores large text values.",
+        "CHAR(n) is fixed length; VARCHAR(n) varies up to n; CLOB stores large character strings.",
         "BIT(n) is fixed length; BIT VARYING(n) varies up to n; BLOB stores large binary values."
       ],
       "answer": [
@@ -68,13 +68,13 @@
         2,
         3
       ],
-      "explanation": "The chapter lists numeric, fixed and varying character, and fixed and varying bit-string types, as well as CLOB and BLOB for large values. SQL's Boolean logic also includes UNKNOWN when NULL is present. (§6.1.3)"
+      "explanation": "SQL includes numeric, character, bit-string, CLOB, and BLOB types. Its Boolean logic can also yield UNKNOWN when NULL is involved (§6.1.3)."
     },
     {
       "id": "p03c06-05",
       "type": "single",
       "difficulty": 1,
-      "prompt": "In the COMPANY schema, suppose a value `'Li'` is stored in these columns. What distinguishes the two declarations?",
+      "prompt": "A value `Li` is stored in the two columns declared below. What distinguishes their SQL character types?",
       "code": "CREATE TABLE NAME_SAMPLE (Fixed_name CHAR(5), Variable_name VARCHAR(5));",
       "choices": [
         "CHAR pads to length; VARCHAR stores variable length.",
@@ -91,17 +91,17 @@
       "id": "p03c06-06",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Which is a DATE literal in the format described for SQL, with year, month, and day?",
+      "prompt": "Which option is an SQL DATE literal in `YYYY-MM-DD` format?",
       "choices": [
-        "TIMESTAMP '2014-09-27 00:00:00' /* timestamp literal */",
-        "DATE '2014-09-27' /* SQL DATE literal, year-month-day format */",
-        "TIME '09:27:00' /* time-of-day literal */",
-        "'27-09-2014' /* untyped character string, not DATE */"
+        "`TIMESTAMP '2014-09-27 00:00:00'`",
+        "`DATE '2014-09-27'`",
+        "`TIME '09:27:00'`",
+        "`'27-09-2014'`"
       ],
       "answer": [
         1
       ],
-      "explanation": "The book shows a DATE literal with the DATE keyword followed by a quoted YYYY-MM-DD value. (§6.1.3)"
+      "explanation": "A DATE literal uses the DATE keyword followed by a quoted value in YYYY-MM-DD form (§6.1.3)."
     },
     {
       "id": "p03c06-07",
@@ -123,8 +123,8 @@
       "id": "p03c06-08",
       "type": "single",
       "difficulty": 2,
-      "prompt": "In COMPANY.EMPLOYEE, `Dno` is declared `INT NOT NULL DEFAULT 1`. An INSERT omits Dno. What value is used for that column?",
-      "code": "Dno INT NOT NULL DEFAULT 1",
+      "prompt": "A table defines `Dno` with the constraint below. An INSERT omits `Dno`. What value is used?",
+      "code": "CREATE TABLE EMPLOYEE_SAMPLE (Dno INT NOT NULL DEFAULT 1);",
       "choices": [
         "1, from the declared default.",
         "The INSERT must fail because Dno is NOT NULL.",
@@ -141,7 +141,7 @@
       "type": "single",
       "difficulty": 2,
       "prompt": "For COMPANY.DEPARTMENT, `Dnumber` has this constraint. Which integer values satisfy it?",
-      "code": "Dnumber INT NOT NULL CHECK (Dnumber > 0 AND Dnumber < 21)",
+      "code": "CREATE TABLE DEPARTMENT_SAMPLE (Dnumber INT NOT NULL CHECK (Dnumber > 0 AND Dnumber < 21));",
       "choices": [
         "Any positive integer, including values above 20",
         "0 through 20, inclusive",
@@ -157,8 +157,8 @@
       "id": "p03c06-10",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "Consider these COMPANY key declarations. Which statements are correct? Select all that apply.",
-      "code": "CREATE TABLE WORKS_ON (Essn CHAR(9) NOT NULL, Pno INT NOT NULL, PRIMARY KEY (Essn, Pno));\nCREATE TABLE DEPARTMENT (Dnumber INT PRIMARY KEY, Dname VARCHAR(15) UNIQUE);",
+      "prompt": "`WORKS_ON(Essn, Pno)` has a composite primary key. `DEPARTMENT(Dnumber, Dname)` declares `Dnumber` as its primary key and `Dname` as UNIQUE. Which statements are correct? Select all that apply.",
+      "code": "CREATE TABLE WORKS_ON (Essn CHAR(9) NOT NULL, Pno INT NOT NULL, PRIMARY KEY (Essn, Pno));",
       "choices": [
         "Every key constraint must have a name introduced by CONSTRAINT.",
         "WORKS_ON allows many projects per employee but forbids duplicate Essn-Pno pairs.",
@@ -176,12 +176,12 @@
       "id": "p03c06-11",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "Which actions does the chapter list as alternatives that can be specified with `ON DELETE` or `ON UPDATE` for a COMPANY foreign key? Select all that apply.",
+      "prompt": "Which actions are valid choices for `ON DELETE` or `ON UPDATE` in SQL foreign-key constraints? Select all that apply.",
       "choices": [
-        "ON DELETE CASCADE",
-        "ON DELETE SET DEFAULT",
-        "ON DELETE ROLLBACK",
-        "ON DELETE SET NULL"
+        "`ON DELETE CASCADE`",
+        "`ON DELETE SET DEFAULT`",
+        "`ON DELETE ROLLBACK`",
+        "`ON DELETE SET NULL`"
       ],
       "answer": [
         0,
@@ -195,12 +195,12 @@
       "type": "single",
       "difficulty": 3,
       "prompt": "In COMPANY.EMPLOYEE, `Ssn` is the referenced key and `Super_ssn` is its nullable foreign key. Which statement correctly describes both actions in this constraint?",
-      "code": "FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn)\nON DELETE SET NULL ON UPDATE CASCADE",
+      "code": "CREATE TABLE EMPLOYEE (Ssn CHAR(9) PRIMARY KEY, Super_ssn CHAR(9), FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE SET NULL ON UPDATE CASCADE);",
       "choices": [
-        "FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE SET DEFAULT ON UPDATE CASCADE",
-        "FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE CASCADE ON UPDATE NO ACTION",
-        "CONSTRAINT Supervisor_fk FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE SET NULL ON UPDATE CASCADE",
-        "FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE CASCADE ON UPDATE SET NULL"
+        "`FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE SET DEFAULT ON UPDATE CASCADE`",
+        "`FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE CASCADE ON UPDATE NO ACTION`",
+        "`FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE SET NULL ON UPDATE CASCADE`",
+        "`FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn) ON DELETE CASCADE ON UPDATE SET NULL`"
       ],
       "answer": [
         2
@@ -211,12 +211,12 @@
       "id": "p03c06-13",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "For the chapter's simple SQL retrieval query form, which clauses are mandatory? Select all that apply.",
+      "prompt": "Which clauses are required in the basic SQL query syntax? Select all that apply.",
       "choices": [
-        "SELECT",
-        "FROM",
-        "WHERE",
-        "ORDER BY"
+        "`SELECT`",
+        "`FROM`",
+        "`WHERE`",
+        "`ORDER BY`"
       ],
       "answer": [
         0,
@@ -264,10 +264,10 @@
       "difficulty": 2,
       "prompt": "Suppose EMPLOYEE and DEPARTMENT both have an attribute named `Name`. In a query using both tables, which reference unambiguously means the DEPARTMENT attribute?",
       "choices": [
-        "DEPARTMENT.Name",
-        "Name.DEPARTMENT (the relation qualifier is in the wrong position)",
-        "Name",
-        "EMPLOYEE.Name"
+        "`DEPARTMENT.Name`",
+        "`Name.DEPARTMENT`",
+        "`Name`",
+        "`EMPLOYEE.Name`"
       ],
       "answer": [
         0
@@ -329,8 +329,8 @@
       "id": "p03c06-20",
       "type": "single",
       "difficulty": 3,
-      "prompt": "In COMPANY.EMPLOYEE, several employees may have the same `Salary`. Which statement describes these two queries?",
-      "code": "SELECT Salary FROM EMPLOYEE;\nSELECT DISTINCT Salary FROM EMPLOYEE;",
+      "prompt": "EMPLOYEE may contain duplicate `Salary` values. Compare `SELECT Salary FROM EMPLOYEE` with the query shown. What effect does DISTINCT have?",
+      "code": "SELECT DISTINCT Salary FROM EMPLOYEE;",
       "choices": [
         "Without DISTINCT, duplicates remain; with it, each value appears once.",
         "The first returns one salary per department; the second returns one per employee.",
@@ -365,7 +365,7 @@
       "type": "single",
       "difficulty": 2,
       "prompt": "In COMPANY.EMPLOYEE, `Address` is a character string. What pattern does the WHERE condition match?",
-      "code": "Address LIKE '%Houston,TX%'",
+      "code": "SELECT Address FROM EMPLOYEE WHERE Address LIKE '%Houston,TX%';",
       "choices": [
         "Substring Houston,TX anywhere in Address; percent signs match any string.",
         "Addresses whose entire value is exactly Houston,TX.",
@@ -382,7 +382,7 @@
       "type": "single",
       "difficulty": 2,
       "prompt": "In COMPANY.EMPLOYEE, `Salary` is numeric. Which salary values satisfy this condition?",
-      "code": "Salary BETWEEN 30000 AND 40000",
+      "code": "SELECT Salary FROM EMPLOYEE WHERE Salary BETWEEN 30000 AND 40000;",
       "choices": [
         "Values greater than 30000 and less than 40000 only.",
         "Values at least 30000 and at most 40000.",
@@ -398,8 +398,8 @@
       "id": "p03c06-24",
       "type": "single",
       "difficulty": 2,
-      "prompt": "In COMPANY, `DEPARTMENT D` has `Dname` and `EMPLOYEE E` has `Lname` and `Fname`. What is the resulting sort order?",
-      "code": "ORDER BY D.Dname DESC, E.Lname, E.Fname",
+      "prompt": "DEPARTMENT `D` has `Dname`, and EMPLOYEE `E` has `Lname` and `Fname`. What sort order does this query specify?",
+      "code": "SELECT D.Dname, E.Lname, E.Fname FROM DEPARTMENT AS D CROSS JOIN EMPLOYEE AS E ORDER BY D.Dname DESC, E.Lname, E.Fname;",
       "choices": [
         "Rows remain unordered because ORDER BY does not accept multiple attributes.",
         "Dname descending, then Lname ascending, then Fname ascending.",
@@ -483,7 +483,7 @@
       "id": "p03c06-29",
       "type": "multi",
       "difficulty": 1,
-      "prompt": "Which feature groups does §6.5 identify as SQL topics developed elsewhere in the book? Select all that apply.",
+      "prompt": "Which listed groups name real SQL capabilities or related database and programming facilities? Select all that apply.",
       "choices": [
         "Transactions, privileges, object-relational features, XML, and OLAP.",
         "Every simple query requires SELECT and FROM; other clauses are never used.",
@@ -495,13 +495,13 @@
         2,
         3
       ],
-      "explanation": "Section 6.5 points to later chapters for complex queries and schema features, programming interfaces, transactions and authorization, triggers, object-relational capabilities, XML, and OLAP. (§6.5)"
+      "explanation": "SQL environments support complex queries, integrity constraints, programming interfaces, transactions, authorization, triggers, object-relational features, XML, and OLAP. These capabilities go beyond simple SELECT-FROM queries (§6.5)."
     },
     {
       "id": "p03c06-30",
       "type": "single",
       "difficulty": 2,
-      "prompt": "According to §6.5, which statement about physical database design and indexes is accurate?",
+      "prompt": "Indexes are access paths used in physical database design. Which statement about SQL implementations is accurate?",
       "choices": [
         "The SQL standards prohibit all implementations from supporting index commands.",
         "SQL requires every index to be declared inside CREATE TABLE as a conceptual constraint.",

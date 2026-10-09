@@ -93,7 +93,7 @@
       "id": "p01c02-06",
       "type": "single",
       "difficulty": 2,
-      "prompt": "A DBA adds an access path to speed up section searches while leaving the logical data unchanged. Which kind of data independence does this illustrate?",
+      "prompt": "A DBA adds an access path to speed up course-offering searches while leaving the logical data unchanged. Which kind of data independence does this illustrate?",
       "choices": [
         "Physical data independence: change the internal schema",
         "External data independence; a user view was removed",
@@ -287,7 +287,7 @@
         1,
         2
       ],
-      "explanation": "The book lists data model, number of users, number of sites, and cost as DBMS classification criteria. Screen size is not a listed criterion (§2.6)."
+      "explanation": "DBMSs can be classified by data model, number of supported users, distribution across sites, and cost. Display size is not a DBMS classification criterion (§2.6)."
     },
     {
       "id": "p01c02-18",
