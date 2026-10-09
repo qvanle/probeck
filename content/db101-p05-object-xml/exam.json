@@ -1,5 +1,6 @@
 {
   "id": "db101-p05-object-xml",
+  "course": "db101",
   "title": "Part 5 · Object, Object-Relational, and XML",
   "description": "Object databases, object-relational extensions to SQL, and XML data.",
   "tags": [

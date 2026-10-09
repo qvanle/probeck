@@ -1,7 +1,10 @@
 {
   "id": "my-exam",
+  "course": "my-course",
   "title": "My exam",
   "description": "One or two sentences shown on the exam card.",
-  "tags": ["Tag"],
+  "tags": [
+    "Tag"
+  ],
   "version": 1
 }

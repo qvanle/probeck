@@ -1,9 +1,15 @@
 import { ArrowUpRightIcon } from "lucide-react"
 import { MasteryMeter, Stat } from "@/components/meters"
-import { examProgress, overallStats, useHistory } from "@/lib/history"
-import type { ExamSummary } from "@/data/types"
+import { courseProgress, overallStats, useHistory } from "@/lib/history"
+import type { CourseSummary } from "@/data/types"
 
-export function HomeScreen({ exams, onOpenExam }: { exams: ExamSummary[]; onOpenExam: (exam: ExamSummary) => void }) {
+export function HomeScreen({
+  courses,
+  onOpenCourse,
+}: {
+  courses: CourseSummary[]
+  onOpenCourse: (course: CourseSummary) => void
+}) {
   const history = useHistory()
   const stats = overallStats(history)
 
@@ -19,7 +25,7 @@ export function HomeScreen({ exams, onOpenExam }: { exams: ExamSummary[]; onOpen
             Probe what you know<span className="text-primary">.</span>
           </h1>
           <p className="max-w-lg text-pretty text-muted-foreground">
-            Pick an exam, drill a category, and find the gaps before your interviewer does.
+            Pick a course, drill a category, and find the gaps before your interviewer does.
           </p>
         </div>
 
@@ -38,40 +44,40 @@ export function HomeScreen({ exams, onOpenExam }: { exams: ExamSummary[]; onOpen
 
       <section className="flex flex-col gap-4">
         <div className="flex items-baseline justify-between">
-          <h2 className="label-caps">Exams</h2>
-          <span className="text-xs text-muted-foreground tabular-nums">{exams.length} available</span>
+          <h2 className="label-caps">Courses</h2>
+          <span className="text-xs text-muted-foreground tabular-nums">{courses.length} available</span>
         </div>
 
-        {exams.length === 0 && (
+        {courses.length === 0 && (
           <div className="rounded-xl border border-dashed p-8 text-center text-muted-foreground">
-            No exams yet. Add one under <code className="font-mono text-foreground">content/</code> and run{" "}
+            No courses yet. Add one to <code className="font-mono text-foreground">content/courses.json</code> and run{" "}
             <code className="font-mono text-foreground">npm run build:data</code>.
           </div>
         )}
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {exams.map((exam, i) => {
-            const progress = examProgress(history, exam)
+          {courses.map((course, i) => {
+            const progress = courseProgress(history, course)
             return (
               <button
-                key={exam.id}
+                key={course.id}
                 type="button"
-                onClick={() => onOpenExam(exam)}
+                onClick={() => onOpenCourse(course)}
                 className="group relative flex flex-col gap-5 rounded-lg border bg-card p-5 text-left transition-all duration-200 outline-none hover:-translate-y-0.5 hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <div className="flex items-start justify-between">
-                  <span className="label-caps tabular-nums">EX · {String(i + 1).padStart(2, "0")}</span>
+                  <span className="label-caps tabular-nums">CS · {String(i + 1).padStart(2, "0")}</span>
                   <ArrowUpRightIcon className="size-4 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-lg font-semibold tracking-tight">{exam.title}</h3>
-                  <p className="line-clamp-2 text-[15px] text-muted-foreground">{exam.description}</p>
+                  <h3 className="text-lg font-semibold tracking-tight">{course.title}</h3>
+                  <p className="line-clamp-2 text-[15px] text-muted-foreground">{course.description}</p>
                 </div>
                 <div className="mt-auto flex flex-col gap-3">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground tabular-nums">
-                    <span>{exam.categories.length} categories</span>
+                    <span>{course.exams.length} exams</span>
                     <span className="size-0.5 rounded-full bg-muted-foreground" />
-                    <span>{exam.questionCount} questions</span>
+                    <span>{course.questionCount} questions</span>
                   </div>
                   <MasteryMeter value={progress.mastery} />
                 </div>

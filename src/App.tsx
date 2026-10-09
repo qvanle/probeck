@@ -2,12 +2,13 @@ import { lazy, Suspense, useEffect, useMemo } from "react"
 import { HashRouter, Navigate, Route, Routes, useMatch, useNavigate, useParams, useSearchParams } from "react-router"
 import { AppShell } from "@/components/app-shell"
 import { ErrorPanel, LoadingPanel } from "@/components/states"
-import { loadQuestions, listExams } from "@/data/repo"
+import { loadQuestions, listCourses, listExams } from "@/data/repo"
 import { MIXED_ID, buildSession, newSeed } from "@/data/session"
-import type { ExamSummary, Outcome } from "@/data/types"
+import type { CourseSummary, ExamSummary, Outcome } from "@/data/types"
 import { recordAnswer } from "@/lib/history"
 import { useAsync } from "@/lib/use-async"
 import { ExamScreen } from "@/screens/exam"
+import { CourseScreen } from "@/screens/course"
 import { HomeScreen } from "@/screens/home"
 
 // The quiz and results screens (and the syntax highlighter they pull in) are only needed once a session starts.
@@ -15,7 +16,8 @@ const QuizScreen = lazy(() => import("@/screens/quiz").then((m) => ({ default: m
 const ResultsScreen = lazy(() => import("@/screens/results").then((m) => ({ default: m.ResultsScreen })))
 
 // Hash routing: refresh-safe and works on GitHub Pages without server rewrites.
-//   #/                                       exam list            (index.sqlite)
+//   #/                                       course list         (index.sqlite)
+//   #/course/:courseId                       exam list           (index.sqlite)
 //   #/exam/:examId                           categories           (index.sqlite)
 //   #/exam/:examId/:categoryId               quiz session         (<exam>.sqlite, loaded now)
 //   #/exam/:examId/mixed?seed=N              seeded mixed session
@@ -28,6 +30,10 @@ const encodeOutcomes = (o: Outcome[]) => o.map((x) => OUTCOME_CODE[x]).join("")
 const decodeOutcomes = (s: string, expected: number): Outcome[] | null => {
   const list = [...s].map((c) => CODE_OUTCOME[c])
   return list.length === expected && list.every(Boolean) ? list : null
+}
+
+function useCourses() {
+  return useAsync(listCourses, "courses")
 }
 
 function useExams() {
@@ -46,10 +52,21 @@ function WithExam({ children }: { children: (exam: ExamSummary) => React.ReactNo
 
 function HomeRoute() {
   const navigate = useNavigate()
-  const exams = useExams()
-  if (exams.status === "loading") return <LoadingPanel label="Loading exams…" />
-  if (exams.status === "error") return <ErrorPanel error={exams.error} onRetry={exams.retry} />
-  return <HomeScreen exams={exams.data} onOpenExam={(e) => navigate(`/exam/${e.id}`)} />
+  const courses = useCourses()
+  if (courses.status === "loading") return <LoadingPanel label="Loading courses…" />
+  if (courses.status === "error") return <ErrorPanel error={courses.error} onRetry={courses.retry} />
+  return <HomeScreen courses={courses.data} onOpenCourse={(c: CourseSummary) => navigate(`/course/${c.id}`)} />
+}
+
+function CourseRoute() {
+  const navigate = useNavigate()
+  const { courseId } = useParams()
+  const courses = useCourses()
+  if (courses.status === "loading") return <LoadingPanel label="Loading exams…" />
+  if (courses.status === "error") return <ErrorPanel error={courses.error} onRetry={courses.retry} />
+  const course = courses.data.find((c) => c.id === courseId)
+  if (!course) return <Navigate to="/" replace />
+  return <CourseScreen course={course} onBack={() => navigate("/")} onOpenExam={(e) => navigate(`/exam/${e.id}`)} />
 }
 
 /** Opening an exam starts downloading its sqlite file in the background, so starting a session is instant. */
@@ -69,7 +86,7 @@ function ExamRoute() {
         <Prefetch exam={exam} />
         <ExamScreen
           exam={exam}
-          onBack={() => navigate("/")}
+          onBack={() => navigate(`/course/${exam.courseId}`)}
           onStart={(c) => navigate(`/exam/${exam.id}/${c.id}`)}
           onStartMixed={() => navigate(`/exam/${exam.id}/${MIXED_ID}`)}
         />
@@ -181,6 +198,7 @@ function Shell() {
       <Suspense fallback={<LoadingPanel />}>
       <Routes>
         <Route path="/" element={<HomeRoute />} />
+        <Route path="/course/:courseId" element={<CourseRoute />} />
         <Route path="/exam/:examId" element={<ExamRoute />} />
         <Route path="/exam/:examId/:categoryId" element={<QuizRoute />} />
         <Route path="/exam/:examId/:categoryId/results" element={<ResultsRoute />} />

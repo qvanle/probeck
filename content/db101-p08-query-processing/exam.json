@@ -1,5 +1,6 @@
 {
   "id": "db101-p08-query-processing",
+  "course": "db101",
   "title": "Part 8 · Query Processing and Optimization",
   "description": "How a DBMS executes and optimizes queries.",
   "tags": [

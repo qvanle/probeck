@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from "react"
-import type { CategorySummary, ExamSummary, Outcome } from "@/data/types"
+import type { CategorySummary, CourseSummary, ExamSummary, Outcome } from "@/data/types"
 
 /**
  * Progress lives only in this browser's localStorage (no backend, no account).
@@ -110,6 +110,17 @@ export function examProgress(h: History, exam: ExamSummary) {
     score += p.mastery * cat.questionCount
   }
   return { answered, mastery: exam.questionCount ? score / exam.questionCount : 0 }
+}
+
+export function courseProgress(h: History, course: CourseSummary) {
+  let answered = 0
+  let score = 0
+  for (const exam of course.exams) {
+    const p = examProgress(h, exam)
+    answered += p.answered
+    score += p.mastery * exam.questionCount
+  }
+  return { answered, mastery: course.questionCount ? score / course.questionCount : 0 }
 }
 
 export function overallStats(h: History) {

@@ -1,5 +1,6 @@
 {
   "id": "db101-p07-storage-indexing",
+  "course": "db101",
   "title": "Part 7 · File Structures, Hashing, Indexing, and Physical Design",
   "description": "How records are stored on disk and how indexes speed up access.",
   "tags": [

@@ -1,5 +1,6 @@
 {
   "id": "db101-p02-conceptual-design",
+  "course": "db101",
   "title": "Part 2 · Conceptual Data Modeling and Database Design",
   "description": "Designing databases with the ER and enhanced ER models.",
   "tags": [

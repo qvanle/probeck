@@ -1,5 +1,6 @@
 {
   "id": "db101-p06-normalization",
+  "course": "db101",
   "title": "Part 6 · Database Design Theory and Normalization",
   "description": "Functional dependencies, normal forms and relational design algorithms.",
   "tags": [

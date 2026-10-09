@@ -35,6 +35,7 @@ function validateQuestion(q, where) {
 
 function loadExam(dir) {
   const meta = readJson(join(dir, "exam.json"))
+  if (!meta.course) fail(meta.id, `exam.json needs a "course" (an id from content/courses.json)`)
   const files = readdirSync(dir).filter((f) => /^\d+-.+\.json$/.test(f)).sort()
   if (!files.length) fail(meta.id, "no category files (NN-name.json)")
   const seen = new Set()
@@ -94,14 +95,17 @@ function writeExamDb({ meta, categories }) {
   return file
 }
 
-function writeIndexDb(exams) {
+function writeIndexDb(courses, exams) {
   const file = join(OUT, "index.sqlite")
   const db = new DatabaseSync(file)
   db.exec(`
     PRAGMA journal_mode = DELETE;
     CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+    CREATE TABLE course (
+      id TEXT PRIMARY KEY, title TEXT NOT NULL, description TEXT NOT NULL, sort INTEGER NOT NULL
+    );
     CREATE TABLE exam (
-      id TEXT PRIMARY KEY, title TEXT NOT NULL, description TEXT NOT NULL, tags TEXT NOT NULL,
+      id TEXT PRIMARY KEY, course_id TEXT NOT NULL REFERENCES course(id), title TEXT NOT NULL, description TEXT NOT NULL, tags TEXT NOT NULL,
       version INTEGER NOT NULL, file TEXT NOT NULL, question_count INTEGER NOT NULL, sort INTEGER NOT NULL
     );
     CREATE TABLE category (
@@ -112,12 +116,14 @@ function writeIndexDb(exams) {
   const meta = db.prepare("INSERT INTO meta VALUES (?, ?)")
   meta.run("schema_version", String(SCHEMA_VERSION))
   meta.run("generated_at", new Date().toISOString())
-  const insExam = db.prepare("INSERT INTO exam VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
+  const insCourse = db.prepare("INSERT INTO course VALUES (?, ?, ?, ?)")
+  const insExam = db.prepare("INSERT INTO exam VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")
   const insCat = db.prepare("INSERT INTO category VALUES (?, ?, ?, ?, ?, ?)")
   db.exec("BEGIN")
+  courses.forEach((c, i) => insCourse.run(c.id, c.title, c.description ?? "", i))
   exams.forEach(({ meta: m, categories }, ei) => {
     const total = categories.reduce((n, c) => n + c.questions.length, 0)
-    insExam.run(m.id, m.title, m.description, JSON.stringify(m.tags ?? []), m.version, `${m.id}.sqlite`, total, ei)
+    insExam.run(m.id, m.course, m.title, m.description, JSON.stringify(m.tags ?? []), m.version, `${m.id}.sqlite`, total, ei)
     categories.forEach((c, ci) => insCat.run(m.id, c.id, c.title, c.description, c.questions.length, ci))
   })
   db.exec("COMMIT")
@@ -138,6 +144,11 @@ const exams = readdirSync(CONTENT, { withFileTypes: true })
 const ids = exams.map((e) => e.meta.id)
 if (new Set(ids).size !== ids.length) fail("content/", "duplicate exam id")
 
-const files = [...exams.map(writeExamDb), writeIndexDb(exams)]
+// content/courses.json groups exams: [{ id, title, description, order }]
+const courses = readJson(join(CONTENT, "courses.json")).sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+const courseIds = new Set(courses.map((c) => c.id))
+for (const e of exams) if (!courseIds.has(e.meta.course)) fail(e.meta.id, `unknown course "${e.meta.course}"`)
+
+const files = [...exams.map(writeExamDb), writeIndexDb(courses, exams)]
 for (const f of files) console.log(`  ${f.replace(ROOT + "/", "").padEnd(40)} ${(statSync(f).size / 1024).toFixed(1)} KB`)
 console.log(`built ${exams.length} exam(s), ${exams.reduce((n, e) => n + e.categories.reduce((m, c) => m + c.questions.length, 0), 0)} questions`)

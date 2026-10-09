@@ -1,0 +1,8 @@
+[
+  {
+    "id": "db101",
+    "title": "Database 101",
+    "description": "Core database concepts, from the relational model and SQL to transactions, NoSQL and security.",
+    "order": 1
+  }
+]

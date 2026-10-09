@@ -1,5 +1,5 @@
 import { openDatabase, select } from "@/data/db"
-import type { ExamSummary, Question } from "@/data/types"
+import type { CourseSummary, ExamSummary, Question } from "@/data/types"
 
 let examList: Promise<ExamSummary[]> | undefined
 
@@ -13,14 +13,16 @@ export function listExams(): Promise<ExamSummary[]> {
     )
     return select<{
       id: string
+      course_id: string
       title: string
       description: string
       tags: string
       version: number
       file: string
       question_count: number
-    }>(db, "SELECT id, title, description, tags, version, file, question_count FROM exam ORDER BY sort").map((e) => ({
+    }>(db, "SELECT id, course_id, title, description, tags, version, file, question_count FROM exam ORDER BY sort").map((e) => ({
       id: e.id,
+      courseId: e.course_id,
       title: e.title,
       description: e.description,
       tags: JSON.parse(e.tags) as string[],
@@ -34,6 +36,18 @@ export function listExams(): Promise<ExamSummary[]> {
   })()
   examList.catch(() => (examList = undefined))
   return examList
+}
+
+/** Courses with their exams, from index.sqlite. */
+export async function listCourses(): Promise<CourseSummary[]> {
+  const [exams, db] = [await listExams(), await openDatabase("index.sqlite", null)]
+  return select<{ id: string; title: string; description: string }>(
+    db,
+    "SELECT id, title, description FROM course ORDER BY sort",
+  ).map((c) => {
+    const own = exams.filter((e) => e.courseId === c.id)
+    return { ...c, exams: own, questionCount: own.reduce((n, e) => n + e.questionCount, 0) }
+  })
 }
 
 const questionCache = new Map<string, Promise<Question[]>>()

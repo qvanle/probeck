@@ -1,5 +1,6 @@
 {
   "id": "db101-p01-introduction",
+  "course": "db101",
   "title": "Part 1 · Introduction to Databases",
   "description": "What a DBMS is, who uses it, and how database systems are structured.",
   "tags": [

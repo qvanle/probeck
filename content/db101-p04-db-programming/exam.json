@@ -1,5 +1,6 @@
 {
   "id": "db101-p04-db-programming",
+  "course": "db101",
   "title": "Part 4 · Database Programming Techniques",
   "description": "Accessing databases from application code, from embedded SQL to the web.",
   "tags": [

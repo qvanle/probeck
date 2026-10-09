@@ -1,5 +1,6 @@
 {
   "id": "db101-p09-transactions",
+  "course": "db101",
   "title": "Part 9 · Transaction Processing, Concurrency Control, and Recovery",
   "description": "ACID, schedules, locking and timestamp protocols, and crash recovery.",
   "tags": [

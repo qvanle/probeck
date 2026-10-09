@@ -23,7 +23,7 @@ export function ExamScreen({
     <div className="flex flex-col gap-10 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-500">
       <div className="flex flex-col gap-6">
         <Button variant="ghost" size="sm" className="-ml-2.5 w-fit text-muted-foreground" onClick={onBack}>
-          <ChevronLeftIcon /> All exams
+          <ChevronLeftIcon /> Back to course
         </Button>
 
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">

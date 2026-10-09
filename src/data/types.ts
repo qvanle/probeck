@@ -33,6 +33,7 @@ export type CategorySummary = {
 
 export type ExamSummary = {
   id: string
+  courseId: string
   title: string
   description: string
   tags: string[]
@@ -52,3 +53,12 @@ export type Session = {
 
 /** Outcome of one answered question in a session. */
 export type Outcome = "correct" | "partial" | "wrong"
+
+/** A group of exams (e.g. "Database 101"); the home screen lists these. */
+export type CourseSummary = {
+  id: string
+  title: string
+  description: string
+  exams: ExamSummary[]
+  questionCount: number
+}
