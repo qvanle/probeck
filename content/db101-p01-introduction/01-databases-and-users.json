@@ -187,7 +187,7 @@
         1,
         2
       ],
-      "explanation": "Casual, parametric, sophisticated, and standalone users are described across the first three choices: standalone users maintain personal databases with packaged software. The final choice confuses those end-user categories with analyst and DBA responsibilities (§1.4.1, §1.4.3–1.4.4)."
+      "explanation": "Casual, parametric, sophisticated, and standalone users are the end-user categories, and standalone users maintain personal databases with packaged software. The option that gives those tasks to system analysts and DBAs confuses end users with analyst and DBA responsibilities (§1.4.1, §1.4.3–1.4.4)."
     },
     {
       "id": "p01c01-12",
