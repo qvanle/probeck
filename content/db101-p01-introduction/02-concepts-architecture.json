@@ -2,5 +2,325 @@
   "id": "concepts-architecture",
   "title": "Database System Concepts and Architecture",
   "description": "Ch 2 · 2.1–2.6",
-  "questions": []
+  "questions": [
+    {
+      "id": "p01c02-01",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What does a data model provide for describing a database?",
+      "choices": [
+        "A list of the current records in the database",
+        "A schedule for when users can access stored files",
+        "A set of hardware instructions for reading a disk",
+        "Concepts for its structure, including data types, relationships, and constraints"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "A data model supplies concepts for describing database structure, such as data types, relationships, and constraints (§2.1)."
+    },
+    {
+      "id": "p01c02-02",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which pairings correctly distinguish data-model categories? Select all that apply.",
+      "choices": [
+        "Conceptual models use concepts close to how users perceive data",
+        "Representational models can be implemented directly while hiding some storage detail",
+        "Physical models describe details of how data is stored on computer media",
+        "Physical models focus on user-oriented entities and relationships"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Conceptual models use user-oriented concepts, representational models bridge users and implementation, and physical models describe storage details. User-oriented entity and relationship concepts characterize conceptual models (§2.1.1)."
+    },
+    {
+      "id": "p01c02-03",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "A new student record is inserted without changing the database design description. What changed, and what stayed the same?",
+      "choices": [
+        "The schema changed; the database state stayed the same",
+        "The state or extension changed; the schema or intension stayed the same",
+        "Both the schema and state stayed the same",
+        "The schema and state changed because every record defines a new structure"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Inserting a record changes the current database state (extension). The schema (intension) describes the database structure and remains unchanged (§2.1.2)."
+    },
+    {
+      "id": "p01c02-04",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "What does each level of the three-schema architecture describe? Select all that apply.",
+      "choices": [
+        "The conceptual schema describes the whole database for a community of users",
+        "The internal schema describes physical storage and access paths",
+        "The conceptual schema describes only one user group’s external view",
+        "External schemas describe views for particular user groups"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "External schemas represent user-group views, the conceptual schema describes the whole community database, and the internal schema covers physical storage and access paths (§2.2.1)."
+    },
+    {
+      "id": "p01c02-05",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What is data independence in the three-schema architecture?",
+      "choices": [
+        "Keeping a database state unchanged when users make queries",
+        "Changing a schema at one level without changing the schema at the next higher level",
+        "Moving every external schema to the internal storage level",
+        "Allowing users to change records without satisfying constraints"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Data independence is the capacity to change a schema at one level without changing the schema at the next higher level (§2.2.2)."
+    },
+    {
+      "id": "p01c02-06",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A DBA adds an access path to speed up section searches while leaving the logical data unchanged. Which kind of data independence does this illustrate?",
+      "choices": [
+        "Program-operation independence, because a method implementation changed",
+        "Logical data independence, because the conceptual schema changed",
+        "Physical data independence, because the internal schema changed while higher schemas stayed stable",
+        "External data independence, because a user view was removed"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Adding an access structure changes the internal schema; physical data independence allows this without changing the conceptual schema (§2.2.2)."
+    },
+    {
+      "id": "p01c02-07",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A conceptual schema is reorganized while user views and their application programs continue to work. What must be adjusted to support this?",
+      "choices": [
+        "The mappings between the conceptual and external schemas",
+        "The values in every stored record",
+        "The operating system’s disk scheduler",
+        "The definitions of all application programs"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Logical data independence is supported by changing the relevant view definition and mappings while keeping affected application programs working (§2.2.2)."
+    },
+    {
+      "id": "p01c02-08",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "What is the main purpose of a data definition language (DDL)?",
+      "choices": [
+        "Create backup copies of the database on mass storage",
+        "Display query results through a menu interface",
+        "Define database schemas whose descriptions are stored in the catalog",
+        "Retrieve records one at a time for processing in a host language"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "DDL statements define database schemas; a DDL compiler processes their descriptions and stores them in the catalog (§2.3.1)."
+    },
+    {
+      "id": "p01c02-09",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A database request specifies which set of records to retrieve but does not prescribe record-by-record steps. What kind of DML is it?",
+      "choices": [
+        "A host-language compiler instruction",
+        "Low-level procedural DML",
+        "A storage definition language",
+        "High-level, nonprocedural, set-oriented DML"
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "High-level DML specifies what data to retrieve rather than how to retrieve it, and can operate on sets of records (§2.3.1)."
+    },
+    {
+      "id": "p01c02-10",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "Which interface guides a user by presenting selectable options instead of requiring query-language syntax?",
+      "choices": [
+        "A menu-based interface",
+        "A low-level procedural DML",
+        "A DDL compiler",
+        "A storage definition language"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Menu-based interfaces guide users through requests by presenting lists of options, so they need not memorize query commands and syntax (§2.3.2)."
+    },
+    {
+      "id": "p01c02-11",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which DBMS components directly support runtime access to stored data? Select all that apply.",
+      "choices": [
+        "The DDL compiler chooses the disk search path for each query at runtime",
+        "The runtime database processor executes query plans and canned transactions",
+        "The stored-data manager controls access to DBMS information on disk",
+        "Buffering and transaction-management services support runtime data transfer and execution"
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "The runtime processor executes plans and transactions, the stored-data manager accesses disk information, and buffering plus transaction services support execution. The DDL compiler processes schema definitions (§2.4.1)."
+    },
+    {
+      "id": "p01c02-12",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which tasks are handled by common database utilities? Select all that apply.",
+      "choices": [
+        "Creating backup copies for recovery",
+        "Reorganizing storage and creating access paths",
+        "Compiling host-language source code into application programs",
+        "Loading existing data files into the database"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "Common utilities load data, create backups, reorganize storage, and monitor performance. Host-language compilation is part of application program processing (§2.4.2)."
+    },
+    {
+      "id": "p01c02-13",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A precompiler extracts embedded DML statements from a host-language program. Which component processes those database statements next?",
+      "choices": [
+        "The host-language compiler",
+        "The DML compiler",
+        "The stored-data manager",
+        "The DDL compiler"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "The precompiler extracts embedded DML commands and sends them to the DML compiler for compilation (§2.4.1)."
+    },
+    {
+      "id": "p01c02-14",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "In a centralized DBMS architecture, where are DBMS functions and application processing performed?",
+      "choices": [
+        "On display terminals that contain the complete DBMS",
+        "On client devices, while the central computer only stores data",
+        "On the central computer that houses the DBMS",
+        "Across independent database servers, with no central host"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "In the centralized architecture described, all processing, including applications and DBMS functionality, occurs on the computer housing the DBMS (§2.5.1)."
+    },
+    {
+      "id": "p01c02-15",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "A Web application checks a client’s credentials and applies business rules before sending database requests. Which tier performs that work?",
+      "choices": [
+        "The middle application-server or Web-server tier",
+        "The database storage tier only",
+        "The external schema level",
+        "The client presentation tier"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The middle tier runs application programs and business rules and can check credentials before forwarding requests to the database server (§2.5.4)."
+    },
+    {
+      "id": "p01c02-16",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "In a three-tier Web application, which path carries a browser request to stored data and returns results to the user?",
+      "choices": [
+        "Client presentation → database services → application logic → stored data",
+        "Database services → client presentation → middle-tier rules → browser",
+        "Client presentation → middle-tier application logic → database services → middle tier → client",
+        "Middle-tier application logic → external schema → internal schema → client"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "The client sends requests to the middle tier, which processes them and issues database requests; results pass back through the middle tier to the client (§2.5.4)."
+    },
+    {
+      "id": "p01c02-17",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Which are among the criteria used to classify a DBMS? Select all that apply.",
+      "choices": [
+        "The number of users the system supports",
+        "The number of sites across which the data is distributed",
+        "The screen dimensions of the administrator’s computer",
+        "The data model and cost of the DBMS"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "The book lists data model, number of users, number of sites, and cost as DBMS classification criteria. The final choice is not a listed criterion (§2.6)."
+    },
+    {
+      "id": "p01c02-18",
+      "type": "single",
+      "difficulty": 1,
+      "recall": true,
+      "prompt": "How does a key-value data model organize retrieval?",
+      "choices": [
+        "A unique key identifies a value, allowing access by that key",
+        "A set of tables is searched only by row position",
+        "A hierarchy of records is traversed from a fixed root",
+        "A graph edge identifies a document’s storage page"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The key-value model associates a unique key with each value and provides access to the value given its key (§2.6)."
+    },
+    {
+      "id": "p01c02-19",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Two sites in a distributed database system use different DBMS software. Which category describes this arrangement?",
+      "choices": [
+        "A centralized DBMS",
+        "A heterogeneous DDBMS",
+        "A single-user DBMS",
+        "A homogeneous DDBMS"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "A heterogeneous distributed DBMS can use different DBMS software at its sites; a homogeneous DDBMS uses the same software (§2.6)."
+    }
+  ]
 }
