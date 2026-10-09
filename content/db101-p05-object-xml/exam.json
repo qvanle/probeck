@@ -1,0 +1,11 @@
+{
+  "id": "db101-p05-object-xml",
+  "title": "Part 5 · Object, Object-Relational, and XML",
+  "description": "Object databases, object-relational extensions to SQL, and XML data.",
+  "tags": [
+    "Database 101",
+    "Part 5"
+  ],
+  "order": 5,
+  "version": 1
+}

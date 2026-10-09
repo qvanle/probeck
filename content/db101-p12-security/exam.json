@@ -1,0 +1,11 @@
+{
+  "id": "db101-p12-security",
+  "title": "Part 12 · Additional Database Topics: Security",
+  "description": "Access control, SQL injection, encryption and privacy.",
+  "tags": [
+    "Database 101",
+    "Part 12"
+  ],
+  "order": 12,
+  "version": 1
+}

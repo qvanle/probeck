@@ -1,0 +1,11 @@
+{
+  "id": "db101-p04-db-programming",
+  "title": "Part 4 · Database Programming Techniques",
+  "description": "Accessing databases from application code, from embedded SQL to the web.",
+  "tags": [
+    "Database 101",
+    "Part 4"
+  ],
+  "order": 4,
+  "version": 1
+}

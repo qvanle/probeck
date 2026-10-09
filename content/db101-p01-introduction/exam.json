@@ -1,0 +1,11 @@
+{
+  "id": "db101-p01-introduction",
+  "title": "Part 1 · Introduction to Databases",
+  "description": "What a DBMS is, who uses it, and how database systems are structured.",
+  "tags": [
+    "Database 101",
+    "Part 1"
+  ],
+  "order": 1,
+  "version": 1
+}

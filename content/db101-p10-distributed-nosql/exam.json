@@ -1,0 +1,11 @@
+{
+  "id": "db101-p10-distributed-nosql",
+  "title": "Part 10 · Distributed Databases, NoSQL, and Big Data",
+  "description": "Distributed database concepts, NoSQL systems and MapReduce/Hadoop.",
+  "tags": [
+    "Database 101",
+    "Part 10"
+  ],
+  "order": 10,
+  "version": 1
+}

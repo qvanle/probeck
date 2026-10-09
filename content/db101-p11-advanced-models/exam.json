@@ -1,0 +1,11 @@
+{
+  "id": "db101-p11-advanced-models",
+  "title": "Part 11 · Advanced Database Models, Systems, and Applications",
+  "description": "Active, temporal, spatial and deductive databases, information retrieval, data mining and warehousing.",
+  "tags": [
+    "Database 101",
+    "Part 11"
+  ],
+  "order": 11,
+  "version": 1
+}

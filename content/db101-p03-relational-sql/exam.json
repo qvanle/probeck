@@ -1,0 +1,11 @@
+{
+  "id": "db101-p03-relational-sql",
+  "title": "Part 3 · The Relational Data Model and SQL",
+  "description": "The relational model, SQL, relational algebra and mapping ER designs to relations.",
+  "tags": [
+    "Database 101",
+    "Part 3"
+  ],
+  "order": 3,
+  "version": 1
+}

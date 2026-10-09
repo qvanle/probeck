@@ -1,0 +1,11 @@
+{
+  "id": "db101-p08-query-processing",
+  "title": "Part 8 · Query Processing and Optimization",
+  "description": "How a DBMS executes and optimizes queries.",
+  "tags": [
+    "Database 101",
+    "Part 8"
+  ],
+  "order": 8,
+  "version": 1
+}

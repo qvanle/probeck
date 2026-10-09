@@ -1,0 +1,11 @@
+{
+  "id": "db101-p09-transactions",
+  "title": "Part 9 · Transaction Processing, Concurrency Control, and Recovery",
+  "description": "ACID, schedules, locking and timestamp protocols, and crash recovery.",
+  "tags": [
+    "Database 101",
+    "Part 9"
+  ],
+  "order": 9,
+  "version": 1
+}
