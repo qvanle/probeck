@@ -18,7 +18,11 @@
       "answer": [
         3
       ],
-      "explanation": "A comparison involving NULL evaluates to UNKNOWN because the value cannot be established as equal or unequal. SQL therefore uses TRUE, FALSE, and UNKNOWN (§7.1)."
+      "explanation": "A comparison involving NULL evaluates to UNKNOWN because the value cannot be established as equal or unequal. SQL therefore uses TRUE, FALSE, and UNKNOWN (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/Kleene_3-valued_logic.png",
+        "alt": "Truth tables for three-valued logic with true, false and unknown values."
+      }
     },
     {
       "id": "p03c07-02",
@@ -35,7 +39,11 @@
       "answer": [
         0
       ],
-      "explanation": "Comparing NULL with a value using `<>` yields UNKNOWN, and a WHERE clause retains only rows whose condition is TRUE. NULL is not treated as an empty string (§7.1)."
+      "explanation": "Comparing NULL with a value using `<>` yields UNKNOWN, and a WHERE clause retains only rows whose condition is TRUE. NULL is not treated as an empty string (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/Kleene_3-valued_logic.png",
+        "alt": "Truth tables for three-valued logic with true, false and unknown values."
+      }
     },
     {
       "id": "p03c07-03",
@@ -52,7 +60,11 @@
       "answer": [
         1
       ],
-      "explanation": "SQL uses `IS NULL` (or `IS NOT NULL`) for this test; ordinary equality and inequality comparisons with NULL do not return TRUE or FALSE (§7.1)."
+      "explanation": "SQL uses `IS NULL` (or `IS NOT NULL`) for this test; ordinary equality and inequality comparisons with NULL do not return TRUE or FALSE (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/Kleene_3-valued_logic.png",
+        "alt": "Truth tables for three-valued logic with true, false and unknown values."
+      }
     },
     {
       "id": "p03c07-04",
@@ -86,7 +98,11 @@
       "answer": [
         2
       ],
-      "explanation": "Combining `>` with ALL makes the comparison TRUE only when the value is greater than every value returned by the subquery. `> ANY` would mean greater than at least one (§7.1)."
+      "explanation": "Combining `>` with ALL makes the comparison TRUE only when the value is greater than every value returned by the subquery. `> ANY` would mean greater than at least one (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Relational_Algebra_Single_Table_Selection.svg",
+        "alt": "Diagram of a selection operation that keeps only the table rows satisfying a condition."
+      }
     },
     {
       "id": "p03c07-06",
@@ -207,7 +223,11 @@
         2,
         3
       ],
-      "explanation": "Left, right, and full outer joins preserve the named side or both sides and use NULL padding for missing matches. Preserving an unmatched left row is not the behavior of an inner join (§7.1)."
+      "explanation": "Left, right, and full outer joins preserve the named side or both sides and use NULL padding for missing matches. Preserving an unmatched left row is not the behavior of an inner join (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f6/SQL_Join_-_01_A_Left_Join_B.svg",
+        "alt": "Venn diagram of two overlapping sets A and B with set A and the overlap shaded, representing a join between two tables."
+      }
     },
     {
       "id": "p03c07-13",
@@ -274,7 +294,11 @@
       "answer": [
         0
       ],
-      "explanation": "The CASE branch for `Dno = 4` matches and adds 1500 to the current salary. CASE chooses a value based on the conditions (§7.1)."
+      "explanation": "The CASE branch for `Dno = 4` matches and adds 1500 to the current salary. CASE chooses a value based on the conditions (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Relational_Algebra_Single_Table_Selection.svg",
+        "alt": "Diagram of a selection operation that keeps only the table rows satisfying a condition."
+      }
     },
     {
       "id": "p03c07-17",
@@ -308,7 +332,11 @@
       "answer": [
         3
       ],
-      "explanation": "UNIQUE returns TRUE if the nested query result contains no duplicate tuples and FALSE otherwise. It tests set-like uniqueness (§7.1)."
+      "explanation": "UNIQUE returns TRUE if the nested query result contains no duplicate tuples and FALSE otherwise. It tests set-like uniqueness (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Relational_Algebra_Single_Table_Selection.svg",
+        "alt": "Diagram of a selection operation that keeps only the table rows satisfying a condition."
+      }
     },
     {
       "id": "p03c07-19",
@@ -325,7 +353,11 @@
       "answer": [
         1
       ],
-      "explanation": "An assertion specifies a general declarative constraint whose condition must hold for every database state. It can express constraints beyond built-in table constraints (§7.2)."
+      "explanation": "An assertion specifies a general declarative constraint whose condition must hold for every database state. It can express constraints beyond built-in table constraints (§7.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Two linked tables where a foreign key value refers to a row that does not exist, illustrating an integrity rule."
+      }
     },
     {
       "id": "p03c07-20",
@@ -342,7 +374,11 @@
       "answer": [
         2
       ],
-      "explanation": "The inner query finds violations; NOT EXISTS requires that result to be empty. If it returns any tuple, the CHECK condition is false and the assertion is violated (§7.2)."
+      "explanation": "The inner query finds violations; NOT EXISTS requires that result to be empty. If it returns any tuple, the CHECK condition is false and the assertion is violated (§7.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Two linked tables where a foreign key value refers to a row that does not exist, illustrating an integrity rule."
+      }
     },
     {
       "id": "p03c07-21",
@@ -361,7 +397,11 @@
         2,
         3
       ],
-      "explanation": "A trigger’s ECA components are its event, optional condition, and action. Its query result is not a component of the rule (§7.2)."
+      "explanation": "A trigger’s ECA components are its event, optional condition, and action. Its query result is not a component of the rule (§7.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/a/aa/SQL_ANATOMY_wiki.svg",
+        "alt": "Annotated anatomy of an SQL statement and its parts."
+      }
     },
     {
       "id": "p03c07-22",
@@ -477,7 +517,11 @@
       "answer": [
         1
       ],
-      "explanation": "CASCADE automatically drops referencing constraints, views, and other dependent elements. RESTRICT allows the command only if the object has no dependent elements (§7.4)."
+      "explanation": "CASCADE automatically drops referencing constraints, views, and other dependent elements. RESTRICT allows the command only if the object has no dependent elements (§7.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Two linked tables where a foreign key value refers to a row that does not exist, illustrating an integrity rule."
+      }
     },
     {
       "id": "p03c07-29",
@@ -493,7 +537,11 @@
       "answer": [
         2
       ],
-      "explanation": "DELETE removes rows and leaves the relation definition in the catalog. DROP TABLE, with or without CASCADE, removes both the rows and the table definition, and ALTER TABLE ... DROP COLUMN changes the schema instead of deleting rows (§7.4)."
+      "explanation": "DELETE removes rows and leaves the relation definition in the catalog. DROP TABLE, with or without CASCADE, removes both the rows and the table definition, and ALTER TABLE ... DROP COLUMN changes the schema instead of deleting rows (§7.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Sql_sample_table.png",
+        "alt": "A sample SQL table with columns and several rows of data."
+      }
     },
     {
       "id": "p03c07-30",
@@ -510,7 +558,11 @@
       "answer": [
         3
       ],
-      "explanation": "Without a default, existing rows receive NULL in the new column. A NOT NULL constraint would therefore require a default value (§7.4)."
+      "explanation": "Without a default, existing rows receive NULL in the new column. A NOT NULL constraint would therefore require a default value (§7.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labeled diagram of a table showing its columns (attributes) and rows (tuples)."
+      }
     }
   ]
 }

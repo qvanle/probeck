@@ -18,7 +18,11 @@
       "answer": [
         3
       ],
-      "explanation": "A database is a collection of related data, and data consists of known facts that can be recorded and have implicit meaning (§1.1)."
+      "explanation": "A database is a collection of related data, and data consists of known facts that can be recorded and have implicit meaning (§1.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Traditional_View_of_Data_SVG.svg",
+        "alt": "Diagram titled traditional view of data, showing how data is organised in a database system."
+      }
     },
     {
       "id": "p01c01-02",
@@ -34,7 +38,11 @@
       "answer": [
         0
       ],
-      "explanation": "A database represents a miniworld as a logically coherent collection and is built for a specific purpose and intended users (§1.1)."
+      "explanation": "A database represents a miniworld as a logically coherent collection and is built for a specific purpose and intended users (§1.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/09/Process_of_database_design_v2.png",
+        "alt": "Flow diagram of the stages in designing a database from requirements to implementation."
+      }
     },
     {
       "id": "p01c01-03",
@@ -51,7 +59,11 @@
       "answer": [
         1
       ],
-      "explanation": "A coding scheme assigns agreed values to categories so stored class values can be interpreted consistently (§1.2)."
+      "explanation": "A coding scheme assigns agreed values to categories so stored class values can be interpreted consistently (§1.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "A relational table with its rows, columns and cells labelled with relational terminology."
+      }
     },
     {
       "id": "p01c01-04",
@@ -68,7 +80,11 @@
         0,
         2
       ],
-      "explanation": "Adding a course offering or changing Smith’s class updates stored data. Listing grades or prerequisites retrieves information (§1.2)."
+      "explanation": "Adding a course offering or changing Smith’s class updates stored data. Listing grades or prerequisites retrieves information (§1.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f2/DVD_Rental_Query.png",
+        "alt": "An SQL SELECT statement beside the table of results it returns."
+      }
     },
     {
       "id": "p01c01-05",
@@ -85,7 +101,11 @@
       "answer": [
         1
       ],
-      "explanation": "Metadata is descriptive information stored in the catalog, including the structure and constraints of the database (§1.3.1)."
+      "explanation": "Metadata is descriptive information stored in the catalog, including the structure and constraints of the database (§1.3.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/4-2_ANSI-SPARC_three_level_architecture.svg",
+        "alt": "Diagram of the ANSI/SPARC three-level database architecture with stacked schema levels."
+      }
     },
     {
       "id": "p01c01-06",
@@ -103,7 +123,11 @@
         2,
         3
       ],
-      "explanation": "The database approach includes a catalog, support for multiple views, and shared data with multiuser transaction processing. Embedding file definitions in each application is characteristic of traditional file processing (§1.3)."
+      "explanation": "The database approach includes a catalog, support for multiple views, and shared data with multiuser transaction processing. Embedding file definitions in each application is characteristic of traditional file processing (§1.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Traditional_View_of_Data_SVG.svg",
+        "alt": "Diagram titled traditional view of data, showing how data is organised in a database system."
+      }
     },
     {
       "id": "p01c01-07",
@@ -119,7 +143,11 @@
       "answer": [
         3
       ],
-      "explanation": "Because the catalog describes the data structure separately from access programs, changing the catalog’s STUDENT description can preserve program-data independence (§1.3.2)."
+      "explanation": "Because the catalog describes the data structure separately from access programs, changing the catalog’s STUDENT description can preserve program-data independence (§1.3.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/4-2_ANSI-SPARC_three_level_architecture.svg",
+        "alt": "Diagram of the ANSI/SPARC three-level database architecture with stacked schema levels."
+      }
     },
     {
       "id": "p01c01-08",
@@ -135,7 +163,11 @@
       "answer": [
         1
       ],
-      "explanation": "A view can be a subset of stored data or include derived data, allowing each user group to work with a relevant perspective on the database (§1.3.3)."
+      "explanation": "A view can be a subset of stored data or include derived data, allowing each user group to work with a relevant perspective on the database (§1.3.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/4-2_ANSI-SPARC_three_level_architecture.svg",
+        "alt": "Diagram of the ANSI/SPARC three-level database architecture with stacked schema levels."
+      }
     },
     {
       "id": "p01c01-09",
@@ -151,7 +183,11 @@
       "answer": [
         2
       ],
-      "explanation": "Isolation makes a transaction appear to execute independently of concurrent transactions; atomicity ensures that all operations in the transaction execute or none do (§1.3.4)."
+      "explanation": "Isolation makes a transaction appear to execute independently of concurrent transactions; atomicity ensures that all operations in the transaction execute or none do (§1.3.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f2/DVD_Rental_Query.png",
+        "alt": "An SQL SELECT statement beside the table of results it returns."
+      }
     },
     {
       "id": "p01c01-10",
@@ -169,7 +205,11 @@
         1,
         3
       ],
-      "explanation": "The DBA authorizes access, coordinates and monitors use, and acquires resources as needed. Identifying data and choosing structures are database-design responsibilities (§1.4.1–1.4.2)."
+      "explanation": "The DBA authorizes access, coordinates and monitors use, and acquires resources as needed. Identifying data and choosing structures are database-design responsibilities (§1.4.1–1.4.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Role-based_access_control.svg",
+        "alt": "Diagram of role-based access control linking users, roles and permissions."
+      }
     },
     {
       "id": "p01c01-11",
@@ -187,7 +227,11 @@
         2,
         3
       ],
-      "explanation": "Casual, parametric, sophisticated, and standalone users are the end-user categories, and standalone users maintain personal databases with packaged software. The option that gives those tasks to system analysts and DBAs confuses end users with analyst and DBA responsibilities (§1.4.1, §1.4.3–1.4.4)."
+      "explanation": "Casual, parametric, sophisticated, and standalone users are the end-user categories, and standalone users maintain personal databases with packaged software. The option that gives those tasks to system analysts and DBAs confuses end users with analyst and DBA responsibilities (§1.4.1, §1.4.3–1.4.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f2/DVD_Rental_Query.png",
+        "alt": "An SQL SELECT statement beside the table of results it returns."
+      }
     },
     {
       "id": "p01c01-12",
@@ -203,7 +247,11 @@
       "answer": [
         2
       ],
-      "explanation": "System analysts determine requirements and specify canned transactions; application programmers implement, test, and maintain them (§1.4.4)."
+      "explanation": "System analysts determine requirements and specify canned transactions; application programmers implement, test, and maintain them (§1.4.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/09/Process_of_database_design_v2.png",
+        "alt": "Flow diagram of the stages in designing a database from requirements to implementation."
+      }
     },
     {
       "id": "p01c01-13",
@@ -221,7 +269,11 @@
         1,
         2
       ],
-      "explanation": "DBMS implementers, tool developers, and operations or maintenance personnel are workers behind the scene. Casual users are actors on the scene (§1.5)."
+      "explanation": "DBMS implementers, tool developers, and operations or maintenance personnel are workers behind the scene. Casual users are actors on the scene (§1.5).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/4-2_ANSI-SPARC_three_level_architecture.svg",
+        "alt": "Diagram of the ANSI/SPARC three-level database architecture with stacked schema levels."
+      }
     },
     {
       "id": "p01c01-14",
@@ -237,7 +289,11 @@
       "answer": [
         3
       ],
-      "explanation": "Operators and maintenance personnel are responsible for running and maintaining the hardware and software environment (§1.5)."
+      "explanation": "Operators and maintenance personnel are responsible for running and maintaining the hardware and software environment (§1.5).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Role-based_access_control.svg",
+        "alt": "Diagram of role-based access control linking users, roles and permissions."
+      }
     },
     {
       "id": "p01c01-15",
@@ -253,7 +309,11 @@
       "answer": [
         0
       ],
-      "explanation": "Controlled redundancy can improve query performance, but the DBMS should check that duplicated values agree with their corresponding records (§1.6.1)."
+      "explanation": "Controlled redundancy can improve query performance, but the DBMS should check that duplicated values agree with their corresponding records (§1.6.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Relational_key_SVG.svg",
+        "alt": "Relational model: records in different tables linked through keys rather than stored pointers."
+      }
     },
     {
       "id": "p01c01-16",
@@ -269,7 +329,11 @@
       "answer": [
         1
       ],
-      "explanation": "A DBMS authorization subsystem can restrict users by account and control retrieval and update operations separately (§1.6.2)."
+      "explanation": "A DBMS authorization subsystem can restrict users by account and control retrieval and update operations separately (§1.6.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Role-based_access_control.svg",
+        "alt": "Diagram of role-based access control linking users, roles and permissions."
+      }
     },
     {
       "id": "p01c01-17",
@@ -286,7 +350,11 @@
       "answer": [
         3
       ],
-      "explanation": "A persistent object survives the end of program execution and can later be retrieved (§1.6.3)."
+      "explanation": "A persistent object survives the end of program execution and can later be retrieved (§1.6.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Traditional_View_of_Data_SVG.svg",
+        "alt": "Diagram titled traditional view of data, showing how data is organised in a database system."
+      }
     },
     {
       "id": "p01c01-18",
@@ -304,7 +372,11 @@
         1,
         2
       ],
-      "explanation": "Indexes speed searches, buffering keeps database parts in memory, and query optimization chooses an efficient execution plan. Backup supports recovery rather than query execution (§1.6.4–1.6.5)."
+      "explanation": "Indexes speed searches, buffering keeps database parts in memory, and query optimization chooses an efficient execution plan. Backup supports recovery rather than query execution (§1.6.4–1.6.5).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/65/B-tree.svg",
+        "alt": "A B-tree: a balanced search tree whose nodes hold sorted keys and point to child nodes."
+      }
     },
     {
       "id": "p01c01-19",
@@ -322,7 +394,11 @@
         2,
         3
       ],
-      "explanation": "Defined type, uniqueness, and referential-integrity constraints can reject invalid values, duplicate keys, and broken references. A valid grade entered incorrectly may satisfy the defined constraints and go undetected (§1.6.8)."
+      "explanation": "Defined type, uniqueness, and referential-integrity constraints can reject invalid values, duplicate keys, and broken references. A valid grade entered incorrectly may satisfy the defined constraints and go undetected (§1.6.8).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row refers to an artist identifier."
+      }
     },
     {
       "id": "p01c01-20",
@@ -340,7 +416,11 @@
         2,
         3
       ],
-      "explanation": "A DBMS can support triggers, organization-wide standards, faster development of new applications, and flexibility as requirements change (§1.6.9–1.6.10)."
+      "explanation": "A DBMS can support triggers, organization-wide standards, faster development of new applications, and flexibility as requirements change (§1.6.9–1.6.10).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Traditional_View_of_Data_SVG.svg",
+        "alt": "Diagram titled traditional view of data, showing how data is organised in a database system."
+      }
     },
     {
       "id": "p01c01-21",
@@ -356,7 +436,11 @@
       "answer": [
         1
       ],
-      "explanation": "Early systems tied data storage organization closely to their conceptual structures and programs, making new access patterns and reorganizations difficult (§1.7.1)."
+      "explanation": "Early systems tied data storage organization closely to their conceptual structures and programs, making new access patterns and reorganizations difficult (§1.7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/9/90/Hierarchisches_Datenbankmodell.svg",
+        "alt": "Tree-shaped diagram of the hierarchical database model with parent and child records."
+      }
     },
     {
       "id": "p01c01-22",
@@ -372,7 +456,11 @@
       "answer": [
         2
       ],
-      "explanation": "Relational systems separated physical storage from conceptual representation and introduced high-level query languages, improving query flexibility and adaptation (§1.7.2)."
+      "explanation": "Relational systems separated physical storage from conceptual representation and introduced high-level query languages, improving query flexibility and adaptation (§1.7.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Relational_key_SVG.svg",
+        "alt": "Relational model: records in different tables linked through keys rather than stored pointers."
+      }
     },
     {
       "id": "p01c01-23",
@@ -388,7 +476,11 @@
       "answer": [
         3
       ],
-      "explanation": "Big-data and NOSQL systems support massive stores, including nontraditional data; the appropriate system depends on application needs (§1.7.6)."
+      "explanation": "Big-data and NOSQL systems support massive stores, including nontraditional data; the appropriate system depends on application needs (§1.7.6).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Database_models.jpg",
+        "alt": "Collage of five database models: flat file, hierarchical, network, relational and dimensional."
+      }
     },
     {
       "id": "p01c01-24",
@@ -406,7 +498,11 @@
         1,
         3
       ],
-      "explanation": "Potential DBMS overhead includes initial investment and training, generality, and the costs of security, concurrency, recovery, and integrity functions. A DBMS does not guarantee strict timing (§1.8)."
+      "explanation": "Potential DBMS overhead includes initial investment and training, generality, and the costs of security, concurrency, recovery, and integrity functions. A DBMS does not guarantee strict timing (§1.8).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Traditional_View_of_Data_SVG.svg",
+        "alt": "Diagram titled traditional view of data, showing how data is organised in a database system."
+      }
     },
     {
       "id": "p01c01-25",
@@ -422,7 +518,11 @@
       "answer": [
         0
       ],
-      "explanation": "A general-purpose DBMS may add more overhead than benefit for a fixed single-user application with strict timing and limited storage (§1.8)."
+      "explanation": "A general-purpose DBMS may add more overhead than benefit for a fixed single-user application with strict timing and limited storage (§1.8).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Database_models.jpg",
+        "alt": "Collage of five database models: flat file, hierarchical, network, relational and dimensional."
+      }
     }
   ]
 }

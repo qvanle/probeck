@@ -18,7 +18,11 @@
       "answer": [
         1
       ],
-      "explanation": "A subclass is a subset of its superclass, so each subclass member must also be a superclass member. (§4.1)"
+      "explanation": "A subclass is a subset of its superclass, so each subclass member must also be a superclass member. (§4.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/EER-specialisation.svg/960px-EER-specialisation.svg.png",
+        "alt": "EER diagram example of a specialization: a superclass connected to its subclasses."
+      }
     },
     {
       "id": "p02c04-02",
@@ -34,7 +38,11 @@
       "answer": [
         2
       ],
-      "explanation": "Subclass members inherit all superclass attributes and relationships, while keeping their own specific properties such as Eng_type. (§4.1)"
+      "explanation": "Subclass members inherit all superclass attributes and relationships, while keeping their own specific properties such as Eng_type. (§4.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/960px-KP-UML-Generalization-20060325.svg.png",
+        "alt": "UML class diagram with a Person superclass and two subclasses joined by generalization arrows."
+      }
     },
     {
       "id": "p02c04-03",
@@ -50,7 +58,11 @@
       "answer": [
         3
       ],
-      "explanation": "Superclass and subclass members represent the same real-world entity in general and specific roles, though an implementation may use separate linked records. An ordinary 1:1 relationship instead relates distinct entities. (§4.1)"
+      "explanation": "Superclass and subclass members represent the same real-world entity in general and specific roles, though an implementation may use separate linked records. An ordinary 1:1 relationship instead relates distinct entities. (§4.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/960px-KP-UML-Generalization-20060325.svg.png",
+        "alt": "UML class diagram with a Person superclass and two subclasses joined by generalization arrows."
+      }
     },
     {
       "id": "p02c04-04",
@@ -67,7 +79,11 @@
       "answer": [
         0
       ],
-      "explanation": "Specialization defines subclasses of a superclass using characteristics that distinguish their members (§4.2)."
+      "explanation": "Specialization defines subclasses of a superclass using characteristics that distinguish their members (§4.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/EER-specialisation.svg/960px-EER-specialisation.svg.png",
+        "alt": "EER diagram example of a specialization: a superclass connected to its subclasses."
+      }
     },
     {
       "id": "p02c04-05",
@@ -83,7 +99,11 @@
       "answer": [
         1
       ],
-      "explanation": "Generalization identifies common features of existing entity types and forms a superclass; CAR and TRUCK become subclasses of VEHICLE. (§4.2)"
+      "explanation": "Generalization identifies common features of existing entity types and forms a superclass; CAR and TRUCK become subclasses of VEHICLE. (§4.2)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/960px-KP-UML-Generalization-20060325.svg.png",
+        "alt": "UML class diagram with a Person superclass and two subclasses joined by generalization arrows."
+      }
     },
     {
       "id": "p02c04-06",
@@ -99,7 +119,11 @@
       "answer": [
         2
       ],
-      "explanation": "The subset symbol marks the superclass/subclass direction, while attributes attached to a subclass rectangle are local to that subclass. (§4.2)"
+      "explanation": "The subset symbol marks the superclass/subclass direction, while attributes attached to a subclass rectangle are local to that subclass. (§4.2)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/EER-specialisation.svg/960px-EER-specialisation.svg.png",
+        "alt": "EER diagram example of a specialization: a superclass connected to its subclasses."
+      }
     },
     {
       "id": "p02c04-07",
@@ -116,7 +140,11 @@
         0,
         3
       ],
-      "explanation": "Subclasses can group entities that have particular attributes or that participate in relationships not shared by the whole superclass. The other options are not reasons given for specialization. (§4.2)"
+      "explanation": "Subclasses can group entities that have particular attributes or that participate in relationships not shared by the whole superclass. The other options are not reasons given for specialization. (§4.2)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/960px-KP-UML-Generalization-20060325.svg.png",
+        "alt": "UML class diagram with a Person superclass and two subclasses joined by generalization arrows."
+      }
     },
     {
       "id": "p02c04-08",
@@ -133,7 +161,11 @@
       "answer": [
         2
       ],
-      "explanation": "The supplied predicate selects employees whose Job_type value is Secretary (§4.3)."
+      "explanation": "The supplied predicate selects employees whose Job_type value is Secretary (§4.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/ER_Diagram_MMORPG.svg",
+        "alt": "Entity-relationship diagram in Chen notation with entities, attributes and relationships."
+      }
     },
     {
       "id": "p02c04-09",
@@ -149,7 +181,11 @@
       "answer": [
         1
       ],
-      "explanation": "An attribute-defined specialization with distinct values of a single-valued attribute implies disjoint subclasses. Attribute-defined membership alone does not determine completeness. (§4.3)"
+      "explanation": "An attribute-defined specialization with distinct values of a single-valued attribute implies disjoint subclasses. Attribute-defined membership alone does not determine completeness. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/ER_Diagram_MMORPG.svg",
+        "alt": "Entity-relationship diagram in Chen notation with entities, attributes and relationships."
+      }
     },
     {
       "id": "p02c04-10",
@@ -166,7 +202,11 @@
       "answer": [
         3
       ],
-      "explanation": "A user-defined subclass has no membership condition; users specify its members individually when they add entities. (§4.3)"
+      "explanation": "A user-defined subclass has no membership condition; users specify its members individually when they add entities. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Uml_classes_en.svg/960px-Uml_classes_en.svg.png",
+        "alt": "Reference chart of UML class diagram notation for classes and their relationships."
+      }
     },
     {
       "id": "p02c04-11",
@@ -182,7 +222,11 @@
       "answer": [
         0
       ],
-      "explanation": "Overlapping subclasses may share entities. Here a single person can be both an employee and a student, so the specialization cannot be disjoint. (§4.3)"
+      "explanation": "Overlapping subclasses may share entities. Here a single person can be both an employee and a student, so the specialization cannot be disjoint. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/960px-Diamond_inheritance.svg.png",
+        "alt": "UML diamond inheritance diagram: a class with two intermediate subclasses sharing a common subclass."
+      }
     },
     {
       "id": "p02c04-12",
@@ -198,7 +242,11 @@
       "answer": [
         0
       ],
-      "explanation": "Membership in at least one subclass makes the specialization total; permission to belong to both makes it overlapping. These constraints are independent. (§4.3)"
+      "explanation": "Membership in at least one subclass makes the specialization total; permission to belong to both makes it overlapping. These constraints are independent. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/EER-specialisation.svg/960px-EER-specialisation.svg.png",
+        "alt": "EER diagram example of a specialization: a superclass connected to its subclasses."
+      }
     },
     {
       "id": "p02c04-13",
@@ -214,7 +262,11 @@
       "answer": [
         1
       ],
-      "explanation": "An inserted superclass entity is automatically inserted into every predicate-defined subclass for which it satisfies the defining predicate. (§4.3)"
+      "explanation": "An inserted superclass entity is automatically inserted into every predicate-defined subclass for which it satisfies the defining predicate. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/960px-KP-UML-Generalization-20060325.svg.png",
+        "alt": "UML class diagram with a Person superclass and two subclasses joined by generalization arrows."
+      }
     },
     {
       "id": "p02c04-14",
@@ -231,7 +283,11 @@
         2,
         3
       ],
-      "explanation": "Superclass deletion propagates to its subclass memberships, and a total specialization requires each inserted superclass entity to enter at least one subclass. User-defined membership is assigned individually, and partial specialization permits subclass members. (§4.3)"
+      "explanation": "Superclass deletion propagates to its subclass memberships, and a total specialization requires each inserted superclass entity to enter at least one subclass. User-defined membership is assigned individually, and partial specialization permits subclass members. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/ER_Diagram_MMORPG.svg",
+        "alt": "Entity-relationship diagram in Chen notation with entities, attributes and relationships."
+      }
     },
     {
       "id": "p02c04-15",
@@ -248,7 +304,11 @@
       "answer": [
         1
       ],
-      "explanation": "Each subclass in a hierarchy has only one parent, producing a tree. A lattice permits a subclass to participate in multiple superclass/subclass relationships. (§4.3)"
+      "explanation": "Each subclass in a hierarchy has only one parent, producing a tree. A lattice permits a subclass to participate in multiple superclass/subclass relationships. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/960px-Diamond_inheritance.svg.png",
+        "alt": "UML diamond inheritance diagram: a class with two intermediate subclasses sharing a common subclass."
+      }
     },
     {
       "id": "p02c04-16",
@@ -264,7 +324,11 @@
       "answer": [
         2
       ],
-      "explanation": "Multiple inheritance carries properties from both direct superclasses, but a property originating in the same ancestor and arriving along multiple paths is included only once. (§4.3)"
+      "explanation": "Multiple inheritance carries properties from both direct superclasses, but a property originating in the same ancestor and arriving along multiple paths is included only once. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/960px-Diamond_inheritance.svg.png",
+        "alt": "UML diamond inheritance diagram: a class with two intermediate subclasses sharing a common subclass."
+      }
     },
     {
       "id": "p02c04-17",
@@ -280,7 +344,11 @@
       "answer": [
         3
       ],
-      "explanation": "Specialization is top-down conceptual refinement: designers begin with a broad class and define more specific groupings. Generalization instead synthesizes a broader class from existing types. (§4.3)"
+      "explanation": "Specialization is top-down conceptual refinement: designers begin with a broad class and define more specific groupings. Generalization instead synthesizes a broader class from existing types. (§4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/09/Data_abstraction_levels.png",
+        "alt": "Layered diagram of the data abstraction levels of a database system."
+      }
     },
     {
       "id": "p02c04-18",
@@ -297,7 +365,11 @@
       "answer": [
         0
       ],
-      "explanation": "A category is a class whose members come from the union of two or more defining superclasses, and the category is a subset of that union. (§4.4)"
+      "explanation": "A category is a class whose members come from the union of two or more defining superclasses, and the category is a subset of that union. (§4.4)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/960px-Diamond_inheritance.svg.png",
+        "alt": "UML diamond inheritance diagram: a class with two intermediate subclasses sharing a common subclass."
+      }
     },
     {
       "id": "p02c04-19",
@@ -313,7 +385,11 @@
       "answer": [
         2
       ],
-      "explanation": "A category is a subset of the union of its defining superclasses. A shared-subclass member belongs to every superclass in that shared-subclass definition (§4.4)."
+      "explanation": "A category is a subset of the union of its defining superclasses. A shared-subclass member belongs to every superclass in that shared-subclass definition (§4.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/960px-Diamond_inheritance.svg.png",
+        "alt": "UML diamond inheritance diagram: a class with two intermediate subclasses sharing a common subclass."
+      }
     },
     {
       "id": "p02c04-20",
@@ -329,7 +405,11 @@
       "answer": [
         3
       ],
-      "explanation": "A partial category may contain a subset of the union of its defining superclasses. A member inherits from the source superclass it belongs to, here PERSON. (§4.4)"
+      "explanation": "A partial category may contain a subset of the union of its defining superclasses. A member inherits from the source superclass it belongs to, here PERSON. (§4.4)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/960px-Diamond_inheritance.svg.png",
+        "alt": "UML diamond inheritance diagram: a class with two intermediate subclasses sharing a common subclass."
+      }
     },
     {
       "id": "p02c04-21",
@@ -345,7 +425,11 @@
       "answer": [
         1
       ],
-      "explanation": "When the classes represent the same entity type and share numerous attributes, including keys, specialization/generalization is preferred. Categories suit unions of distinct entity types. (§4.4)"
+      "explanation": "When the classes represent the same entity type and share numerous attributes, including keys, specialization/generalization is preferred. Categories suit unions of distinct entity types. (§4.4)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Uml_classes_en.svg/960px-Uml_classes_en.svg.png",
+        "alt": "Reference chart of UML class diagram notation for classes and their relationships."
+      }
     },
     {
       "id": "p02c04-22",
@@ -361,7 +445,11 @@
       "answer": [
         0
       ],
-      "explanation": "The supplied class-code rule makes GRAD_STUDENT membership equivalent to Class = 5 or Class = 6 (§4.5)."
+      "explanation": "The supplied class-code rule makes GRAD_STUDENT membership equivalent to Class = 5 or Class = 6 (§4.5).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/ER_Diagram_MMORPG.svg",
+        "alt": "Entity-relationship diagram in Chen notation with entities, attributes and relationships."
+      }
     },
     {
       "id": "p02c04-23",
@@ -377,7 +465,11 @@
       "answer": [
         2
       ],
-      "explanation": "The active-term predicate selects a course offering only when both its quarter and year match the current values (§4.5)."
+      "explanation": "The active-term predicate selects a course offering only when both its quarter and year match the current values (§4.5).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/ER_Diagram_MMORPG.svg",
+        "alt": "Entity-relationship diagram in Chen notation with entities, attributes and relationships."
+      }
     },
     {
       "id": "p02c04-24",
@@ -393,7 +485,11 @@
       "answer": [
         1
       ],
-      "explanation": "INSTRUCTOR_RESEARCHER is a category over FACULTY and GRAD_STUDENT: it includes all faculty and supported graduate students. (§4.5)"
+      "explanation": "INSTRUCTOR_RESEARCHER is a category over FACULTY and GRAD_STUDENT: it includes all faculty and supported graduate students. (§4.5)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Uml_classes_en.svg/960px-Uml_classes_en.svg.png",
+        "alt": "Reference chart of UML class diagram notation for classes and their relationships."
+      }
     },
     {
       "id": "p02c04-25",
@@ -411,7 +507,11 @@
         2,
         3
       ],
-      "explanation": "Each SUPPORT instance stores Start, End when known, and Time (the researcher's percentage of time on the project). Birth date belongs to PERSON, not SUPPORT. (§4.5)"
+      "explanation": "Each SUPPORT instance stores Start, End when known, and Time (the researcher's percentage of time on the project). Birth date belongs to PERSON, not SUPPORT. (§4.5)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/ER_Diagram_MMORPG.svg",
+        "alt": "Entity-relationship diagram in Chen notation with entities, attributes and relationships."
+      }
     },
     {
       "id": "p02c04-26",
@@ -427,7 +527,11 @@
       "answer": [
         1
       ],
-      "explanation": "The design guidelines allow merging a small subclass with few local attributes and no specific relationships into the superclass, using NULLs and a type attribute as appropriate. (§4.5)"
+      "explanation": "The design guidelines allow merging a small subclass with few local attributes and no specific relationships into the superclass, using NULLs and a type attribute as appropriate. (§4.5)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Uml_classes_en.svg/960px-Uml_classes_en.svg.png",
+        "alt": "Reference chart of UML class diagram notation for classes and their relationships."
+      }
     },
     {
       "id": "p02c04-27",
@@ -444,7 +548,11 @@
       "answer": [
         3
       ],
-      "explanation": "A specialization is total when its subclasses collectively include every entity in the superclass: their union equals G. (§4.5)"
+      "explanation": "A specialization is total when its subclasses collectively include every entity in the superclass: their union equals G. (§4.5)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/EER-specialisation.svg/960px-EER-specialisation.svg.png",
+        "alt": "EER diagram example of a specialization: a superclass connected to its subclasses."
+      }
     },
     {
       "id": "p02c04-28",
@@ -461,7 +569,11 @@
       "answer": [
         0
       ],
-      "explanation": "A subclass's entities must always form a subset of its superclass's entities, expressed as S ⊆ C. (§4.5)"
+      "explanation": "A subclass's entities must always form a subset of its superclass's entities, expressed as S ⊆ C. (§4.5)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/EER-specialisation.svg/960px-EER-specialisation.svg.png",
+        "alt": "EER diagram example of a specialization: a superclass connected to its subclasses."
+      }
     },
     {
       "id": "p02c04-29",
@@ -478,7 +590,11 @@
       "answer": [
         1
       ],
-      "explanation": "A blank triangle indicates disjoint subclasses, while a filled triangle indicates overlapping subclasses (§4.6)."
+      "explanation": "A blank triangle indicates disjoint subclasses, while a filled triangle indicates overlapping subclasses (§4.6).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Uml_classes_en.svg/960px-Uml_classes_en.svg.png",
+        "alt": "Reference chart of UML class diagram notation for classes and their relationships."
+      }
     },
     {
       "id": "p02c04-30",
@@ -495,7 +611,11 @@
       "answer": [
         2
       ],
-      "explanation": "The root superclass is called the base class, and subclasses with no further subclasses are leaf classes. (§4.6)"
+      "explanation": "The root superclass is called the base class, and subclasses with no further subclasses are leaf classes. (§4.6)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/960px-KP-UML-Generalization-20060325.svg.png",
+        "alt": "UML class diagram with a Person superclass and two subclasses joined by generalization arrows."
+      }
     },
     {
       "id": "p02c04-31",
@@ -511,7 +631,11 @@
       "answer": [
         3
       ],
-      "explanation": "Concrete classes may have objects instantiated to belong to them; database design is mainly concerned with concrete classes whose objects are persistently stored. (§4.6)"
+      "explanation": "Concrete classes may have objects instantiated to belong to them; database design is mainly concerned with concrete classes whose objects are persistently stored. (§4.6)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Uml_classes_en.svg/960px-Uml_classes_en.svg.png",
+        "alt": "Reference chart of UML class diagram notation for classes and their relationships."
+      }
     },
     {
       "id": "p02c04-32",
@@ -528,7 +652,11 @@
       "answer": [
         0
       ],
-      "explanation": "An ontology is a formal specification of a conceptualization used to model a domain (§4.7)."
+      "explanation": "An ontology is a formal specification of a conceptualization used to model a domain (§4.7).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ontology_chart.jpg/500px-Ontology_chart.jpg",
+        "alt": "Ontology chart showing concepts organised into a structured vocabulary."
+      }
     },
     {
       "id": "p02c04-33",
@@ -545,7 +673,11 @@
         1,
         2
       ],
-      "explanation": "KR schemes generally cover more kinds of knowledge and can infer facts, while most current databases focus on structured schemas and direct queries. (§4.7)"
+      "explanation": "KR schemes generally cover more kinds of knowledge and can infer facts, while most current databases focus on structured schemas and direct queries. (§4.7)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/67/Semantic_Net.svg",
+        "alt": "Semantic network diagram: concept nodes joined by labelled relationship links."
+      }
     },
     {
       "id": "p02c04-34",
@@ -561,7 +693,11 @@
       "answer": [
         3
       ],
-      "explanation": "Classification assigns similar objects to classes; instantiation is the inverse process of generating or examining distinct class objects. (§4.7)"
+      "explanation": "Classification assigns similar objects to classes; instantiation is the inverse process of generating or examining distinct class objects. (§4.7)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/67/Semantic_Net.svg",
+        "alt": "Semantic network diagram: concept nodes joined by labelled relationship links."
+      }
     },
     {
       "id": "p02c04-35",
@@ -578,7 +714,11 @@
         0,
         3
       ],
-      "explanation": "Identification operates at two levels: uniquely distinguishing database objects/classes and identifying database objects with the real-world entities they represent. The other options describe different modeling constraints. (§4.7)"
+      "explanation": "Identification operates at two levels: uniquely distinguishing database objects/classes and identifying database objects with the real-world entities they represent. The other options describe different modeling constraints. (§4.7)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/67/Semantic_Net.svg",
+        "alt": "Semantic network diagram: concept nodes joined by labelled relationship links."
+      }
     },
     {
       "id": "p02c04-36",
@@ -594,7 +734,11 @@
       "answer": [
         1
       ],
-      "explanation": "Specialization is conceptual refinement into subclasses, while generalization is the inverse synthesis of a higher-level class from more specific classes. (§4.7)"
+      "explanation": "Specialization is conceptual refinement into subclasses, while generalization is the inverse synthesis of a higher-level class from more specific classes. (§4.7)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/09/Data_abstraction_levels.png",
+        "alt": "Layered diagram of the data abstraction levels of a database system."
+      }
     },
     {
       "id": "p02c04-37",
@@ -610,7 +754,11 @@
       "answer": [
         2
       ],
-      "explanation": "Aggregate objects are composed of their components, so deleting an aggregate amounts to deleting those components. Objects joined by an association can continue to exist when the association is removed. (§4.7)"
+      "explanation": "Aggregate objects are composed of their components, so deleting an aggregate amounts to deleting those components. Objects joined by an association can continue to exist when the association is removed. (§4.7)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/AggregationAndComposition-edited.svg/960px-AggregationAndComposition-edited.svg.png",
+        "alt": "Two UML class diagrams contrasting composition and aggregation between classes."
+      }
     },
     {
       "id": "p02c04-38",
@@ -626,7 +774,11 @@
       "answer": [
         0
       ],
-      "explanation": "EER relationships cannot directly participate in another relationship. Model INTERVIEW as a weak entity linked to its participants, then relate it to JOB_OFFER (§4.7)."
+      "explanation": "EER relationships cannot directly participate in another relationship. Model INTERVIEW as a weak entity linked to its participants, then relate it to JOB_OFFER (§4.7).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/ERD_Representation.svg/960px-ERD_Representation.svg.png",
+        "alt": "The same one-to-many relationship drawn in several entity-relationship notations."
+      }
     },
     {
       "id": "p02c04-39",
@@ -642,7 +794,11 @@
       "answer": [
         1
       ],
-      "explanation": "Ontologies generally model a broader domain, while database schemas focus on the miniworld needed for data storage and management (§4.7)."
+      "explanation": "Ontologies generally model a broader domain, while database schemas focus on the miniworld needed for data storage and management (§4.7).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ontology_chart.jpg/500px-Ontology_chart.jpg",
+        "alt": "Ontology chart showing concepts organised into a structured vocabulary."
+      }
     }
   ]
 }

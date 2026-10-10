@@ -18,7 +18,11 @@
       "answer": [
         1
       ],
-      "explanation": "A data model supplies concepts for describing database structure, such as data types, relationships, and constraints (§2.1)."
+      "explanation": "A data model supplies concepts for describing database structure, such as data types, relationships, and constraints (§2.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Data_modeling_context.svg/500px-Data_modeling_context.svg.png",
+        "alt": "Diagram of a data-modeling context showing a data model built from data and relationships."
+      }
     },
     {
       "id": "p01c02-02",
@@ -36,7 +40,11 @@
         2,
         3
       ],
-      "explanation": "Conceptual models use user-oriented concepts, representational models bridge users and implementation, and physical models describe storage details. User-oriented entity and relationship concepts characterize conceptual models (§2.1.1)."
+      "explanation": "Conceptual models use user-oriented concepts, representational models bridge users and implementation, and physical models describe storage details. User-oriented entity and relationship concepts characterize conceptual models (§2.1.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Database_models.jpg",
+        "alt": "Collage of five database model illustrations, including flat-file, hierarchical, network and relational styles."
+      }
     },
     {
       "id": "p01c02-03",
@@ -52,7 +60,11 @@
       "answer": [
         2
       ],
-      "explanation": "Inserting a record changes the current database state (extension). The schema (intension) describes the database structure and remains unchanged (§2.1.2)."
+      "explanation": "Inserting a record changes the current database state (extension). The schema (intension) describes the database structure and remains unchanged (§2.1.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/9/94/MediaWiki_1.28.0_database_schema.svg",
+        "alt": "Entity diagram of the MediaWiki 1.28.0 database schema showing tables and their links."
+      }
     },
     {
       "id": "p01c02-04",
@@ -70,7 +82,11 @@
         1,
         2
       ],
-      "explanation": "External schemas represent user-group views, the conceptual schema describes the whole community database, and the internal schema covers physical storage and access paths (§2.2.1)."
+      "explanation": "External schemas represent user-group views, the conceptual schema describes the whole community database, and the internal schema covers physical storage and access paths (§2.2.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/4-2_ANSI-SPARC_three_level_architecture.svg",
+        "alt": "Diagram of the ANSI/SPARC three-level database architecture showing stacked schema levels and the mappings between them."
+      }
     },
     {
       "id": "p01c02-05",
@@ -87,7 +103,11 @@
       "answer": [
         3
       ],
-      "explanation": "Data independence is the capacity to change a schema at one level without changing the schema at the next higher level (§2.2.2)."
+      "explanation": "Data independence is the capacity to change a schema at one level without changing the schema at the next higher level (§2.2.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/4-2_ANSI-SPARC_three_level_architecture.svg",
+        "alt": "Diagram of the ANSI/SPARC three-level database architecture showing stacked schema levels and the mappings between them."
+      }
     },
     {
       "id": "p01c02-06",
@@ -103,7 +123,11 @@
       "answer": [
         0
       ],
-      "explanation": "Adding an access structure changes the internal schema; physical data independence allows this without changing the conceptual schema (§2.2.2)."
+      "explanation": "Adding an access structure changes the internal schema; physical data independence allows this without changing the conceptual schema (§2.2.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/4-2_ANSI-SPARC_three_level_architecture.svg",
+        "alt": "Diagram of the ANSI/SPARC three-level database architecture showing stacked schema levels and the mappings between them."
+      }
     },
     {
       "id": "p01c02-07",
@@ -119,7 +143,11 @@
       "answer": [
         1
       ],
-      "explanation": "Logical data independence is supported by changing the relevant view definition and mappings while keeping affected application programs working (§2.2.2)."
+      "explanation": "Logical data independence is supported by changing the relevant view definition and mappings while keeping affected application programs working (§2.2.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/4-2_ANSI-SPARC_three_level_architecture.svg",
+        "alt": "Diagram of the ANSI/SPARC three-level database architecture showing stacked schema levels and the mappings between them."
+      }
     },
     {
       "id": "p01c02-08",
@@ -136,7 +164,11 @@
       "answer": [
         3
       ],
-      "explanation": "DDL statements define database schemas; a DDL compiler processes their descriptions and stores them in the catalog (§2.3.1)."
+      "explanation": "DDL statements define database schemas; a DDL compiler processes their descriptions and stores them in the catalog (§2.3.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/UY3OsG1vuT-saving-a-ddl-file-in-Oracle-Developer.png/500px-UY3OsG1vuT-saving-a-ddl-file-in-Oracle-Developer.png",
+        "alt": "Screenshot of a database tool saving a DDL script file in Oracle SQL Developer."
+      }
     },
     {
       "id": "p01c02-09",
@@ -152,7 +184,11 @@
       "answer": [
         0
       ],
-      "explanation": "High-level DML specifies what data to retrieve rather than how to retrieve it, and can operate on sets of records (§2.3.1)."
+      "explanation": "High-level DML specifies what data to retrieve rather than how to retrieve it, and can operate on sets of records (§2.3.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f2/DVD_Rental_Query.png",
+        "alt": "Screenshot of an SQL select statement and the table of rows it returns."
+      }
     },
     {
       "id": "p01c02-10",
@@ -169,7 +205,11 @@
       "answer": [
         2
       ],
-      "explanation": "Menu-based interfaces guide users through requests by presenting lists of options, so they need not memorize query commands and syntax (§2.3.2)."
+      "explanation": "Menu-based interfaces guide users through requests by presenting lists of options, so they need not memorize query commands and syntax (§2.3.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/77/Example_of_a_GUI.png",
+        "alt": "Screenshot of a graphical user interface with buttons, check boxes, menus and tabs."
+      }
     },
     {
       "id": "p01c02-11",
@@ -187,7 +227,11 @@
         2,
         3
       ],
-      "explanation": "The runtime processor executes plans and transactions, the stored-data manager accesses disk information, and buffering plus transaction services support execution. The DDL compiler processes schema definitions (§2.4.1)."
+      "explanation": "The runtime processor executes plans and transactions, the stored-data manager accesses disk information, and buffering plus transaction services support execution. The DDL compiler processes schema definitions (§2.4.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Traditional_View_of_Data_SVG.svg",
+        "alt": "Diagram of the traditional view of data, with applications connected to stored data files."
+      }
     },
     {
       "id": "p01c02-12",
@@ -205,7 +249,11 @@
         1,
         2
       ],
-      "explanation": "Common utilities load data, create backups, reorganize storage, and monitor performance. Host-language compilation is part of application program processing (§2.4.2)."
+      "explanation": "Common utilities load data, create backups, reorganize storage, and monitor performance. Host-language compilation is part of application program processing (§2.4.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Traditional_View_of_Data_SVG.svg",
+        "alt": "Diagram of the traditional view of data, with applications connected to stored data files."
+      }
     },
     {
       "id": "p01c02-13",
@@ -221,7 +269,11 @@
       "answer": [
         3
       ],
-      "explanation": "The precompiler extracts embedded DML commands and sends them to the DML compiler for compilation (§2.4.1)."
+      "explanation": "The precompiler extracts embedded DML commands and sends them to the DML compiler for compilation (§2.4.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f2/DVD_Rental_Query.png",
+        "alt": "Screenshot of an SQL select statement and the table of rows it returns."
+      }
     },
     {
       "id": "p01c02-14",
@@ -237,7 +289,11 @@
       "answer": [
         1
       ],
-      "explanation": "In the centralized architecture described, all processing, including applications and DBMS functionality, occurs on the computer housing the DBMS (§2.5.1)."
+      "explanation": "In the centralized architecture described, all processing, including applications and DBMS functionality, occurs on the computer housing the DBMS (§2.5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Client-Server_2-tier_architceture-en.svg/500px-Client-Server_2-tier_architceture-en.svg.png",
+        "alt": "Diagram of a two-tier client/server architecture with clients connected to a server."
+      }
     },
     {
       "id": "p01c02-15",
@@ -253,7 +309,11 @@
       "answer": [
         1
       ],
-      "explanation": "The middle tier runs application programs and business rules and can check credentials before forwarding requests to the database server (§2.5.4)."
+      "explanation": "The middle tier runs application programs and business rules and can check credentials before forwarding requests to the database server (§2.5.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Overview_of_a_three-tier_application_vectorVersion.svg/500px-Overview_of_a_three-tier_application_vectorVersion.svg.png",
+        "alt": "Overview diagram of a three-tier application architecture with separate layers connected in sequence."
+      }
     },
     {
       "id": "p01c02-16",
@@ -269,7 +329,11 @@
       "answer": [
         3
       ],
-      "explanation": "The client sends requests to the middle tier, which processes them and issues database requests; results pass back through the middle tier to the client (§2.5.4)."
+      "explanation": "The client sends requests to the middle tier, which processes them and issues database requests; results pass back through the middle tier to the client (§2.5.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Client-Server_3-tier_architecture_-_en.png/500px-Client-Server_3-tier_architecture_-_en.png",
+        "alt": "Diagram of a three-tier client/server architecture with separate layers in sequence."
+      }
     },
     {
       "id": "p01c02-17",
@@ -287,7 +351,11 @@
         1,
         2
       ],
-      "explanation": "DBMSs can be classified by data model, number of supported users, distribution across sites, and cost. Display size is not a DBMS classification criterion (§2.6)."
+      "explanation": "DBMSs can be classified by data model, number of supported users, distribution across sites, and cost. Display size is not a DBMS classification criterion (§2.6).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Database_models.jpg",
+        "alt": "Collage of five database model illustrations, including flat-file, hierarchical, network and relational styles."
+      }
     },
     {
       "id": "p01c02-18",
@@ -304,7 +372,11 @@
       "answer": [
         2
       ],
-      "explanation": "The key-value model associates a unique key with each value and provides access to the value given its key (§2.6)."
+      "explanation": "The key-value model associates a unique key with each value and provides access to the value given its key (§2.6).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/5/5b/KeyValue.PNG",
+        "alt": "Illustration of the key-value concept with data values associated with keys."
+      }
     },
     {
       "id": "p01c02-19",
@@ -320,7 +392,11 @@
       "answer": [
         3
       ],
-      "explanation": "A heterogeneous distributed DBMS can use different DBMS software at its sites; a homogeneous DDBMS uses the same software (§2.6)."
+      "explanation": "A heterogeneous distributed DBMS can use different DBMS software at its sites; a homogeneous DDBMS uses the same software (§2.6).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Distributed_Relational_Database_Architecture.svg/500px-Distributed_Relational_Database_Architecture.svg.png",
+        "alt": "Diagram of Distributed Relational Database Architecture (DRDA) linking several database systems."
+      }
     }
   ]
 }

@@ -18,7 +18,11 @@
       "answer": [
         2
       ],
-      "explanation": "A schema has a name and groups elements such as tables, types, constraints, views, and domains; a catalog collects schemas. (§6.1.1)"
+      "explanation": "A schema has a name and groups elements such as tables, types, constraints, views, and domains; a catalog collects schemas. (§6.1.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/b/b3/ER_diagram_of_schema_ENWIKI_with_foreign_keys.svg",
+        "alt": "Entity-relationship diagram of a database schema with tables linked by foreign keys."
+      }
     },
     {
       "id": "p03c06-02",
@@ -34,7 +38,11 @@
       "answer": [
         3
       ],
-      "explanation": "SQL permits referential integrity constraints between relations only when their schemas are within the same catalog; the schemas need not be identical. (§6.1.1)"
+      "explanation": "SQL permits referential integrity constraints between relations only when their schemas are within the same catalog; the schemas need not be identical. (§6.1.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/b/b3/ER_diagram_of_schema_ENWIKI_with_foreign_keys.svg",
+        "alt": "Entity-relationship diagram of a database schema with tables linked by foreign keys."
+      }
     },
     {
       "id": "p03c06-03",
@@ -50,7 +58,11 @@
       "answer": [
         0
       ],
-      "explanation": "SQL preserves declared attribute order in a base table but does not guarantee an order among its rows (§6.1.2)."
+      "explanation": "SQL preserves declared attribute order in a base table but does not guarantee an order among its rows (§6.1.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled diagram of the parts of a relational table: rows, columns and related terms."
+      }
     },
     {
       "id": "p03c06-04",
@@ -68,7 +80,11 @@
         2,
         3
       ],
-      "explanation": "SQL includes numeric, character, bit-string, CLOB, and BLOB types. Its Boolean logic can also yield UNKNOWN when NULL is involved (§6.1.3)."
+      "explanation": "SQL includes numeric, character, bit-string, CLOB, and BLOB types. Its Boolean logic can also yield UNKNOWN when NULL is involved (§6.1.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/d/da/Relational_Model.svg",
+        "alt": "Data items organised as formally described tables in the relational model."
+      }
     },
     {
       "id": "p03c06-05",
@@ -85,7 +101,11 @@
       "answer": [
         0
       ],
-      "explanation": "CHAR is fixed length and shorter values are padded on the right; VARCHAR is varying length with a five-character maximum here. (§6.1.3)"
+      "explanation": "CHAR is fixed length and shorter values are padded on the right; VARCHAR is varying length with a five-character maximum here. (§6.1.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Relational_key.svg",
+        "alt": "Two relational tables with the key columns highlighted and linked."
+      }
     },
     {
       "id": "p03c06-06",
@@ -101,7 +121,11 @@
       "answer": [
         1
       ],
-      "explanation": "A DATE literal uses the DATE keyword followed by a quoted value in YYYY-MM-DD form (§6.1.3)."
+      "explanation": "A DATE literal uses the DATE keyword followed by a quoted value in YYYY-MM-DD form (§6.1.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/d/da/Relational_Model.svg",
+        "alt": "Data items organised as formally described tables in the relational model."
+      }
     },
     {
       "id": "p03c06-07",
@@ -117,7 +141,11 @@
       "answer": [
         3
       ],
-      "explanation": "A domain lets multiple attributes share a named type, making the schema more readable and easier to change consistently; it does not itself create foreign keys. (§6.1.3)"
+      "explanation": "A domain lets multiple attributes share a named type, making the schema more readable and easier to change consistently; it does not itself create foreign keys. (§6.1.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Relational_key.svg",
+        "alt": "Two relational tables with the key columns highlighted and linked."
+      }
     },
     {
       "id": "p03c06-08",
@@ -134,7 +162,11 @@
       "answer": [
         0
       ],
-      "explanation": "When an attribute is omitted from an INSERT, its declared default is used; NOT NULL prevents NULL but does not block the default. (§6.2.1)"
+      "explanation": "When an attribute is omitted from an INSERT, its declared default is used; NOT NULL prevents NULL but does not block the default. (§6.2.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled diagram of the parts of a relational table: rows, columns and related terms."
+      }
     },
     {
       "id": "p03c06-09",
@@ -151,7 +183,11 @@
       "answer": [
         2
       ],
-      "explanation": "The CHECK condition is strict at both ends: Dnumber must be greater than 0 and less than 21, so the permitted integers are 1 through 20. (§6.2.1)"
+      "explanation": "The CHECK condition is strict at both ends: Dnumber must be greater than 0 and less than 21, so the permitted integers are 1 through 20. (§6.2.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/d/da/Relational_Model.svg",
+        "alt": "Data items organised as formally described tables in the relational model."
+      }
     },
     {
       "id": "p03c06-10",
@@ -170,7 +206,11 @@
         2,
         3
       ],
-      "explanation": "A composite primary key makes each Essn-Pno pair unique, Dnumber is the department primary key, and UNIQUE declares an alternate key; constraint names are optional. (§6.2.2–§6.2.3)"
+      "explanation": "A composite primary key makes each Essn-Pno pair unique, Dnumber is the department primary key, and UNIQUE declares an alternate key; constraint names are optional. (§6.2.2–§6.2.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Relational_key.svg",
+        "alt": "Two relational tables with the key columns highlighted and linked."
+      }
     },
     {
       "id": "p03c06-11",
@@ -188,7 +228,11 @@
         1,
         3
       ],
-      "explanation": "The designer can specify SET NULL, CASCADE, or SET DEFAULT as alternatives; the default behavior is to reject the violating operation, known as RESTRICT. ROLLBACK is not a referential triggered action. (§6.2.2)"
+      "explanation": "The designer can specify SET NULL, CASCADE, or SET DEFAULT as alternatives; the default behavior is to reject the violating operation, known as RESTRICT. ROLLBACK is not a referential triggered action. (§6.2.2)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Two linked tables where a foreign-key value points at a missing row in the referenced table."
+      }
     },
     {
       "id": "p03c06-12",
@@ -205,7 +249,11 @@
       "answer": [
         2
       ],
-      "explanation": "ON DELETE SET NULL clears referencing Super_ssn values; ON UPDATE CASCADE copies a changed referenced Ssn into those foreign keys. (§6.2.2)"
+      "explanation": "ON DELETE SET NULL clears referencing Super_ssn values; ON UPDATE CASCADE copies a changed referenced Ssn into those foreign keys. (§6.2.2)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Two linked tables where a foreign-key value points at a missing row in the referenced table."
+      }
     },
     {
       "id": "p03c06-13",
@@ -222,7 +270,11 @@
         0,
         1
       ],
-      "explanation": "SELECT and FROM are required in a simple retrieval query; WHERE and ORDER BY are optional. (§6.3.7)"
+      "explanation": "SELECT and FROM are required in a simple retrieval query; WHERE and ORDER BY are optional. (§6.3.7)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/a/aa/SQL_ANATOMY_wiki.svg",
+        "alt": "Annotated SQL query showing its clauses such as SELECT, FROM and WHERE."
+      }
     },
     {
       "id": "p03c06-14",
@@ -239,7 +291,11 @@
       "answer": [
         1
       ],
-      "explanation": "The WHERE predicate selects the Research department and joins its Dnumber to each employee’s Dno; the SELECT list projects each matching employee’s name and address. (§6.3.1)"
+      "explanation": "The WHERE predicate selects the Research department and joins its Dnumber to each employee’s Dno; the SELECT list projects each matching employee’s name and address. (§6.3.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/31/Relational_Algebra_Single_Table_Projection.svg",
+        "alt": "A table before and after relational projection keeping only chosen columns."
+      }
     },
     {
       "id": "p03c06-15",
@@ -256,7 +312,11 @@
       "answer": [
         3
       ],
-      "explanation": "A comparison with NULL does not evaluate to TRUE; the row fails the WHERE selection condition, which retains only tuples whose condition is TRUE. (§6.1.3, §6.3.1)"
+      "explanation": "A comparison with NULL does not evaluate to TRUE; the row fails the WHERE selection condition, which retains only tuples whose condition is TRUE. (§6.1.3, §6.3.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Relational_Algebra_Single_Table_Selection.svg",
+        "alt": "A table before and after relational selection keeping only rows that meet a condition."
+      }
     },
     {
       "id": "p03c06-16",
@@ -306,7 +366,11 @@
       "answer": [
         2
       ],
-      "explanation": "An asterisk in SELECT stands for all attributes of the relation named in FROM; the WHERE condition still limits the qualifying rows. (§6.3.3)"
+      "explanation": "An asterisk in SELECT stands for all attributes of the relation named in FROM; the WHERE condition still limits the qualifying rows. (§6.3.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/a/aa/SQL_ANATOMY_wiki.svg",
+        "alt": "Annotated SQL query showing its clauses such as SELECT, FROM and WHERE."
+      }
     },
     {
       "id": "p03c06-19",
@@ -340,7 +404,11 @@
       "answer": [
         0
       ],
-      "explanation": "A query without DISTINCT is equivalent to SELECT ALL and does not eliminate duplicates; DISTINCT removes duplicate result tuples. (§6.3.4)"
+      "explanation": "A query without DISTINCT is equivalent to SELECT ALL and does not eliminate duplicates; DISTINCT removes duplicate result tuples. (§6.3.4)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/31/Relational_Algebra_Single_Table_Projection.svg",
+        "alt": "A table before and after relational projection keeping only chosen columns."
+      }
     },
     {
       "id": "p03c06-21",
@@ -375,7 +443,11 @@
       "answer": [
         0
       ],
-      "explanation": "In LIKE patterns, percent matches a sequence of zero or more characters, while underscore matches one character. (§6.3.5)"
+      "explanation": "In LIKE patterns, percent matches a sequence of zero or more characters, while underscore matches one character. (§6.3.5)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Relational_Algebra_Single_Table_Selection.svg",
+        "alt": "A table before and after relational selection keeping only rows that meet a condition."
+      }
     },
     {
       "id": "p03c06-23",
@@ -392,7 +464,11 @@
       "answer": [
         1
       ],
-      "explanation": "BETWEEN is inclusive at both endpoints and is equivalent here to Salary >= 30000 AND Salary <= 40000. (§6.3.5)"
+      "explanation": "BETWEEN is inclusive at both endpoints and is equivalent here to Salary >= 30000 AND Salary <= 40000. (§6.3.5)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Relational_Algebra_Single_Table_Selection.svg",
+        "alt": "A table before and after relational selection keeping only rows that meet a condition."
+      }
     },
     {
       "id": "p03c06-24",
@@ -409,7 +485,11 @@
       "answer": [
         1
       ],
-      "explanation": "DESC applies to Dname; ascending is the default for later keys, so Lname and Fname sort ascending within Dname ties. (§6.3.6)"
+      "explanation": "DESC applies to Dname; ascending is the default for later keys, so Lname and Fname sort ascending within Dname ties. (§6.3.6)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/a/aa/SQL_ANATOMY_wiki.svg",
+        "alt": "Annotated SQL query showing its clauses such as SELECT, FROM and WHERE."
+      }
     },
     {
       "id": "p03c06-25",
@@ -426,7 +506,11 @@
       "answer": [
         2
       ],
-      "explanation": "When an explicit INSERT column list omits an attribute, its default is used; without one, the default is NULL unless the attribute is NOT NULL. (§6.4.1)"
+      "explanation": "When an explicit INSERT column list omits an attribute, its default is used; without one, the default is NULL unless the attribute is NOT NULL. (§6.4.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled diagram of the parts of a relational table: rows, columns and related terms."
+      }
     },
     {
       "id": "p03c06-26",
@@ -460,7 +544,11 @@
       "answer": [
         0
       ],
-      "explanation": "A DELETE without WHERE removes all tuples from the relation, while the table remains; DROP TABLE removes the table definition. (§6.4.2)"
+      "explanation": "A DELETE without WHERE removes all tuples from the relation, while the table remains; DROP TABLE removes the table definition. (§6.4.2)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled diagram of the parts of a relational table: rows, columns and related terms."
+      }
     },
     {
       "id": "p03c06-28",
@@ -477,7 +565,11 @@
       "answer": [
         1
       ],
-      "explanation": "In the SET expression, the old Salary on the right is read before modification and the result becomes the new Salary on the left for each selected row. (§6.4.3)"
+      "explanation": "In the SET expression, the old Salary on the right is read before modification and the result becomes the new Salary on the left for each selected row. (§6.4.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/d/da/Relational_Model.svg",
+        "alt": "Data items organised as formally described tables in the relational model."
+      }
     },
     {
       "id": "p03c06-29",
@@ -495,7 +587,11 @@
         2,
         3
       ],
-      "explanation": "SQL environments support complex queries, integrity constraints, programming interfaces, transactions, authorization, triggers, object-relational features, XML, and OLAP. These capabilities go beyond simple SELECT-FROM queries (§6.5)."
+      "explanation": "SQL environments support complex queries, integrity constraints, programming interfaces, transactions, authorization, triggers, object-relational features, XML, and OLAP. These capabilities go beyond simple SELECT-FROM queries (§6.5).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/a/aa/SQL_ANATOMY_wiki.svg",
+        "alt": "Annotated SQL query showing its clauses such as SELECT, FROM and WHERE."
+      }
     },
     {
       "id": "p03c06-30",
@@ -511,7 +607,11 @@
       "answer": [
         2
       ],
-      "explanation": "Physical storage, file structures, and access paths such as indexes are vendor-specific physical-design concerns; some systems still provide CREATE INDEX under special privilege. (§6.5)"
+      "explanation": "Physical storage, file structures, and access paths such as indexes are vendor-specific physical-design concerns; some systems still provide CREATE INDEX under special privilege. (§6.5)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/65/B-tree.svg",
+        "alt": "A small B-tree: a balanced search tree whose nodes hold sorted keys."
+      }
     }
   ]
 }

@@ -18,7 +18,11 @@
       "answer": [
         3
       ],
-      "explanation": "A domain is a set of atomic values, commonly specified with a name, data type, and format. A relation schema describes attributes, while a relation state contains tuples (§5.1)."
+      "explanation": "A domain is a set of atomic values, commonly specified with a name, data type, and format. A relation schema describes attributes, while a relation state contains tuples (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled relational table showing its rows, columns and cells with the formal and informal terms."
+      }
     },
     {
       "id": "p03c05-02",
@@ -35,7 +39,11 @@
       "answer": [
         2
       ],
-      "explanation": "A row is a tuple, a column heading is an attribute, and the table-like collection is a relation. A domain instead describes the allowed values for an attribute (§5.1)."
+      "explanation": "A row is a tuple, a column heading is an attribute, and the table-like collection is a relation. A domain instead describes the allowed values for an attribute (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Relational_model_concepts.png/500px-Relational_model_concepts.png",
+        "alt": "Illustration of relational model concepts: a table annotated with relation, tuple, attribute and domain terms."
+      }
     },
     {
       "id": "p03c05-03",
@@ -51,7 +59,11 @@
       "answer": [
         0
       ],
-      "explanation": "The relation state is the current set of tuples and changes as the represented world changes; the schema is its relatively stable structure. Adding or changing rows alone does not change the attributes (§5.1)."
+      "explanation": "The relation state is the current set of tuples and changes as the represented world changes; the schema is its relatively stable structure. Adding or changing rows alone does not change the attributes (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled relational table showing its rows, columns and cells with the formal and informal terms."
+      }
     },
     {
       "id": "p03c05-04",
@@ -67,7 +79,11 @@
       "answer": [
         0
       ],
-      "explanation": "The degree, also called arity, is the number of attributes in the relation schema, which is seven here. Tuple count describes the current state and is not the degree (§5.1)."
+      "explanation": "The degree, also called arity, is the number of attributes in the relation schema, which is seven here. Tuple count describes the current state and is not the degree (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Relational_model_concepts.png/500px-Relational_model_concepts.png",
+        "alt": "Illustration of relational model concepts: a table annotated with relation, tuple, attribute and domain terms."
+      }
     },
     {
       "id": "p03c05-05",
@@ -83,7 +99,11 @@
       "answer": [
         1
       ],
-      "explanation": "A relation is a set of tuples, and set elements have no order. A display or file can impose a row order, but that ordering is not part of the relation definition (§5.1)."
+      "explanation": "A relation is a set of tuples, and set elements have no order. A display or file can impose a row order, but that ordering is not part of the relation definition (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled relational table showing its rows, columns and cells with the formal and informal terms."
+      }
     },
     {
       "id": "p03c05-06",
@@ -99,7 +119,11 @@
       "answer": [
         3
       ],
-      "explanation": "Viewing a tuple as a mapping makes the order of attribute-value pairs irrelevant as long as each value stays paired with its attribute. Ordered notation is a compact alternative (§5.1)."
+      "explanation": "Viewing a tuple as a mapping makes the order of attribute-value pairs irrelevant as long as each value stays paired with its attribute. Ordered notation is a compact alternative (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Relational_model_concepts.png/500px-Relational_model_concepts.png",
+        "alt": "Illustration of relational model concepts: a table annotated with relation, tuple, attribute and domain terms."
+      }
     },
     {
       "id": "p03c05-07",
@@ -117,7 +141,11 @@
         1,
         2
       ],
-      "explanation": "The basic model treats tuple values as atomic and represents multivalued attributes in separate relations and composite attributes through their simple components. Sorting tuples by key is not a relational requirement (§5.1)."
+      "explanation": "The basic model treats tuple values as atomic and represents multivalued attributes in separate relations and composite attributes through their simple components. Sorting tuples by key is not a relational requirement (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Relational_key.svg/500px-Relational_key.svg.png",
+        "alt": "Two linked tables sharing a login column, one with names and one with phone numbers."
+      }
     },
     {
       "id": "p03c05-08",
@@ -134,7 +162,11 @@
         1,
         3
       ],
-      "explanation": "NULL can represent a value that is unknown, unavailable, or inapplicable. The prompt includes unknown and inapplicable cases; two NULLs do not imply equal underlying values (§5.1)."
+      "explanation": "NULL can represent a value that is unknown, unavailable, or inapplicable. The prompt includes unknown and inapplicable cases; two NULLs do not imply equal underlying values (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Db_null.png/120px-Db_null.png",
+        "alt": "Small database icon marked with the Greek letter omega, a symbol used for null in database theory."
+      }
     },
     {
       "id": "p03c05-09",
@@ -150,7 +182,11 @@
       "answer": [
         2
       ],
-      "explanation": "Under the closed-world assumption, the facts in the relation extension are the true facts; an absent combination makes the predicate false. A relation can represent entity facts as well as relationship facts (§5.1)."
+      "explanation": "Under the closed-world assumption, the facts in the relation extension are the true facts; an absent combination makes the predicate false. A relation can represent entity facts as well as relationship facts (§5.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled relational table showing its rows, columns and cells with the formal and informal terms."
+      }
     },
     {
       "id": "p03c05-10",
@@ -169,7 +205,11 @@
         2,
         3
       ],
-      "explanation": "Relational constraints can be inherent to the model, schema-based, or application-based semantic rules. Physical tuple display order is not a constraint category (§5.2)."
+      "explanation": "Relational constraints can be inherent to the model, schema-based, or application-based semantic rules. Physical tuple display order is not a constraint category (§5.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row holds an artist identifier column."
+      }
     },
     {
       "id": "p03c05-11",
@@ -185,7 +225,11 @@
       "answer": [
         0
       ],
-      "explanation": "A domain constraint requires an attribute value to come from that attribute's domain, including its specified type and range. 4.2 is outside the allowed range (§5.2.1)."
+      "explanation": "A domain constraint requires an attribute value to come from that attribute's domain, including its specified type and range. 4.2 is outside the allowed range (§5.2.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Relational_model_concepts.png/500px-Relational_model_concepts.png",
+        "alt": "Illustration of relational model concepts: a table annotated with relation, tuple, attribute and domain terms."
+      }
     },
     {
       "id": "p03c05-12",
@@ -202,7 +246,11 @@
       "answer": [
         1
       ],
-      "explanation": "Both keys and superkeys uniquely identify tuples. A key is minimal, meaning no attribute can be removed while preserving uniqueness; a superkey need not be minimal (§5.2.2)."
+      "explanation": "Both keys and superkeys uniquely identify tuples. A key is minimal, meaning no attribute can be removed while preserving uniqueness; a superkey need not be minimal (§5.2.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Relational_key.svg/500px-Relational_key.svg.png",
+        "alt": "Two linked tables sharing a login column, one with names and one with phone numbers."
+      }
     },
     {
       "id": "p03c05-13",
@@ -219,7 +267,11 @@
       "answer": [
         3
       ],
-      "explanation": "Each key of a relation schema is a candidate key, and it is common to designate one candidate key as the primary key. The choice is somewhat arbitrary, though a compact key is often preferred (§5.2.2)."
+      "explanation": "Each key of a relation schema is a candidate key, and it is common to designate one candidate key as the primary key. The choice is somewhat arbitrary, though a compact key is often preferred (§5.2.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Relational_key.svg/500px-Relational_key.svg.png",
+        "alt": "Two linked tables sharing a login column, one with names and one with phone numbers."
+      }
     },
     {
       "id": "p03c05-14",
@@ -235,7 +287,11 @@
       "answer": [
         2
       ],
-      "explanation": "Because the set includes Ssn, it remains unique and is therefore a superkey. It is not minimal, since removing Name leaves the still-unique {Ssn} set (§5.2.2)."
+      "explanation": "Because the set includes Ssn, it remains unique and is therefore a superkey. It is not minimal, since removing Name leaves the still-unique {Ssn} set (§5.2.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Relational_key.svg/500px-Relational_key.svg.png",
+        "alt": "Two linked tables sharing a login column, one with names and one with phone numbers."
+      }
     },
     {
       "id": "p03c05-15",
@@ -252,7 +308,11 @@
         0,
         2
       ],
-      "explanation": "The declared NOT NULL rule forbids NULL in Name, and entity integrity forbids NULL in a primary key. Referential integrity concerns foreign-key references, while tuple ordering is not a constraint on NULLs (§5.2.2, §5.2.4)."
+      "explanation": "The declared NOT NULL rule forbids NULL in Name, and entity integrity forbids NULL in a primary key. Referential integrity concerns foreign-key references, while tuple ordering is not a constraint on NULLs (§5.2.2, §5.2.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Db_null.png/120px-Db_null.png",
+        "alt": "Small database icon marked with the Greek letter omega, a symbol used for null in database theory."
+      }
     },
     {
       "id": "p03c05-16",
@@ -268,7 +328,11 @@
       "answer": [
         1
       ],
-      "explanation": "A relational database schema consists of the relation schemas and integrity constraints; a database state consists of current relation states satisfying those constraints. A violating state would not be valid (§5.2.3)."
+      "explanation": "A relational database schema consists of the relation schemas and integrity constraints; a database state consists of current relation states satisfying those constraints. A violating state would not be valid (§5.2.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Relational_model_concepts.png/500px-Relational_model_concepts.png",
+        "alt": "Illustration of relational model concepts: a table annotated with relation, tuple, attribute and domain terms."
+      }
     },
     {
       "id": "p03c05-17",
@@ -286,7 +350,11 @@
         2,
         3
       ],
-      "explanation": "A primary key cannot be NULL, violating entity integrity, and Dno must match an existing department key or be NULL, so 7 violates referential integrity. The prompt gives no duplicate Ssn, and 7 can be an integer in its domain (§5.2.4)."
+      "explanation": "A primary key cannot be NULL, violating entity integrity, and Dno must match an existing department key or be NULL, so 7 violates referential integrity. The prompt gives no duplicate Ssn, and 7 can be an integer in its domain (§5.2.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row holds an artist identifier column."
+      }
     },
     {
       "id": "p03c05-18",
@@ -303,7 +371,11 @@
       "answer": [
         3
       ],
-      "explanation": "A foreign-key value must either equal a primary-key value in a tuple of the referenced relation or be NULL; the foreign-key attributes also have compatible domains with the primary key. It need not have the same name (§5.2.4)."
+      "explanation": "A foreign-key value must either equal a primary-key value in a tuple of the referenced relation or be NULL; the foreign-key attributes also have compatible domains with the primary key. It need not have the same name (§5.2.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row holds an artist identifier column."
+      }
     },
     {
       "id": "p03c05-19",
@@ -319,7 +391,11 @@
       "answer": [
         0
       ],
-      "explanation": "A supervisor is represented by another EMPLOYEE tuple, so Super_ssn is a self-referencing foreign key to EMPLOYEE's Ssn primary key. Dno instead references DEPARTMENT (§5.2.4)."
+      "explanation": "A supervisor is represented by another EMPLOYEE tuple, so Super_ssn is a self-referencing foreign key to EMPLOYEE's Ssn primary key. Dno instead references DEPARTMENT (§5.2.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row holds an artist identifier column."
+      }
     },
     {
       "id": "p03c05-20",
@@ -336,7 +412,11 @@
         0,
         1
       ],
-      "explanation": "The salary-versus-supervisor rule and 56-hour weekly maximum are given as semantic integrity examples. Primary-key non-null and value-domain requirements are schema-based constraints (§5.2.5)."
+      "explanation": "The salary-versus-supervisor rule and 56-hour weekly maximum are given as semantic integrity examples. Primary-key non-null and value-domain requirements are schema-based constraints (§5.2.5).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled relational table showing its rows, columns and cells with the formal and informal terms."
+      }
     },
     {
       "id": "p03c05-21",
@@ -352,7 +432,11 @@
       "answer": [
         3
       ],
-      "explanation": "A rule governing how the database may change from one state to another is a transition constraint. A state constraint instead limits what values are valid in a state (§5.2.5)."
+      "explanation": "A rule governing how the database may change from one state to another is a transition constraint. A state constraint instead limits what values are valid in a state (§5.2.5).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled relational table showing its rows, columns and cells with the formal and informal terms."
+      }
     },
     {
       "id": "p03c05-22",
@@ -369,7 +453,11 @@
       "answer": [
         2
       ],
-      "explanation": "Insert adds tuples, Delete removes tuples, and Update or Modify changes attribute values in existing tuples. Select, Project, and Join are retrieval operations (§5.3)."
+      "explanation": "Insert adds tuples, Delete removes tuples, and Update or Modify changes attribute values in existing tuples. Select, Project, and Join are retrieval operations (§5.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Relational_database_terms.svg",
+        "alt": "Labelled relational table showing its rows, columns and cells with the formal and informal terms."
+      }
     },
     {
       "id": "p03c05-23",
@@ -385,7 +473,11 @@
       "answer": [
         1
       ],
-      "explanation": "EMPLOYEE.Dno references DEPARTMENT.Dnumber, so a non-NULL Dno must match an existing department primary-key value. Merely having a compatible type does not satisfy referential integrity (§5.3.1)."
+      "explanation": "EMPLOYEE.Dno references DEPARTMENT.Dnumber, so a non-NULL Dno must match an existing department primary-key value. Merely having a compatible type does not satisfy referential integrity (§5.3.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row holds an artist identifier column."
+      }
     },
     {
       "id": "p03c05-24",
@@ -401,7 +493,11 @@
       "answer": [
         3
       ],
-      "explanation": "The default is to reject an insertion that violates constraints; the DBMS could provide a reason or ask the user to correct the value. Automatically accepting an invalid state is not the described response (§5.3.1)."
+      "explanation": "The default is to reject an insertion that violates constraints; the DBMS could provide a reason or ask the user to correct the value. Automatically accepting an invalid state is not the described response (§5.3.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row holds an artist identifier column."
+      }
     },
     {
       "id": "p03c05-25",
@@ -418,7 +514,11 @@
       "answer": [
         2
       ],
-      "explanation": "Deleting the referenced EMPLOYEE tuple while the WORKS_ON foreign key still contains its Ssn would leave a dangling reference and violate referential integrity (§5.3.2)."
+      "explanation": "Deleting the referenced EMPLOYEE tuple while the WORKS_ON foreign key still contains its Ssn would leave a dangling reference and violate referential integrity (§5.3.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row holds an artist identifier column."
+      }
     },
     {
       "id": "p03c05-26",
@@ -437,7 +537,11 @@
         1,
         3
       ],
-      "explanation": "The described options are restrict, cascade, and setting the offending referencing values to NULL or a valid default. Reordering tuples does not resolve a referential-integrity violation (§5.3.2)."
+      "explanation": "The described options are restrict, cascade, and setting the offending referencing values to NULL or a valid default. Reordering tuples does not resolve a referential-integrity violation (§5.3.2).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Referential_integrity_broken.png",
+        "alt": "Example album and artist tables where an album row holds an artist identifier column."
+      }
     },
     {
       "id": "p03c05-27",
@@ -455,7 +559,11 @@
         0,
         2
       ],
-      "explanation": "The new Ssn duplicates another employee's primary key, violating the key constraint; existing WORKS_ON references to 111 also lose their referenced tuple. The new value is non-NULL and is not described as outside its domain (§5.3.3)."
+      "explanation": "The new Ssn duplicates another employee's primary key, violating the key constraint; existing WORKS_ON references to 111 also lose their referenced tuple. The new value is non-NULL and is not described as outside its domain (§5.3.3).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Relational_key.svg/500px-Relational_key.svg.png",
+        "alt": "Two linked tables sharing a login column, one with names and one with phone numbers."
+      }
     },
     {
       "id": "p03c05-28",
@@ -472,7 +580,11 @@
       "answer": [
         1
       ],
-      "explanation": "A transaction is an executing program with database operations that together form an atomic unit of work; at its end, the database must satisfy its constraints. It may include multiple retrievals and updates, not just one Update (§5.3.4)."
+      "explanation": "A transaction is an executing program with database operations that together form an atomic unit of work; at its end, the database must satisfy its constraints. It may include multiple retrievals and updates, not just one Update (§5.3.4).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Relational_model_concepts.png/500px-Relational_model_concepts.png",
+        "alt": "Illustration of relational model concepts: a table annotated with relation, tuple, attribute and domain terms."
+      }
     }
   ]
 }
