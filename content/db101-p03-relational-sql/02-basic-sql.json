@@ -332,7 +332,11 @@
       "answer": [
         0
       ],
-      "explanation": "When an attribute name is shared by tables in a multitable query, qualify it with its relation name and a period. (§6.3.2)"
+      "explanation": "When an attribute name is shared by tables in a multitable query, qualify it with its relation name and a period. (§6.3.2)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/18/SQL_Join_-_07_A_Inner_Join_B.svg",
+        "alt": "Venn diagram of an inner join between two tables A and B."
+      }
     },
     {
       "id": "p03c06-17",
@@ -349,7 +353,11 @@
       "answer": [
         2
       ],
-      "explanation": "The aliases name two references to the same EMPLOYEE relation, so the query can match each subordinate row E with a supervisor row S. (§6.3.2)"
+      "explanation": "The aliases name two references to the same EMPLOYEE relation, so the query can match each subordinate row E with a supervisor row S. (§6.3.2)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/18/SQL_Join_-_07_A_Inner_Join_B.svg",
+        "alt": "Venn diagram of an inner join between two tables A and B."
+      }
     },
     {
       "id": "p03c06-18",
@@ -387,7 +395,11 @@
       "answer": [
         3
       ],
-      "explanation": "With multiple relations in FROM and no WHERE clause, every tuple combination is selected, forming the cross product; no join condition connects Dno to Dnumber here. (§6.3.3)"
+      "explanation": "With multiple relations in FROM and no WHERE clause, every tuple combination is selected, forming the cross product; no join condition connects Dno to Dnumber here. (§6.3.3)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/82/SQL_Join_-_08_A_Cross_Join_B.svg",
+        "alt": "Venn-style diagram of a cross join pairing every row of table A with every row of table B."
+      }
     },
     {
       "id": "p03c06-20",
@@ -426,7 +438,11 @@
         2,
         3
       ],
-      "explanation": "The ordinary set operations return sets with duplicates removed; the ALL forms operate on multisets, treating duplicate occurrences separately. (§6.3.4)"
+      "explanation": "The ordinary set operations return sets with duplicates removed; the ALL forms operate on multisets, treating duplicate occurrences separately. (§6.3.4)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Op%C3%A9rations_ensembles_sets_operations.png",
+        "alt": "Basic drawings of different operations on two sets such as union, intersection and difference."
+      }
     },
     {
       "id": "p03c06-22",
@@ -527,7 +543,11 @@
       "answer": [
         3
       ],
-      "explanation": "INSERT…SELECT loads rows from the query result; later changes to its source relations do not keep this stored table current, unlike a view. (§6.4.1)"
+      "explanation": "INSERT…SELECT loads rows from the query result; later changes to its source relations do not keep this stored table current, unlike a view. (§6.4.1)",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/18/SQL_Join_-_07_A_Inner_Join_B.svg",
+        "alt": "Venn diagram of an inner join between two tables A and B."
+      }
     },
     {
       "id": "p03c06-27",

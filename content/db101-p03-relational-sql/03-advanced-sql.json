@@ -81,7 +81,11 @@
       "answer": [
         1
       ],
-      "explanation": "`= ANY` and `= SOME` return TRUE when a value equals at least one value in the subquery result, so both are equivalent to IN (§7.1)."
+      "explanation": "`= ANY` and `= SOME` return TRUE when a value equals at least one value in the subquery result, so both are equivalent to IN (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Relational_Algebra_Join_Semijoin.svg",
+        "alt": "Diagram of a semijoin between two small tables, keeping only rows of the first table that have a match in the second."
+      }
     },
     {
       "id": "p03c07-05",
@@ -119,7 +123,11 @@
       "answer": [
         3
       ],
-      "explanation": "A nested query is correlated when a condition in it refers to an attribute of a relation declared in the outer query. Conceptually, it is evaluated for each outer tuple (§7.1)."
+      "explanation": "A nested query is correlated when a condition in it refers to an attribute of a relation declared in the outer query. Conceptually, it is evaluated for each outer tuple (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/37/Relational_Algebra_Join_Lateral_Join.svg",
+        "alt": "Diagram of a lateral join in which a second query is evaluated for each row of the first table."
+      }
     },
     {
       "id": "p03c07-07",
@@ -136,7 +144,11 @@
       "answer": [
         0
       ],
-      "explanation": "The correlated subquery finds dependents linked to the current employee, and EXISTS is TRUE when that result contains at least one tuple. NOT EXISTS would select employees with none (§7.1)."
+      "explanation": "The correlated subquery finds dependents linked to the current employee, and EXISTS is TRUE when that result contains at least one tuple. NOT EXISTS would select employees with none (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Relational_Algebra_Join_Semijoin.svg",
+        "alt": "Diagram of a semijoin between two small tables, keeping only rows of the first table that have a match in the second."
+      }
     },
     {
       "id": "p03c07-08",
@@ -153,7 +165,11 @@
       "answer": [
         2
       ],
-      "explanation": "The inner NOT EXISTS finds a department-5 project the employee does not work on. The outer NOT EXISTS requires that no such project exists, so the employee works on every department-5 project (§7.1)."
+      "explanation": "The inner NOT EXISTS finds a department-5 project the employee does not work on. The outer NOT EXISTS requires that no such project exists, so the employee works on every department-5 project (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Relational_Algebra_Set_Theory_Difference.svg",
+        "alt": "Diagram of set difference between two tables, keeping rows of the first that are absent from the second."
+      }
     },
     {
       "id": "p03c07-09",
@@ -170,7 +186,11 @@
       "answer": [
         1
       ],
-      "explanation": "The explicit set in IN matches any of the listed project numbers, and DISTINCT removes repeated employee SSNs from the result (§7.1)."
+      "explanation": "The explicit set in IN matches any of the listed project numbers, and DISTINCT removes repeated employee SSNs from the result (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Relational_Algebra_Join_Semijoin.svg",
+        "alt": "Diagram of a semijoin between two small tables, keeping only rows of the first table that have a match in the second."
+      }
     },
     {
       "id": "p03c07-10",
@@ -187,7 +207,11 @@
       "answer": [
         3
       ],
-      "explanation": "The aliases E and S let EMPLOYEE play the employee and supervisor roles. The equality condition pairs each employee with a matching supervisor; unmatched employees are excluded by this inner join (§7.1)."
+      "explanation": "The aliases E and S let EMPLOYEE play the employee and supervisor roles. The equality condition pairs each employee with a matching supervisor; unmatched employees are excluded by this inner join (§7.1).",
+      "image": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/65/Relational_Algebra_Join_Equijoin.svg",
+        "alt": "Diagram of an equijoin pairing rows of two tables whose key values are equal."
+      }
     },
     {
       "id": "p03c07-11",
